@@ -212,7 +212,7 @@ struct Coordinate: Codable, Hashable, Sendable {
 }
 
 /// A filtered, app-internal location sample fed into the detection pipeline.
-struct LocationSample: Codable, Sendable {
+struct LocationSample: Codable, Equatable, Sendable {
     var coordinate: Coordinate
     var horizontalAccuracyMeters: CLLocationDistance
     var timestamp: Date
