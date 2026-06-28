@@ -95,6 +95,9 @@ sections["PBXFileReference"].append(
 # --- resources ---
 info_plist_ref = file_ref("ZIPTracker/Resources/Info.plist")
 xcprivacy_ref = file_ref("ZIPTracker/Resources/PrivacyInfo.xcprivacy")
+# Asset catalog (compiled by actool: AppIcon, AccentColor, launch assets).
+assets_ref = file_ref("ZIPTracker/Resources/Assets.xcassets",
+                      explicit_type="folder.assetcatalog", name="Assets.xcassets")
 # Folder reference so the on-disk ZCTA/ directory is copied preserving structure.
 zcta_folder_ref = oid()
 file_refs["ZIPTracker/Resources/ZCTA"] = zcta_folder_ref
@@ -114,6 +117,7 @@ for p in app_sources:
 
 # --- app resources build files ---
 app_res_bf = []
+app_res_bf.append(build_file(assets_ref, "Assets.xcassets", "Resources"))
 app_res_bf.append(build_file(xcprivacy_ref, "PrivacyInfo.xcprivacy", "Resources"))
 app_res_bf.append(build_file(zcta_folder_ref, "ZCTA", "Resources"))
 
@@ -175,6 +179,7 @@ for d in sorted(by_dir):
 
 resources_group = group("Resources", [
     (info_plist_ref, "Info.plist"),
+    (assets_ref, "Assets.xcassets"),
     (xcprivacy_ref, "PrivacyInfo.xcprivacy"),
     (zcta_folder_ref, "ZCTA"),
 ])
@@ -251,7 +256,10 @@ app_common = {
     "PRODUCT_NAME": '"$(TARGET_NAME)"',
     "INFOPLIST_FILE": "ZIPTracker/Resources/Info.plist",
     "GENERATE_INFOPLIST_FILE": "NO",
-    "TARGETED_DEVICE_FAMILY": '"1,2"',
+    # iPhone-only until iPad layouts are verified.
+    "TARGETED_DEVICE_FAMILY": '"1"',
+    "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
+    "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
     "SWIFT_EMIT_LOC_STRINGS": "YES",
     "OTHER_LDFLAGS": '"-lsqlite3"',
     "CODE_SIGN_STYLE": "Automatic",
@@ -266,7 +274,7 @@ test_common = {
     "PRODUCT_BUNDLE_IDENTIFIER": f"{BUNDLE_ID}Tests",
     "PRODUCT_NAME": '"$(TARGET_NAME)"',
     "GENERATE_INFOPLIST_FILE": "YES",
-    "TARGETED_DEVICE_FAMILY": '"1,2"',
+    "TARGETED_DEVICE_FAMILY": '"1"',
     "TEST_HOST": f'"$(BUILT_PRODUCTS_DIR)/{PROJECT_NAME}.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/{PROJECT_NAME}"',
     "BUNDLE_LOADER": "$(TEST_HOST)",
     "CODE_SIGN_STYLE": "Automatic",

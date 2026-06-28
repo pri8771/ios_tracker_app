@@ -6,95 +6,96 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AAAA00000000000000000008 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000007 /* AppConstants.swift */; };
-		AAAA0000000000000000000A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000009 /* AppDelegate.swift */; };
-		AAAA0000000000000000000C /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000000B /* DependencyContainer.swift */; };
-		AAAA0000000000000000000E /* ZIPTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000000D /* ZIPTrackerApp.swift */; };
-		AAAA00000000000000000010 /* BackgroundLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000000F /* BackgroundLocationService.swift */; };
-		AAAA00000000000000000012 /* LocationAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000011 /* LocationAuthorizationService.swift */; };
-		AAAA00000000000000000014 /* LocationEventProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000013 /* LocationEventProcessor.swift */; };
-		AAAA00000000000000000016 /* LocationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000015 /* LocationFilter.swift */; };
-		AAAA00000000000000000018 /* SimulatedLocationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000017 /* SimulatedLocationPlayer.swift */; };
-		AAAA0000000000000000001A /* TrackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000019 /* TrackingState.swift */; };
-		AAAA0000000000000000001C /* MapZoomResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000001B /* MapZoomResolver.swift */; };
-		AAAA0000000000000000001E /* TrackerMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000001D /* TrackerMapCoordinator.swift */; };
-		AAAA00000000000000000020 /* TrackerMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000001F /* TrackerMapViewRepresentable.swift */; };
-		AAAA00000000000000000022 /* ZCTAOverlayFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000021 /* ZCTAOverlayFactory.swift */; };
-		AAAA00000000000000000024 /* ZCTAOverlayRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000023 /* ZCTAOverlayRenderer.swift */; };
-		AAAA00000000000000000026 /* ZTAMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000025 /* ZTAMapAnnotation.swift */; };
-		AAAA00000000000000000028 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000027 /* AppSettings.swift */; };
-		AAAA0000000000000000002A /* ExportRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000029 /* ExportRecord.swift */; };
-		AAAA0000000000000000002C /* TrackedZCTA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000002B /* TrackedZCTA.swift */; };
-		AAAA0000000000000000002E /* TrackingEventLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000002D /* TrackingEventLog.swift */; };
-		AAAA00000000000000000030 /* ValueTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000002F /* ValueTypes.swift */; };
-		AAAA00000000000000000032 /* ZCTAVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000031 /* ZCTAVisit.swift */; };
-		AAAA00000000000000000034 /* CSVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000033 /* CSVService.swift */; };
-		AAAA00000000000000000036 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000035 /* ExportService.swift */; };
-		AAAA00000000000000000038 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000037 /* FileStore.swift */; };
-		AAAA0000000000000000003A /* HapticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000039 /* HapticsService.swift */; };
-		AAAA0000000000000000003C /* SampleDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000003B /* SampleDataService.swift */; };
-		AAAA0000000000000000003E /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000003D /* StatisticsService.swift */; };
-		AAAA00000000000000000040 /* VisitTransitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000003F /* VisitTransitionService.swift */; };
-		AAAA00000000000000000042 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000041 /* DashboardViewModel.swift */; };
-		AAAA00000000000000000044 /* DataStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000043 /* DataStatusViewModel.swift */; };
-		AAAA00000000000000000046 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000045 /* HistoryViewModel.swift */; };
-		AAAA00000000000000000048 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000047 /* MapViewModel.swift */; };
-		AAAA0000000000000000004A /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000049 /* RootViewModel.swift */; };
-		AAAA0000000000000000004C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000004B /* SettingsViewModel.swift */; };
-		AAAA0000000000000000004E /* ZCTADetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000004D /* ZCTADetailViewModel.swift */; };
-		AAAA00000000000000000050 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000004F /* AppTabView.swift */; };
-		AAAA00000000000000000052 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000051 /* ActivityView.swift */; };
-		AAAA00000000000000000054 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000053 /* EmptyStateView.swift */; };
-		AAAA00000000000000000056 /* ErrorBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000055 /* ErrorBanner.swift */; };
-		AAAA00000000000000000058 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000057 /* Formatters.swift */; };
-		AAAA0000000000000000005A /* GlassPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000059 /* GlassPanel.swift */; };
-		AAAA0000000000000000005C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000005B /* PrimaryButton.swift */; };
-		AAAA0000000000000000005E /* CurrentZCTACard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000005D /* CurrentZCTACard.swift */; };
-		AAAA00000000000000000060 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000005F /* DashboardView.swift */; };
-		AAAA00000000000000000062 /* DataStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000061 /* DataStatusView.swift */; };
-		AAAA00000000000000000064 /* ExportDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000063 /* ExportDataView.swift */; };
-		AAAA00000000000000000066 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000065 /* HistoryView.swift */; };
-		AAAA00000000000000000068 /* MapControlsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000067 /* MapControlsPanel.swift */; };
-		AAAA0000000000000000006A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000069 /* OnboardingView.swift */; };
-		AAAA0000000000000000006C /* PermissionEducationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000006B /* PermissionEducationView.swift */; };
-		AAAA0000000000000000006E /* PrivacyHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000006D /* PrivacyHelpView.swift */; };
-		AAAA00000000000000000070 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000006F /* RootView.swift */; };
-		AAAA00000000000000000072 /* SelectedZCTACard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000071 /* SelectedZCTACard.swift */; };
-		AAAA00000000000000000074 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000073 /* SettingsView.swift */; };
-		AAAA00000000000000000076 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000075 /* StatisticsView.swift */; };
-		AAAA00000000000000000078 /* TrackerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000077 /* TrackerMapView.swift */; };
-		AAAA0000000000000000007A /* TrackingSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000079 /* TrackingSettingsView.swift */; };
-		AAAA0000000000000000007C /* TrackingStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000007B /* TrackingStatusCard.swift */; };
-		AAAA0000000000000000007E /* VisitTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000007D /* VisitTimelineView.swift */; };
-		AAAA00000000000000000080 /* ZCTADetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000007F /* ZCTADetailView.swift */; };
-		AAAA00000000000000000082 /* ZCTAVisitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000081 /* ZCTAVisitRow.swift */; };
-		AAAA00000000000000000084 /* PointInPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000083 /* PointInPolygon.swift */; };
-		AAAA00000000000000000086 /* SpatialIndexTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000085 /* SpatialIndexTypes.swift */; };
-		AAAA00000000000000000088 /* ZCTABundleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000087 /* ZCTABundleMetadata.swift */; };
-		AAAA0000000000000000008A /* ZCTADatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000089 /* ZCTADatabase.swift */; };
-		AAAA0000000000000000008C /* ZCTAGeometryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000008B /* ZCTAGeometryService.swift */; };
-		AAAA0000000000000000008E /* ZCTAIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000008D /* ZCTAIndex.swift */; };
-		AAAA00000000000000000090 /* ZCTAPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000008F /* ZCTAPolygon.swift */; };
-		AAAA00000000000000000092 /* ZCTAPolygonCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000091 /* ZCTAPolygonCodec.swift */; };
-		AAAA00000000000000000093 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000004 /* PrivacyInfo.xcprivacy */; };
-		AAAA00000000000000000094 /* ZCTA in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000005 /* ZCTA */; };
-		AAAA00000000000000000096 /* CSVServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000095 /* CSVServiceTests.swift */; };
-		AAAA00000000000000000098 /* LocationFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000097 /* LocationFilterTests.swift */; };
-		AAAA0000000000000000009A /* MapZoomResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000099 /* MapZoomResolverTests.swift */; };
-		AAAA0000000000000000009C /* PointInPolygonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000009B /* PointInPolygonTests.swift */; };
-		AAAA0000000000000000009E /* StatisticsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000009D /* StatisticsServiceTests.swift */; };
-		AAAA000000000000000000A0 /* VisitTransitionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000009F /* VisitTransitionServiceTests.swift */; };
-		AAAA000000000000000000A2 /* ZCTAIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000A1 /* ZCTAIndexTests.swift */; };
-		AAAA000000000000000000A4 /* ZCTAPolygonCodecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000A3 /* ZCTAPolygonCodecTests.swift */; };
-		AAAA000000000000000000A5 /* zcta_sample.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000006 /* zcta_sample.sqlite */; };
+		AAAA00000000000000000009 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000008 /* AppConstants.swift */; };
+		AAAA0000000000000000000B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000000A /* AppDelegate.swift */; };
+		AAAA0000000000000000000D /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000000C /* DependencyContainer.swift */; };
+		AAAA0000000000000000000F /* ZIPTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000000E /* ZIPTrackerApp.swift */; };
+		AAAA00000000000000000011 /* BackgroundLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000010 /* BackgroundLocationService.swift */; };
+		AAAA00000000000000000013 /* LocationAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000012 /* LocationAuthorizationService.swift */; };
+		AAAA00000000000000000015 /* LocationEventProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000014 /* LocationEventProcessor.swift */; };
+		AAAA00000000000000000017 /* LocationFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000016 /* LocationFilter.swift */; };
+		AAAA00000000000000000019 /* SimulatedLocationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000018 /* SimulatedLocationPlayer.swift */; };
+		AAAA0000000000000000001B /* TrackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000001A /* TrackingState.swift */; };
+		AAAA0000000000000000001D /* MapZoomResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000001C /* MapZoomResolver.swift */; };
+		AAAA0000000000000000001F /* TrackerMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000001E /* TrackerMapCoordinator.swift */; };
+		AAAA00000000000000000021 /* TrackerMapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000020 /* TrackerMapViewRepresentable.swift */; };
+		AAAA00000000000000000023 /* ZCTAOverlayFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000022 /* ZCTAOverlayFactory.swift */; };
+		AAAA00000000000000000025 /* ZCTAOverlayRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000024 /* ZCTAOverlayRenderer.swift */; };
+		AAAA00000000000000000027 /* ZTAMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000026 /* ZTAMapAnnotation.swift */; };
+		AAAA00000000000000000029 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000028 /* AppSettings.swift */; };
+		AAAA0000000000000000002B /* ExportRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000002A /* ExportRecord.swift */; };
+		AAAA0000000000000000002D /* TrackedZCTA.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000002C /* TrackedZCTA.swift */; };
+		AAAA0000000000000000002F /* TrackingEventLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000002E /* TrackingEventLog.swift */; };
+		AAAA00000000000000000031 /* ValueTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000030 /* ValueTypes.swift */; };
+		AAAA00000000000000000033 /* ZCTAVisit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000032 /* ZCTAVisit.swift */; };
+		AAAA00000000000000000035 /* CSVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000034 /* CSVService.swift */; };
+		AAAA00000000000000000037 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000036 /* ExportService.swift */; };
+		AAAA00000000000000000039 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000038 /* FileStore.swift */; };
+		AAAA0000000000000000003B /* HapticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000003A /* HapticsService.swift */; };
+		AAAA0000000000000000003D /* SampleDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000003C /* SampleDataService.swift */; };
+		AAAA0000000000000000003F /* StatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000003E /* StatisticsService.swift */; };
+		AAAA00000000000000000041 /* VisitTransitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000040 /* VisitTransitionService.swift */; };
+		AAAA00000000000000000043 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000042 /* DashboardViewModel.swift */; };
+		AAAA00000000000000000045 /* DataStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000044 /* DataStatusViewModel.swift */; };
+		AAAA00000000000000000047 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000046 /* HistoryViewModel.swift */; };
+		AAAA00000000000000000049 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000048 /* MapViewModel.swift */; };
+		AAAA0000000000000000004B /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000004A /* RootViewModel.swift */; };
+		AAAA0000000000000000004D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000004C /* SettingsViewModel.swift */; };
+		AAAA0000000000000000004F /* ZCTADetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000004E /* ZCTADetailViewModel.swift */; };
+		AAAA00000000000000000051 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000050 /* AppTabView.swift */; };
+		AAAA00000000000000000053 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000052 /* ActivityView.swift */; };
+		AAAA00000000000000000055 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000054 /* EmptyStateView.swift */; };
+		AAAA00000000000000000057 /* ErrorBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000056 /* ErrorBanner.swift */; };
+		AAAA00000000000000000059 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000058 /* Formatters.swift */; };
+		AAAA0000000000000000005B /* GlassPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000005A /* GlassPanel.swift */; };
+		AAAA0000000000000000005D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000005C /* PrimaryButton.swift */; };
+		AAAA0000000000000000005F /* CurrentZCTACard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000005E /* CurrentZCTACard.swift */; };
+		AAAA00000000000000000061 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000060 /* DashboardView.swift */; };
+		AAAA00000000000000000063 /* DataStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000062 /* DataStatusView.swift */; };
+		AAAA00000000000000000065 /* ExportDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000064 /* ExportDataView.swift */; };
+		AAAA00000000000000000067 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000066 /* HistoryView.swift */; };
+		AAAA00000000000000000069 /* MapControlsPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000068 /* MapControlsPanel.swift */; };
+		AAAA0000000000000000006B /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000006A /* OnboardingView.swift */; };
+		AAAA0000000000000000006D /* PermissionEducationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000006C /* PermissionEducationView.swift */; };
+		AAAA0000000000000000006F /* PrivacyHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000006E /* PrivacyHelpView.swift */; };
+		AAAA00000000000000000071 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000070 /* RootView.swift */; };
+		AAAA00000000000000000073 /* SelectedZCTACard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000072 /* SelectedZCTACard.swift */; };
+		AAAA00000000000000000075 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000074 /* SettingsView.swift */; };
+		AAAA00000000000000000077 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000076 /* StatisticsView.swift */; };
+		AAAA00000000000000000079 /* TrackerMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000078 /* TrackerMapView.swift */; };
+		AAAA0000000000000000007B /* TrackingSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000007A /* TrackingSettingsView.swift */; };
+		AAAA0000000000000000007D /* TrackingStatusCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000007C /* TrackingStatusCard.swift */; };
+		AAAA0000000000000000007F /* VisitTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000007E /* VisitTimelineView.swift */; };
+		AAAA00000000000000000081 /* ZCTADetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000080 /* ZCTADetailView.swift */; };
+		AAAA00000000000000000083 /* ZCTAVisitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000082 /* ZCTAVisitRow.swift */; };
+		AAAA00000000000000000085 /* PointInPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000084 /* PointInPolygon.swift */; };
+		AAAA00000000000000000087 /* SpatialIndexTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000086 /* SpatialIndexTypes.swift */; };
+		AAAA00000000000000000089 /* ZCTABundleMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000088 /* ZCTABundleMetadata.swift */; };
+		AAAA0000000000000000008B /* ZCTADatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000008A /* ZCTADatabase.swift */; };
+		AAAA0000000000000000008D /* ZCTAGeometryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000008C /* ZCTAGeometryService.swift */; };
+		AAAA0000000000000000008F /* ZCTAIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000008E /* ZCTAIndex.swift */; };
+		AAAA00000000000000000091 /* ZCTAPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000090 /* ZCTAPolygon.swift */; };
+		AAAA00000000000000000093 /* ZCTAPolygonCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000092 /* ZCTAPolygonCodec.swift */; };
+		AAAA00000000000000000094 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000005 /* Assets.xcassets */; };
+		AAAA00000000000000000095 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000004 /* PrivacyInfo.xcprivacy */; };
+		AAAA00000000000000000096 /* ZCTA in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000006 /* ZCTA */; };
+		AAAA00000000000000000098 /* CSVServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000097 /* CSVServiceTests.swift */; };
+		AAAA0000000000000000009A /* LocationFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000099 /* LocationFilterTests.swift */; };
+		AAAA0000000000000000009C /* MapZoomResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000009B /* MapZoomResolverTests.swift */; };
+		AAAA0000000000000000009E /* PointInPolygonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000009D /* PointInPolygonTests.swift */; };
+		AAAA000000000000000000A0 /* StatisticsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA0000000000000000009F /* StatisticsServiceTests.swift */; };
+		AAAA000000000000000000A2 /* VisitTransitionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000A1 /* VisitTransitionServiceTests.swift */; };
+		AAAA000000000000000000A4 /* ZCTAIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000A3 /* ZCTAIndexTests.swift */; };
+		AAAA000000000000000000A6 /* ZCTAPolygonCodecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000A5 /* ZCTAPolygonCodecTests.swift */; };
+		AAAA000000000000000000A7 /* zcta_sample.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000007 /* zcta_sample.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AAAA000000000000000000C5 /* PBXContainerItemProxy */ = {
+		AAAA000000000000000000C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AAAA000000000000DEADBEEF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AAAA000000000000000000C3;
+			remoteGlobalIDString = AAAA000000000000000000C5;
 			remoteInfo = ZIPTracker;
 		};
 /* End PBXContainerItemProxy section */
@@ -104,90 +105,91 @@
 		AAAA00000000000000000002 /* ZIPTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = "wrapper.cfbundle"; includeInIndex = 0; path = "ZIPTrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAAA00000000000000000003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "ZIPTracker/Resources/Info.plist"; sourceTree = "<group>"; };
 		AAAA00000000000000000004 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PrivacyInfo.xcprivacy"; path = "ZIPTracker/Resources/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
-		AAAA00000000000000000005 /* ZCTA */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZCTA; path = "ZIPTracker/Resources/ZCTA"; sourceTree = "<group>"; };
-		AAAA00000000000000000006 /* zcta_sample.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zcta_sample.sqlite"; path = "ZIPTracker/Resources/ZCTA/zcta_sample.sqlite"; sourceTree = "<group>"; };
-		AAAA00000000000000000007 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppConstants.swift"; path = "ZIPTracker/App/AppConstants.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppDelegate.swift"; path = "ZIPTracker/App/AppDelegate.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000000B /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DependencyContainer.swift"; path = "ZIPTracker/App/DependencyContainer.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000000D /* ZIPTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZIPTrackerApp.swift"; path = "ZIPTracker/App/ZIPTrackerApp.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000000F /* BackgroundLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BackgroundLocationService.swift"; path = "ZIPTracker/Location/BackgroundLocationService.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000011 /* LocationAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationAuthorizationService.swift"; path = "ZIPTracker/Location/LocationAuthorizationService.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000013 /* LocationEventProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationEventProcessor.swift"; path = "ZIPTracker/Location/LocationEventProcessor.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000015 /* LocationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationFilter.swift"; path = "ZIPTracker/Location/LocationFilter.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000017 /* SimulatedLocationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SimulatedLocationPlayer.swift"; path = "ZIPTracker/Location/SimulatedLocationPlayer.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000019 /* TrackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackingState.swift"; path = "ZIPTracker/Location/TrackingState.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000001B /* MapZoomResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapZoomResolver.swift"; path = "ZIPTracker/Map/MapZoomResolver.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000001D /* TrackerMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackerMapCoordinator.swift"; path = "ZIPTracker/Map/TrackerMapCoordinator.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000001F /* TrackerMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackerMapViewRepresentable.swift"; path = "ZIPTracker/Map/TrackerMapViewRepresentable.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000021 /* ZCTAOverlayFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAOverlayFactory.swift"; path = "ZIPTracker/Map/ZCTAOverlayFactory.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000023 /* ZCTAOverlayRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAOverlayRenderer.swift"; path = "ZIPTracker/Map/ZCTAOverlayRenderer.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000025 /* ZTAMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZTAMapAnnotation.swift"; path = "ZIPTracker/Map/ZTAMapAnnotation.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000027 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings.swift"; path = "ZIPTracker/Models/AppSettings.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000029 /* ExportRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ExportRecord.swift"; path = "ZIPTracker/Models/ExportRecord.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000002B /* TrackedZCTA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackedZCTA.swift"; path = "ZIPTracker/Models/TrackedZCTA.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000002D /* TrackingEventLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackingEventLog.swift"; path = "ZIPTracker/Models/TrackingEventLog.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000002F /* ValueTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ValueTypes.swift"; path = "ZIPTracker/Models/ValueTypes.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000031 /* ZCTAVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAVisit.swift"; path = "ZIPTracker/Models/ZCTAVisit.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000033 /* CSVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CSVService.swift"; path = "ZIPTracker/Services/CSVService.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000035 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ExportService.swift"; path = "ZIPTracker/Services/ExportService.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000037 /* FileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FileStore.swift"; path = "ZIPTracker/Services/FileStore.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000039 /* HapticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HapticsService.swift"; path = "ZIPTracker/Services/HapticsService.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000003B /* SampleDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SampleDataService.swift"; path = "ZIPTracker/Services/SampleDataService.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000003D /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StatisticsService.swift"; path = "ZIPTracker/Services/StatisticsService.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000003F /* VisitTransitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VisitTransitionService.swift"; path = "ZIPTracker/Services/VisitTransitionService.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000041 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DashboardViewModel.swift"; path = "ZIPTracker/ViewModels/DashboardViewModel.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000043 /* DataStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DataStatusViewModel.swift"; path = "ZIPTracker/ViewModels/DataStatusViewModel.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000045 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HistoryViewModel.swift"; path = "ZIPTracker/ViewModels/HistoryViewModel.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000047 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapViewModel.swift"; path = "ZIPTracker/ViewModels/MapViewModel.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000049 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RootViewModel.swift"; path = "ZIPTracker/ViewModels/RootViewModel.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000004B /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SettingsViewModel.swift"; path = "ZIPTracker/ViewModels/SettingsViewModel.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000004D /* ZCTADetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTADetailViewModel.swift"; path = "ZIPTracker/ViewModels/ZCTADetailViewModel.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000004F /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppTabView.swift"; path = "ZIPTracker/Views/AppTabView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000051 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ActivityView.swift"; path = "ZIPTracker/Views/Components/ActivityView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000053 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EmptyStateView.swift"; path = "ZIPTracker/Views/Components/EmptyStateView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000055 /* ErrorBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ErrorBanner.swift"; path = "ZIPTracker/Views/Components/ErrorBanner.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000057 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Formatters.swift"; path = "ZIPTracker/Views/Components/Formatters.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000059 /* GlassPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GlassPanel.swift"; path = "ZIPTracker/Views/Components/GlassPanel.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000005B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PrimaryButton.swift"; path = "ZIPTracker/Views/Components/PrimaryButton.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000005D /* CurrentZCTACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CurrentZCTACard.swift"; path = "ZIPTracker/Views/CurrentZCTACard.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000005F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DashboardView.swift"; path = "ZIPTracker/Views/DashboardView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000061 /* DataStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DataStatusView.swift"; path = "ZIPTracker/Views/DataStatusView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000063 /* ExportDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ExportDataView.swift"; path = "ZIPTracker/Views/ExportDataView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000065 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HistoryView.swift"; path = "ZIPTracker/Views/HistoryView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000067 /* MapControlsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapControlsPanel.swift"; path = "ZIPTracker/Views/MapControlsPanel.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000069 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OnboardingView.swift"; path = "ZIPTracker/Views/OnboardingView.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000006B /* PermissionEducationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PermissionEducationView.swift"; path = "ZIPTracker/Views/PermissionEducationView.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000006D /* PrivacyHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PrivacyHelpView.swift"; path = "ZIPTracker/Views/PrivacyHelpView.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000006F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RootView.swift"; path = "ZIPTracker/Views/RootView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000071 /* SelectedZCTACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SelectedZCTACard.swift"; path = "ZIPTracker/Views/SelectedZCTACard.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000073 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SettingsView.swift"; path = "ZIPTracker/Views/SettingsView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000075 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StatisticsView.swift"; path = "ZIPTracker/Views/StatisticsView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000077 /* TrackerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackerMapView.swift"; path = "ZIPTracker/Views/TrackerMapView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000079 /* TrackingSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackingSettingsView.swift"; path = "ZIPTracker/Views/TrackingSettingsView.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000007B /* TrackingStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackingStatusCard.swift"; path = "ZIPTracker/Views/TrackingStatusCard.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000007D /* VisitTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VisitTimelineView.swift"; path = "ZIPTracker/Views/VisitTimelineView.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000007F /* ZCTADetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTADetailView.swift"; path = "ZIPTracker/Views/ZCTADetailView.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000081 /* ZCTAVisitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAVisitRow.swift"; path = "ZIPTracker/Views/ZCTAVisitRow.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000083 /* PointInPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PointInPolygon.swift"; path = "ZIPTracker/ZCTA/PointInPolygon.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000085 /* SpatialIndexTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SpatialIndexTypes.swift"; path = "ZIPTracker/ZCTA/SpatialIndexTypes.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000087 /* ZCTABundleMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTABundleMetadata.swift"; path = "ZIPTracker/ZCTA/ZCTABundleMetadata.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000089 /* ZCTADatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTADatabase.swift"; path = "ZIPTracker/ZCTA/ZCTADatabase.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000008B /* ZCTAGeometryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAGeometryService.swift"; path = "ZIPTracker/ZCTA/ZCTAGeometryService.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000008D /* ZCTAIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAIndex.swift"; path = "ZIPTracker/ZCTA/ZCTAIndex.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000008F /* ZCTAPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygon.swift"; path = "ZIPTracker/ZCTA/ZCTAPolygon.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000091 /* ZCTAPolygonCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygonCodec.swift"; path = "ZIPTracker/ZCTA/ZCTAPolygonCodec.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000095 /* CSVServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CSVServiceTests.swift"; path = "Tests/CSVServiceTests.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000097 /* LocationFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationFilterTests.swift"; path = "Tests/LocationFilterTests.swift"; sourceTree = "<group>"; };
-		AAAA00000000000000000099 /* MapZoomResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapZoomResolverTests.swift"; path = "Tests/MapZoomResolverTests.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000009B /* PointInPolygonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PointInPolygonTests.swift"; path = "Tests/PointInPolygonTests.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000009D /* StatisticsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StatisticsServiceTests.swift"; path = "Tests/StatisticsServiceTests.swift"; sourceTree = "<group>"; };
-		AAAA0000000000000000009F /* VisitTransitionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VisitTransitionServiceTests.swift"; path = "Tests/VisitTransitionServiceTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000A1 /* ZCTAIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAIndexTests.swift"; path = "Tests/ZCTAIndexTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000A3 /* ZCTAPolygonCodecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygonCodecTests.swift"; path = "Tests/ZCTAPolygonCodecTests.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000005 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Assets.xcassets"; path = "ZIPTracker/Resources/Assets.xcassets"; sourceTree = "<group>"; };
+		AAAA00000000000000000006 /* ZCTA */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ZCTA; path = "ZIPTracker/Resources/ZCTA"; sourceTree = "<group>"; };
+		AAAA00000000000000000007 /* zcta_sample.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zcta_sample.sqlite"; path = "ZIPTracker/Resources/ZCTA/zcta_sample.sqlite"; sourceTree = "<group>"; };
+		AAAA00000000000000000008 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppConstants.swift"; path = "ZIPTracker/App/AppConstants.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000000A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppDelegate.swift"; path = "ZIPTracker/App/AppDelegate.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000000C /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DependencyContainer.swift"; path = "ZIPTracker/App/DependencyContainer.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000000E /* ZIPTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZIPTrackerApp.swift"; path = "ZIPTracker/App/ZIPTrackerApp.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000010 /* BackgroundLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BackgroundLocationService.swift"; path = "ZIPTracker/Location/BackgroundLocationService.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000012 /* LocationAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationAuthorizationService.swift"; path = "ZIPTracker/Location/LocationAuthorizationService.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000014 /* LocationEventProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationEventProcessor.swift"; path = "ZIPTracker/Location/LocationEventProcessor.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000016 /* LocationFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationFilter.swift"; path = "ZIPTracker/Location/LocationFilter.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000018 /* SimulatedLocationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SimulatedLocationPlayer.swift"; path = "ZIPTracker/Location/SimulatedLocationPlayer.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000001A /* TrackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackingState.swift"; path = "ZIPTracker/Location/TrackingState.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000001C /* MapZoomResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapZoomResolver.swift"; path = "ZIPTracker/Map/MapZoomResolver.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000001E /* TrackerMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackerMapCoordinator.swift"; path = "ZIPTracker/Map/TrackerMapCoordinator.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000020 /* TrackerMapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackerMapViewRepresentable.swift"; path = "ZIPTracker/Map/TrackerMapViewRepresentable.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000022 /* ZCTAOverlayFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAOverlayFactory.swift"; path = "ZIPTracker/Map/ZCTAOverlayFactory.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000024 /* ZCTAOverlayRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAOverlayRenderer.swift"; path = "ZIPTracker/Map/ZCTAOverlayRenderer.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000026 /* ZTAMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZTAMapAnnotation.swift"; path = "ZIPTracker/Map/ZTAMapAnnotation.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000028 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppSettings.swift"; path = "ZIPTracker/Models/AppSettings.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000002A /* ExportRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ExportRecord.swift"; path = "ZIPTracker/Models/ExportRecord.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000002C /* TrackedZCTA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackedZCTA.swift"; path = "ZIPTracker/Models/TrackedZCTA.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000002E /* TrackingEventLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackingEventLog.swift"; path = "ZIPTracker/Models/TrackingEventLog.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000030 /* ValueTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ValueTypes.swift"; path = "ZIPTracker/Models/ValueTypes.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000032 /* ZCTAVisit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAVisit.swift"; path = "ZIPTracker/Models/ZCTAVisit.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000034 /* CSVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CSVService.swift"; path = "ZIPTracker/Services/CSVService.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000036 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ExportService.swift"; path = "ZIPTracker/Services/ExportService.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000038 /* FileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FileStore.swift"; path = "ZIPTracker/Services/FileStore.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000003A /* HapticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HapticsService.swift"; path = "ZIPTracker/Services/HapticsService.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000003C /* SampleDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SampleDataService.swift"; path = "ZIPTracker/Services/SampleDataService.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000003E /* StatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StatisticsService.swift"; path = "ZIPTracker/Services/StatisticsService.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000040 /* VisitTransitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VisitTransitionService.swift"; path = "ZIPTracker/Services/VisitTransitionService.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000042 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DashboardViewModel.swift"; path = "ZIPTracker/ViewModels/DashboardViewModel.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000044 /* DataStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DataStatusViewModel.swift"; path = "ZIPTracker/ViewModels/DataStatusViewModel.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000046 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HistoryViewModel.swift"; path = "ZIPTracker/ViewModels/HistoryViewModel.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000048 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapViewModel.swift"; path = "ZIPTracker/ViewModels/MapViewModel.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000004A /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RootViewModel.swift"; path = "ZIPTracker/ViewModels/RootViewModel.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000004C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SettingsViewModel.swift"; path = "ZIPTracker/ViewModels/SettingsViewModel.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000004E /* ZCTADetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTADetailViewModel.swift"; path = "ZIPTracker/ViewModels/ZCTADetailViewModel.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000050 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AppTabView.swift"; path = "ZIPTracker/Views/AppTabView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000052 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ActivityView.swift"; path = "ZIPTracker/Views/Components/ActivityView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000054 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EmptyStateView.swift"; path = "ZIPTracker/Views/Components/EmptyStateView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000056 /* ErrorBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ErrorBanner.swift"; path = "ZIPTracker/Views/Components/ErrorBanner.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000058 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Formatters.swift"; path = "ZIPTracker/Views/Components/Formatters.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000005A /* GlassPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GlassPanel.swift"; path = "ZIPTracker/Views/Components/GlassPanel.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000005C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PrimaryButton.swift"; path = "ZIPTracker/Views/Components/PrimaryButton.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000005E /* CurrentZCTACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CurrentZCTACard.swift"; path = "ZIPTracker/Views/CurrentZCTACard.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000060 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DashboardView.swift"; path = "ZIPTracker/Views/DashboardView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000062 /* DataStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DataStatusView.swift"; path = "ZIPTracker/Views/DataStatusView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000064 /* ExportDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ExportDataView.swift"; path = "ZIPTracker/Views/ExportDataView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000066 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HistoryView.swift"; path = "ZIPTracker/Views/HistoryView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000068 /* MapControlsPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapControlsPanel.swift"; path = "ZIPTracker/Views/MapControlsPanel.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000006A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "OnboardingView.swift"; path = "ZIPTracker/Views/OnboardingView.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000006C /* PermissionEducationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PermissionEducationView.swift"; path = "ZIPTracker/Views/PermissionEducationView.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000006E /* PrivacyHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PrivacyHelpView.swift"; path = "ZIPTracker/Views/PrivacyHelpView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000070 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RootView.swift"; path = "ZIPTracker/Views/RootView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000072 /* SelectedZCTACard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SelectedZCTACard.swift"; path = "ZIPTracker/Views/SelectedZCTACard.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000074 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SettingsView.swift"; path = "ZIPTracker/Views/SettingsView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000076 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StatisticsView.swift"; path = "ZIPTracker/Views/StatisticsView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000078 /* TrackerMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackerMapView.swift"; path = "ZIPTracker/Views/TrackerMapView.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000007A /* TrackingSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackingSettingsView.swift"; path = "ZIPTracker/Views/TrackingSettingsView.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000007C /* TrackingStatusCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackingStatusCard.swift"; path = "ZIPTracker/Views/TrackingStatusCard.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000007E /* VisitTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VisitTimelineView.swift"; path = "ZIPTracker/Views/VisitTimelineView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000080 /* ZCTADetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTADetailView.swift"; path = "ZIPTracker/Views/ZCTADetailView.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000082 /* ZCTAVisitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAVisitRow.swift"; path = "ZIPTracker/Views/ZCTAVisitRow.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000084 /* PointInPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PointInPolygon.swift"; path = "ZIPTracker/ZCTA/PointInPolygon.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000086 /* SpatialIndexTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SpatialIndexTypes.swift"; path = "ZIPTracker/ZCTA/SpatialIndexTypes.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000088 /* ZCTABundleMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTABundleMetadata.swift"; path = "ZIPTracker/ZCTA/ZCTABundleMetadata.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000008A /* ZCTADatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTADatabase.swift"; path = "ZIPTracker/ZCTA/ZCTADatabase.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000008C /* ZCTAGeometryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAGeometryService.swift"; path = "ZIPTracker/ZCTA/ZCTAGeometryService.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000008E /* ZCTAIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAIndex.swift"; path = "ZIPTracker/ZCTA/ZCTAIndex.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000090 /* ZCTAPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygon.swift"; path = "ZIPTracker/ZCTA/ZCTAPolygon.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000092 /* ZCTAPolygonCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygonCodec.swift"; path = "ZIPTracker/ZCTA/ZCTAPolygonCodec.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000097 /* CSVServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CSVServiceTests.swift"; path = "Tests/CSVServiceTests.swift"; sourceTree = "<group>"; };
+		AAAA00000000000000000099 /* LocationFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationFilterTests.swift"; path = "Tests/LocationFilterTests.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000009B /* MapZoomResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapZoomResolverTests.swift"; path = "Tests/MapZoomResolverTests.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000009D /* PointInPolygonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PointInPolygonTests.swift"; path = "Tests/PointInPolygonTests.swift"; sourceTree = "<group>"; };
+		AAAA0000000000000000009F /* StatisticsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StatisticsServiceTests.swift"; path = "Tests/StatisticsServiceTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000A1 /* VisitTransitionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VisitTransitionServiceTests.swift"; path = "Tests/VisitTransitionServiceTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000A3 /* ZCTAIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAIndexTests.swift"; path = "Tests/ZCTAIndexTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000A5 /* ZCTAPolygonCodecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygonCodecTests.swift"; path = "Tests/ZCTAPolygonCodecTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AAAA000000000000000000A8 /* Frameworks */ = {
+		AAAA000000000000000000AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -195,7 +197,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAAA000000000000000000AB /* Frameworks */ = {
+		AAAA000000000000000000AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -206,182 +208,183 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AAAA000000000000000000AC /* App */ = {
+		AAAA000000000000000000AE /* App */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA00000000000000000007 /* AppConstants.swift */,
-				AAAA00000000000000000009 /* AppDelegate.swift */,
-				AAAA0000000000000000000B /* DependencyContainer.swift */,
-				AAAA0000000000000000000D /* ZIPTrackerApp.swift */,
+				AAAA00000000000000000008 /* AppConstants.swift */,
+				AAAA0000000000000000000A /* AppDelegate.swift */,
+				AAAA0000000000000000000C /* DependencyContainer.swift */,
+				AAAA0000000000000000000E /* ZIPTrackerApp.swift */,
 			);
 			name = "App";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000AD /* Location */ = {
+		AAAA000000000000000000AF /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA0000000000000000000F /* BackgroundLocationService.swift */,
-				AAAA00000000000000000011 /* LocationAuthorizationService.swift */,
-				AAAA00000000000000000013 /* LocationEventProcessor.swift */,
-				AAAA00000000000000000015 /* LocationFilter.swift */,
-				AAAA00000000000000000017 /* SimulatedLocationPlayer.swift */,
-				AAAA00000000000000000019 /* TrackingState.swift */,
+				AAAA00000000000000000010 /* BackgroundLocationService.swift */,
+				AAAA00000000000000000012 /* LocationAuthorizationService.swift */,
+				AAAA00000000000000000014 /* LocationEventProcessor.swift */,
+				AAAA00000000000000000016 /* LocationFilter.swift */,
+				AAAA00000000000000000018 /* SimulatedLocationPlayer.swift */,
+				AAAA0000000000000000001A /* TrackingState.swift */,
 			);
 			name = "Location";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000AE /* Map */ = {
+		AAAA000000000000000000B0 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA0000000000000000001B /* MapZoomResolver.swift */,
-				AAAA0000000000000000001D /* TrackerMapCoordinator.swift */,
-				AAAA0000000000000000001F /* TrackerMapViewRepresentable.swift */,
-				AAAA00000000000000000021 /* ZCTAOverlayFactory.swift */,
-				AAAA00000000000000000023 /* ZCTAOverlayRenderer.swift */,
-				AAAA00000000000000000025 /* ZTAMapAnnotation.swift */,
+				AAAA0000000000000000001C /* MapZoomResolver.swift */,
+				AAAA0000000000000000001E /* TrackerMapCoordinator.swift */,
+				AAAA00000000000000000020 /* TrackerMapViewRepresentable.swift */,
+				AAAA00000000000000000022 /* ZCTAOverlayFactory.swift */,
+				AAAA00000000000000000024 /* ZCTAOverlayRenderer.swift */,
+				AAAA00000000000000000026 /* ZTAMapAnnotation.swift */,
 			);
 			name = "Map";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000AF /* Models */ = {
+		AAAA000000000000000000B1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA00000000000000000027 /* AppSettings.swift */,
-				AAAA00000000000000000029 /* ExportRecord.swift */,
-				AAAA0000000000000000002B /* TrackedZCTA.swift */,
-				AAAA0000000000000000002D /* TrackingEventLog.swift */,
-				AAAA0000000000000000002F /* ValueTypes.swift */,
-				AAAA00000000000000000031 /* ZCTAVisit.swift */,
+				AAAA00000000000000000028 /* AppSettings.swift */,
+				AAAA0000000000000000002A /* ExportRecord.swift */,
+				AAAA0000000000000000002C /* TrackedZCTA.swift */,
+				AAAA0000000000000000002E /* TrackingEventLog.swift */,
+				AAAA00000000000000000030 /* ValueTypes.swift */,
+				AAAA00000000000000000032 /* ZCTAVisit.swift */,
 			);
 			name = "Models";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B0 /* Services */ = {
+		AAAA000000000000000000B2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA00000000000000000033 /* CSVService.swift */,
-				AAAA00000000000000000035 /* ExportService.swift */,
-				AAAA00000000000000000037 /* FileStore.swift */,
-				AAAA00000000000000000039 /* HapticsService.swift */,
-				AAAA0000000000000000003B /* SampleDataService.swift */,
-				AAAA0000000000000000003D /* StatisticsService.swift */,
-				AAAA0000000000000000003F /* VisitTransitionService.swift */,
+				AAAA00000000000000000034 /* CSVService.swift */,
+				AAAA00000000000000000036 /* ExportService.swift */,
+				AAAA00000000000000000038 /* FileStore.swift */,
+				AAAA0000000000000000003A /* HapticsService.swift */,
+				AAAA0000000000000000003C /* SampleDataService.swift */,
+				AAAA0000000000000000003E /* StatisticsService.swift */,
+				AAAA00000000000000000040 /* VisitTransitionService.swift */,
 			);
 			name = "Services";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B1 /* ViewModels */ = {
+		AAAA000000000000000000B3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA00000000000000000041 /* DashboardViewModel.swift */,
-				AAAA00000000000000000043 /* DataStatusViewModel.swift */,
-				AAAA00000000000000000045 /* HistoryViewModel.swift */,
-				AAAA00000000000000000047 /* MapViewModel.swift */,
-				AAAA00000000000000000049 /* RootViewModel.swift */,
-				AAAA0000000000000000004B /* SettingsViewModel.swift */,
-				AAAA0000000000000000004D /* ZCTADetailViewModel.swift */,
+				AAAA00000000000000000042 /* DashboardViewModel.swift */,
+				AAAA00000000000000000044 /* DataStatusViewModel.swift */,
+				AAAA00000000000000000046 /* HistoryViewModel.swift */,
+				AAAA00000000000000000048 /* MapViewModel.swift */,
+				AAAA0000000000000000004A /* RootViewModel.swift */,
+				AAAA0000000000000000004C /* SettingsViewModel.swift */,
+				AAAA0000000000000000004E /* ZCTADetailViewModel.swift */,
 			);
 			name = "ViewModels";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B2 /* Views */ = {
+		AAAA000000000000000000B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA0000000000000000004F /* AppTabView.swift */,
-				AAAA0000000000000000005D /* CurrentZCTACard.swift */,
-				AAAA0000000000000000005F /* DashboardView.swift */,
-				AAAA00000000000000000061 /* DataStatusView.swift */,
-				AAAA00000000000000000063 /* ExportDataView.swift */,
-				AAAA00000000000000000065 /* HistoryView.swift */,
-				AAAA00000000000000000067 /* MapControlsPanel.swift */,
-				AAAA00000000000000000069 /* OnboardingView.swift */,
-				AAAA0000000000000000006B /* PermissionEducationView.swift */,
-				AAAA0000000000000000006D /* PrivacyHelpView.swift */,
-				AAAA0000000000000000006F /* RootView.swift */,
-				AAAA00000000000000000071 /* SelectedZCTACard.swift */,
-				AAAA00000000000000000073 /* SettingsView.swift */,
-				AAAA00000000000000000075 /* StatisticsView.swift */,
-				AAAA00000000000000000077 /* TrackerMapView.swift */,
-				AAAA00000000000000000079 /* TrackingSettingsView.swift */,
-				AAAA0000000000000000007B /* TrackingStatusCard.swift */,
-				AAAA0000000000000000007D /* VisitTimelineView.swift */,
-				AAAA0000000000000000007F /* ZCTADetailView.swift */,
-				AAAA00000000000000000081 /* ZCTAVisitRow.swift */,
+				AAAA00000000000000000050 /* AppTabView.swift */,
+				AAAA0000000000000000005E /* CurrentZCTACard.swift */,
+				AAAA00000000000000000060 /* DashboardView.swift */,
+				AAAA00000000000000000062 /* DataStatusView.swift */,
+				AAAA00000000000000000064 /* ExportDataView.swift */,
+				AAAA00000000000000000066 /* HistoryView.swift */,
+				AAAA00000000000000000068 /* MapControlsPanel.swift */,
+				AAAA0000000000000000006A /* OnboardingView.swift */,
+				AAAA0000000000000000006C /* PermissionEducationView.swift */,
+				AAAA0000000000000000006E /* PrivacyHelpView.swift */,
+				AAAA00000000000000000070 /* RootView.swift */,
+				AAAA00000000000000000072 /* SelectedZCTACard.swift */,
+				AAAA00000000000000000074 /* SettingsView.swift */,
+				AAAA00000000000000000076 /* StatisticsView.swift */,
+				AAAA00000000000000000078 /* TrackerMapView.swift */,
+				AAAA0000000000000000007A /* TrackingSettingsView.swift */,
+				AAAA0000000000000000007C /* TrackingStatusCard.swift */,
+				AAAA0000000000000000007E /* VisitTimelineView.swift */,
+				AAAA00000000000000000080 /* ZCTADetailView.swift */,
+				AAAA00000000000000000082 /* ZCTAVisitRow.swift */,
 			);
 			name = "Views";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B3 /* Components */ = {
+		AAAA000000000000000000B5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA00000000000000000051 /* ActivityView.swift */,
-				AAAA00000000000000000053 /* EmptyStateView.swift */,
-				AAAA00000000000000000055 /* ErrorBanner.swift */,
-				AAAA00000000000000000057 /* Formatters.swift */,
-				AAAA00000000000000000059 /* GlassPanel.swift */,
-				AAAA0000000000000000005B /* PrimaryButton.swift */,
+				AAAA00000000000000000052 /* ActivityView.swift */,
+				AAAA00000000000000000054 /* EmptyStateView.swift */,
+				AAAA00000000000000000056 /* ErrorBanner.swift */,
+				AAAA00000000000000000058 /* Formatters.swift */,
+				AAAA0000000000000000005A /* GlassPanel.swift */,
+				AAAA0000000000000000005C /* PrimaryButton.swift */,
 			);
 			name = "Components";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B4 /* ZCTA */ = {
+		AAAA000000000000000000B6 /* ZCTA */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA00000000000000000083 /* PointInPolygon.swift */,
-				AAAA00000000000000000085 /* SpatialIndexTypes.swift */,
-				AAAA00000000000000000087 /* ZCTABundleMetadata.swift */,
-				AAAA00000000000000000089 /* ZCTADatabase.swift */,
-				AAAA0000000000000000008B /* ZCTAGeometryService.swift */,
-				AAAA0000000000000000008D /* ZCTAIndex.swift */,
-				AAAA0000000000000000008F /* ZCTAPolygon.swift */,
-				AAAA00000000000000000091 /* ZCTAPolygonCodec.swift */,
+				AAAA00000000000000000084 /* PointInPolygon.swift */,
+				AAAA00000000000000000086 /* SpatialIndexTypes.swift */,
+				AAAA00000000000000000088 /* ZCTABundleMetadata.swift */,
+				AAAA0000000000000000008A /* ZCTADatabase.swift */,
+				AAAA0000000000000000008C /* ZCTAGeometryService.swift */,
+				AAAA0000000000000000008E /* ZCTAIndex.swift */,
+				AAAA00000000000000000090 /* ZCTAPolygon.swift */,
+				AAAA00000000000000000092 /* ZCTAPolygonCodec.swift */,
 			);
 			name = "ZCTA";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B5 /* Resources */ = {
+		AAAA000000000000000000B7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000003 /* Info.plist */,
+				AAAA00000000000000000005 /* Assets.xcassets */,
 				AAAA00000000000000000004 /* PrivacyInfo.xcprivacy */,
-				AAAA00000000000000000005 /* ZCTA */,
+				AAAA00000000000000000006 /* ZCTA */,
 			);
 			name = "Resources";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B6 /* ZIPTracker */ = {
+		AAAA000000000000000000B8 /* ZIPTracker */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA000000000000000000AC /* App */,
-				AAAA000000000000000000AD /* Location */,
-				AAAA000000000000000000AE /* Map */,
-				AAAA000000000000000000AF /* Models */,
-				AAAA000000000000000000B0 /* Services */,
-				AAAA000000000000000000B1 /* ViewModels */,
-				AAAA000000000000000000B2 /* Views */,
-				AAAA000000000000000000B3 /* Components */,
-				AAAA000000000000000000B4 /* ZCTA */,
-				AAAA000000000000000000B5 /* Resources */,
+				AAAA000000000000000000AE /* App */,
+				AAAA000000000000000000AF /* Location */,
+				AAAA000000000000000000B0 /* Map */,
+				AAAA000000000000000000B1 /* Models */,
+				AAAA000000000000000000B2 /* Services */,
+				AAAA000000000000000000B3 /* ViewModels */,
+				AAAA000000000000000000B4 /* Views */,
+				AAAA000000000000000000B5 /* Components */,
+				AAAA000000000000000000B6 /* ZCTA */,
+				AAAA000000000000000000B7 /* Resources */,
 			);
 			name = "ZIPTracker";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B7 /* Tests */ = {
+		AAAA000000000000000000B9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA00000000000000000095 /* CSVServiceTests.swift */,
-				AAAA00000000000000000097 /* LocationFilterTests.swift */,
-				AAAA00000000000000000099 /* MapZoomResolverTests.swift */,
-				AAAA0000000000000000009B /* PointInPolygonTests.swift */,
-				AAAA0000000000000000009D /* StatisticsServiceTests.swift */,
-				AAAA0000000000000000009F /* VisitTransitionServiceTests.swift */,
-				AAAA000000000000000000A1 /* ZCTAIndexTests.swift */,
-				AAAA000000000000000000A3 /* ZCTAPolygonCodecTests.swift */,
+				AAAA00000000000000000097 /* CSVServiceTests.swift */,
+				AAAA00000000000000000099 /* LocationFilterTests.swift */,
+				AAAA0000000000000000009B /* MapZoomResolverTests.swift */,
+				AAAA0000000000000000009D /* PointInPolygonTests.swift */,
+				AAAA0000000000000000009F /* StatisticsServiceTests.swift */,
+				AAAA000000000000000000A1 /* VisitTransitionServiceTests.swift */,
+				AAAA000000000000000000A3 /* ZCTAIndexTests.swift */,
+				AAAA000000000000000000A5 /* ZCTAPolygonCodecTests.swift */,
 			);
 			name = "Tests";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B8 /* Products */ = {
+		AAAA000000000000000000BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000001 /* ZIPTracker.app */,
@@ -390,25 +393,25 @@
 			name = "Products";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000B9 /* group */ = {
+		AAAA000000000000000000BB /* group */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA000000000000000000B6 /* ZIPTracker */,
-				AAAA000000000000000000B7 /* Tests */,
-				AAAA000000000000000000B8 /* Products */,
+				AAAA000000000000000000B8 /* ZIPTracker */,
+				AAAA000000000000000000B9 /* Tests */,
+				AAAA000000000000000000BA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AAAA000000000000000000C3 /* ZIPTracker */ = {
+		AAAA000000000000000000C5 /* ZIPTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAAA000000000000000000BF /* Build configuration list for PBXNativeTarget "ZIPTracker" */;
+			buildConfigurationList = AAAA000000000000000000C1 /* Build configuration list for PBXNativeTarget "ZIPTracker" */;
 			buildPhases = (
-				AAAA000000000000000000A6 /* Sources */,
-				AAAA000000000000000000A8 /* Frameworks */,
-				AAAA000000000000000000A7 /* Resources */,
+				AAAA000000000000000000A8 /* Sources */,
+				AAAA000000000000000000AA /* Frameworks */,
+				AAAA000000000000000000A9 /* Resources */,
 			);
 			buildRules = ();
 			dependencies = ();
@@ -417,17 +420,17 @@
 			productReference = AAAA00000000000000000001 /* ZIPTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AAAA000000000000000000C4 /* ZIPTrackerTests */ = {
+		AAAA000000000000000000C6 /* ZIPTrackerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAAA000000000000000000C2 /* Build configuration list for PBXNativeTarget "ZIPTrackerTests" */;
+			buildConfigurationList = AAAA000000000000000000C4 /* Build configuration list for PBXNativeTarget "ZIPTrackerTests" */;
 			buildPhases = (
-				AAAA000000000000000000A9 /* Sources */,
-				AAAA000000000000000000AB /* Frameworks */,
-				AAAA000000000000000000AA /* Resources */,
+				AAAA000000000000000000AB /* Sources */,
+				AAAA000000000000000000AD /* Frameworks */,
+				AAAA000000000000000000AC /* Resources */,
 			);
 			buildRules = ();
 			dependencies = (
-				AAAA000000000000000000C6 /* PBXTargetDependency */,
+				AAAA000000000000000000C8 /* PBXTargetDependency */,
 			);
 			name = ZIPTrackerTests;
 			productName = ZIPTrackerTests;
@@ -443,11 +446,11 @@
 				LastSwiftUpdateCheck = 1700;
 				LastUpgradeCheck = 1700;
 				TargetAttributes = {
-					AAAA000000000000000000C3 = {CreatedOnToolsVersion = 17.0;};
-					AAAA000000000000000000C4 = {CreatedOnToolsVersion = 17.0; TestTargetID = AAAA000000000000000000C3;};
+					AAAA000000000000000000C5 = {CreatedOnToolsVersion = 17.0;};
+					AAAA000000000000000000C6 = {CreatedOnToolsVersion = 17.0; TestTargetID = AAAA000000000000000000C5;};
 				};
 			};
-			buildConfigurationList = AAAA000000000000000000BC /* Build configuration list for PBXProject "ZIPTracker" */;
+			buildConfigurationList = AAAA000000000000000000BE /* Build configuration list for PBXProject "ZIPTracker" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -455,120 +458,120 @@
 				en,
 				Base,
 			);
-			mainGroup = AAAA000000000000000000B9;
-			productRefGroup = AAAA000000000000000000B8 /* Products */;
+			mainGroup = AAAA000000000000000000BB;
+			productRefGroup = AAAA000000000000000000BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AAAA000000000000000000C3 /* ZIPTracker */,
-				AAAA000000000000000000C4 /* ZIPTrackerTests */,
+				AAAA000000000000000000C5 /* ZIPTracker */,
+				AAAA000000000000000000C6 /* ZIPTrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AAAA000000000000000000A7 /* Resources */ = {
+		AAAA000000000000000000A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAAA00000000000000000093 /* Resources */,
 				AAAA00000000000000000094 /* Resources */,
+				AAAA00000000000000000095 /* Resources */,
+				AAAA00000000000000000096 /* Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAAA000000000000000000AA /* Resources */ = {
+		AAAA000000000000000000AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAAA000000000000000000A5 /* Resources */,
+				AAAA000000000000000000A7 /* Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AAAA000000000000000000A6 /* Sources */ = {
+		AAAA000000000000000000A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAAA00000000000000000008 /* Sources */,
-				AAAA0000000000000000000A /* Sources */,
-				AAAA0000000000000000000C /* Sources */,
-				AAAA0000000000000000000E /* Sources */,
-				AAAA00000000000000000010 /* Sources */,
-				AAAA00000000000000000012 /* Sources */,
-				AAAA00000000000000000014 /* Sources */,
-				AAAA00000000000000000016 /* Sources */,
-				AAAA00000000000000000018 /* Sources */,
-				AAAA0000000000000000001A /* Sources */,
-				AAAA0000000000000000001C /* Sources */,
-				AAAA0000000000000000001E /* Sources */,
-				AAAA00000000000000000020 /* Sources */,
-				AAAA00000000000000000022 /* Sources */,
-				AAAA00000000000000000024 /* Sources */,
-				AAAA00000000000000000026 /* Sources */,
-				AAAA00000000000000000028 /* Sources */,
-				AAAA0000000000000000002A /* Sources */,
-				AAAA0000000000000000002C /* Sources */,
-				AAAA0000000000000000002E /* Sources */,
-				AAAA00000000000000000030 /* Sources */,
-				AAAA00000000000000000032 /* Sources */,
-				AAAA00000000000000000034 /* Sources */,
-				AAAA00000000000000000036 /* Sources */,
-				AAAA00000000000000000038 /* Sources */,
-				AAAA0000000000000000003A /* Sources */,
-				AAAA0000000000000000003C /* Sources */,
-				AAAA0000000000000000003E /* Sources */,
-				AAAA00000000000000000040 /* Sources */,
-				AAAA00000000000000000042 /* Sources */,
-				AAAA00000000000000000044 /* Sources */,
-				AAAA00000000000000000046 /* Sources */,
-				AAAA00000000000000000048 /* Sources */,
-				AAAA0000000000000000004A /* Sources */,
-				AAAA0000000000000000004C /* Sources */,
-				AAAA0000000000000000004E /* Sources */,
-				AAAA00000000000000000050 /* Sources */,
-				AAAA00000000000000000052 /* Sources */,
-				AAAA00000000000000000054 /* Sources */,
-				AAAA00000000000000000056 /* Sources */,
-				AAAA00000000000000000058 /* Sources */,
-				AAAA0000000000000000005A /* Sources */,
-				AAAA0000000000000000005C /* Sources */,
-				AAAA0000000000000000005E /* Sources */,
-				AAAA00000000000000000060 /* Sources */,
-				AAAA00000000000000000062 /* Sources */,
-				AAAA00000000000000000064 /* Sources */,
-				AAAA00000000000000000066 /* Sources */,
-				AAAA00000000000000000068 /* Sources */,
-				AAAA0000000000000000006A /* Sources */,
-				AAAA0000000000000000006C /* Sources */,
-				AAAA0000000000000000006E /* Sources */,
-				AAAA00000000000000000070 /* Sources */,
-				AAAA00000000000000000072 /* Sources */,
-				AAAA00000000000000000074 /* Sources */,
-				AAAA00000000000000000076 /* Sources */,
-				AAAA00000000000000000078 /* Sources */,
-				AAAA0000000000000000007A /* Sources */,
-				AAAA0000000000000000007C /* Sources */,
-				AAAA0000000000000000007E /* Sources */,
-				AAAA00000000000000000080 /* Sources */,
-				AAAA00000000000000000082 /* Sources */,
-				AAAA00000000000000000084 /* Sources */,
-				AAAA00000000000000000086 /* Sources */,
-				AAAA00000000000000000088 /* Sources */,
-				AAAA0000000000000000008A /* Sources */,
-				AAAA0000000000000000008C /* Sources */,
-				AAAA0000000000000000008E /* Sources */,
-				AAAA00000000000000000090 /* Sources */,
-				AAAA00000000000000000092 /* Sources */,
+				AAAA00000000000000000009 /* Sources */,
+				AAAA0000000000000000000B /* Sources */,
+				AAAA0000000000000000000D /* Sources */,
+				AAAA0000000000000000000F /* Sources */,
+				AAAA00000000000000000011 /* Sources */,
+				AAAA00000000000000000013 /* Sources */,
+				AAAA00000000000000000015 /* Sources */,
+				AAAA00000000000000000017 /* Sources */,
+				AAAA00000000000000000019 /* Sources */,
+				AAAA0000000000000000001B /* Sources */,
+				AAAA0000000000000000001D /* Sources */,
+				AAAA0000000000000000001F /* Sources */,
+				AAAA00000000000000000021 /* Sources */,
+				AAAA00000000000000000023 /* Sources */,
+				AAAA00000000000000000025 /* Sources */,
+				AAAA00000000000000000027 /* Sources */,
+				AAAA00000000000000000029 /* Sources */,
+				AAAA0000000000000000002B /* Sources */,
+				AAAA0000000000000000002D /* Sources */,
+				AAAA0000000000000000002F /* Sources */,
+				AAAA00000000000000000031 /* Sources */,
+				AAAA00000000000000000033 /* Sources */,
+				AAAA00000000000000000035 /* Sources */,
+				AAAA00000000000000000037 /* Sources */,
+				AAAA00000000000000000039 /* Sources */,
+				AAAA0000000000000000003B /* Sources */,
+				AAAA0000000000000000003D /* Sources */,
+				AAAA0000000000000000003F /* Sources */,
+				AAAA00000000000000000041 /* Sources */,
+				AAAA00000000000000000043 /* Sources */,
+				AAAA00000000000000000045 /* Sources */,
+				AAAA00000000000000000047 /* Sources */,
+				AAAA00000000000000000049 /* Sources */,
+				AAAA0000000000000000004B /* Sources */,
+				AAAA0000000000000000004D /* Sources */,
+				AAAA0000000000000000004F /* Sources */,
+				AAAA00000000000000000051 /* Sources */,
+				AAAA00000000000000000053 /* Sources */,
+				AAAA00000000000000000055 /* Sources */,
+				AAAA00000000000000000057 /* Sources */,
+				AAAA00000000000000000059 /* Sources */,
+				AAAA0000000000000000005B /* Sources */,
+				AAAA0000000000000000005D /* Sources */,
+				AAAA0000000000000000005F /* Sources */,
+				AAAA00000000000000000061 /* Sources */,
+				AAAA00000000000000000063 /* Sources */,
+				AAAA00000000000000000065 /* Sources */,
+				AAAA00000000000000000067 /* Sources */,
+				AAAA00000000000000000069 /* Sources */,
+				AAAA0000000000000000006B /* Sources */,
+				AAAA0000000000000000006D /* Sources */,
+				AAAA0000000000000000006F /* Sources */,
+				AAAA00000000000000000071 /* Sources */,
+				AAAA00000000000000000073 /* Sources */,
+				AAAA00000000000000000075 /* Sources */,
+				AAAA00000000000000000077 /* Sources */,
+				AAAA00000000000000000079 /* Sources */,
+				AAAA0000000000000000007B /* Sources */,
+				AAAA0000000000000000007D /* Sources */,
+				AAAA0000000000000000007F /* Sources */,
+				AAAA00000000000000000081 /* Sources */,
+				AAAA00000000000000000083 /* Sources */,
+				AAAA00000000000000000085 /* Sources */,
+				AAAA00000000000000000087 /* Sources */,
+				AAAA00000000000000000089 /* Sources */,
+				AAAA0000000000000000008B /* Sources */,
+				AAAA0000000000000000008D /* Sources */,
+				AAAA0000000000000000008F /* Sources */,
+				AAAA00000000000000000091 /* Sources */,
+				AAAA00000000000000000093 /* Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAAA000000000000000000A9 /* Sources */ = {
+		AAAA000000000000000000AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAAA00000000000000000096 /* Sources */,
 				AAAA00000000000000000098 /* Sources */,
 				AAAA0000000000000000009A /* Sources */,
 				AAAA0000000000000000009C /* Sources */,
@@ -576,21 +579,22 @@
 				AAAA000000000000000000A0 /* Sources */,
 				AAAA000000000000000000A2 /* Sources */,
 				AAAA000000000000000000A4 /* Sources */,
+				AAAA000000000000000000A6 /* Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AAAA000000000000000000C6 /* PBXTargetDependency */ = {
+		AAAA000000000000000000C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AAAA000000000000000000C3 /* ZIPTracker */;
-			targetProxy = AAAA000000000000000000C5 /* PBXContainerItemProxy */;
+			target = AAAA000000000000000000C5 /* ZIPTracker */;
+			targetProxy = AAAA000000000000000000C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		AAAA000000000000000000BA /* Debug */ = {
+		AAAA000000000000000000BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -611,7 +615,7 @@
 			};
 			name = Debug;
 		};
-		AAAA000000000000000000BB /* Release */ = {
+		AAAA000000000000000000BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -629,14 +633,16 @@
 			};
 			name = Release;
 		};
-		AAAA000000000000000000BD /* Debug */ = {
+		AAAA000000000000000000BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = com.localfirst.ziptracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				INFOPLIST_FILE = ZIPTracker/Resources/Info.plist;
 				GENERATE_INFOPLIST_FILE = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				OTHER_LDFLAGS = "-lsqlite3";
 				CODE_SIGN_STYLE = Automatic;
@@ -645,14 +651,16 @@
 			};
 			name = Debug;
 		};
-		AAAA000000000000000000BE /* Release */ = {
+		AAAA000000000000000000C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = com.localfirst.ziptracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				INFOPLIST_FILE = ZIPTracker/Resources/Info.plist;
 				GENERATE_INFOPLIST_FILE = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				OTHER_LDFLAGS = "-lsqlite3";
 				CODE_SIGN_STYLE = Automatic;
@@ -661,13 +669,13 @@
 			};
 			name = Release;
 		};
-		AAAA000000000000000000C0 /* Debug */ = {
+		AAAA000000000000000000C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = com.localfirst.ziptrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				GENERATE_INFOPLIST_FILE = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZIPTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZIPTracker";
 				BUNDLE_LOADER = $(TEST_HOST);
 				CODE_SIGN_STYLE = Automatic;
@@ -675,13 +683,13 @@
 			};
 			name = Debug;
 		};
-		AAAA000000000000000000C1 /* Release */ = {
+		AAAA000000000000000000C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = com.localfirst.ziptrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				GENERATE_INFOPLIST_FILE = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZIPTracker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ZIPTracker";
 				BUNDLE_LOADER = $(TEST_HOST);
 				CODE_SIGN_STYLE = Automatic;
@@ -692,29 +700,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AAAA000000000000000000BC /* Build configuration list for PBXProject "ZIPTracker" */ = {
+		AAAA000000000000000000BE /* Build configuration list for PBXProject "ZIPTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAAA000000000000000000BA /* Debug */,
-				AAAA000000000000000000BB /* Release */,
+				AAAA000000000000000000BC /* Debug */,
+				AAAA000000000000000000BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAAA000000000000000000BF /* Build configuration list for PBXNativeTarget "ZIPTracker" */ = {
+		AAAA000000000000000000C1 /* Build configuration list for PBXNativeTarget "ZIPTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAAA000000000000000000BD /* Debug */,
-				AAAA000000000000000000BE /* Release */,
+				AAAA000000000000000000BF /* Debug */,
+				AAAA000000000000000000C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAAA000000000000000000C2 /* Build configuration list for PBXNativeTarget "ZIPTrackerTests" */ = {
+		AAAA000000000000000000C4 /* Build configuration list for PBXNativeTarget "ZIPTrackerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAAA000000000000000000C0 /* Debug */,
-				AAAA000000000000000000C1 /* Release */,
+				AAAA000000000000000000C2 /* Debug */,
+				AAAA000000000000000000C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
