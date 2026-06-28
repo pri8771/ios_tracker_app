@@ -42,14 +42,14 @@ final class VisitTransitionService {
         guard let activeVisit else {
             // No open visit: start a new one (first visit or revisit).
             resetPending()
-            let existing = fetchTrackedZCTA(code: match.code)
-            let tracked = existing ?? createTrackedZCTA(match: match, sample: sample, now: now)
-            openVisit(for: tracked, match: match, sample: sample, now: now)
-            if existing == nil {
-                return .startedFirstVisit(code: match.code)
-            } else {
-                return .revisited(code: match.code)
+            let upsert = TrackedZCTAStore.upsert(code: match.code, in: context) {
+                buildTrackedZCTA(match: match, sample: sample, now: now)
             }
+            if upsert.didCreate { postDiscovery(code: match.code) }
+            openVisit(for: upsert.model, match: match, sample: sample, now: now)
+            return upsert.didCreate
+                ? .startedFirstVisit(code: match.code)
+                : .revisited(code: match.code)
         }
 
         if activeVisit.zctaCode == match.code {
@@ -82,9 +82,11 @@ final class VisitTransitionService {
         resetPending()
         closeVisit(activeVisit, at: now)
 
-        let existing = fetchTrackedZCTA(code: match.code)
-        let tracked = existing ?? createTrackedZCTA(match: match, sample: sample, now: now)
-        openVisit(for: tracked, match: match, sample: sample, now: now)
+        let upsert = TrackedZCTAStore.upsert(code: match.code, in: context) {
+            buildTrackedZCTA(match: match, sample: sample, now: now)
+        }
+        if upsert.didCreate { postDiscovery(code: match.code) }
+        openVisit(for: upsert.model, match: match, sample: sample, now: now)
 
         return .transitioned(from: activeVisit.zctaCode, to: match.code)
     }
@@ -107,18 +109,12 @@ final class VisitTransitionService {
         return (try? context.fetch(descriptor))?.first
     }
 
-    private func fetchTrackedZCTA(code: String) -> TrackedZCTA? {
-        var descriptor = FetchDescriptor<TrackedZCTA>(
-            predicate: #Predicate { $0.zctaCode == code }
-        )
-        descriptor.fetchLimit = 1
-        return (try? context.fetch(descriptor))?.first
-    }
-
     // MARK: - Mutations
 
-    private func createTrackedZCTA(match: ZCTAMatch, sample: LocationSample, now: Date) -> TrackedZCTA {
-        let tracked = TrackedZCTA(
+    /// Builds (but does NOT insert) a `TrackedZCTA`. Insertion is owned by
+    /// `TrackedZCTAStore.upsert` so creation always goes through the guard.
+    private func buildTrackedZCTA(match: ZCTAMatch, sample: LocationSample, now: Date) -> TrackedZCTA {
+        TrackedZCTA(
             zctaCode: match.code,
             createdAt: now,
             firstEnteredAt: now,
@@ -128,14 +124,15 @@ final class VisitTransitionService {
             centroidLatitude: match.centroid.latitude,
             centroidLongitude: match.centroid.longitude
         )
-        context.insert(tracked)
-        // A brand-new TrackedZCTA is a discovery → notify (haptics/pins).
+    }
+
+    /// A brand-new TrackedZCTA is a discovery → notify (haptics/pins).
+    private func postDiscovery(code: String) {
         NotificationCenter.default.post(
             name: AppConstants.Notifications.zctaDiscovered,
             object: nil,
-            userInfo: ["code": match.code]
+            userInfo: ["code": code]
         )
-        return tracked
     }
 
     private func openVisit(for tracked: TrackedZCTA, match: ZCTAMatch, sample: LocationSample, now: Date) {

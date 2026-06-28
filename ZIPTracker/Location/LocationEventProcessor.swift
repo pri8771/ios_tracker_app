@@ -189,7 +189,10 @@ actor LocationEventProcessor {
                 try modelContext.save()
             }
         } catch {
-            log(.error, "Save failed: \(error.localizedDescription)", persistEvenIfDisabled: true)
+            // Roll back so a failed save (e.g. a unique-constraint collision from
+            // a concurrent writer) doesn't leave the context in a poisoned state.
+            modelContext.rollback()
+            log(.error, "Save failed (rolled back): \(error.localizedDescription)", persistEvenIfDisabled: true)
         }
     }
 

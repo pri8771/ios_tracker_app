@@ -24,8 +24,8 @@ struct SampleDataService {
         for (offset, seed) in Self.seeds.enumerated() {
             let firstEntered = now.addingTimeInterval(-Double(offset + 1) * 86_400)
 
-            let tracked = existingTracked(code: seed.code) ?? {
-                let z = TrackedZCTA(
+            let tracked = TrackedZCTAStore.upsert(code: seed.code, in: context) {
+                TrackedZCTA(
                     zctaCode: seed.code,
                     createdAt: firstEntered,
                     firstEnteredAt: firstEntered,
@@ -35,9 +35,7 @@ struct SampleDataService {
                     centroidLatitude: seed.lat,
                     centroidLongitude: seed.lon
                 )
-                context.insert(z)
-                return z
-            }()
+            }.model
 
             // Two visits per ZCTA: one closed, one more recent closed.
             for visitIndex in 0..<2 {
@@ -81,11 +79,5 @@ struct SampleDataService {
         }
         try? context.save()
         NotificationCenter.default.post(name: AppConstants.Notifications.dataDidChange, object: nil)
-    }
-
-    private func existingTracked(code: String) -> TrackedZCTA? {
-        var d = FetchDescriptor<TrackedZCTA>(predicate: #Predicate { $0.zctaCode == code })
-        d.fetchLimit = 1
-        return (try? context.fetch(d))?.first
     }
 }
