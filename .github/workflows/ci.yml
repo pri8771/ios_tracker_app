@@ -42,60 +42,67 @@ jobs:
       - name: Regenerate Xcode project
         run: python3 Scripts/generate_xcodeproj.py
 
-      - name: Select an available iPhone simulator
-        id: sim
-        run: |
-          # Pick the highest-numbered available iPhone so this keeps working as
-          # Xcode runner images change their bundled simulators.
-          NAME=$(xcrun simctl list devices available \
-            | grep -oE 'iPhone [0-9]+( Pro( Max)?| Plus)?' \
-            | sort -t' ' -k2 -n \
-            | tail -1)
-          if [ -z "$NAME" ]; then NAME="iPhone 15"; fi
-          echo "Using simulator: $NAME"
-          echo "name=$NAME" >> "$GITHUB_OUTPUT"
-
       - name: Build for testing
         run: |
           set -o pipefail
           xcodebuild build-for-testing \
             -project ZIPTracker.xcodeproj \
             -scheme ZIPTracker \
-            -destination "platform=iOS Simulator,name=${{ steps.sim.outputs.name }},OS=latest" \
+            -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath DerivedData \
             CODE_SIGNING_ALLOWED=NO
 
-      - name: Boot simulator
-        run: |
-          xcrun simctl boot "${{ steps.sim.outputs.name }}" || true
-          xcrun simctl bootstatus "${{ steps.sim.outputs.name }}" || true
-
-      - name: Test (retry simulator install flakiness)
+      - name: Create a fresh simulator
+        id: sim
         run: |
           set -o pipefail
-          # GitHub's CoreSimulator intermittently fails app install with
-          # "Unable to Install ... Please try again later." Retry a few times,
-          # resetting simulator state between attempts.
+          # The pre-existing runner simulators sometimes have wedged CoreSimulator
+          # state that fails app install 100% of the time. A brand-new device
+          # avoids that. Pick the newest available iOS runtime + plain iPhone.
+          RUNTIME=$(xcrun simctl list runtimes -j | python3 -c "import json,sys;r=[x for x in json.load(sys.stdin)['runtimes'] if x.get('isAvailable') and x['platform']=='iOS'];r.sort(key=lambda d:tuple(int(p) for p in d['version'].split('.')));print(r[-1]['identifier'])")
+          DTYPE=$(xcrun simctl list devicetypes -j | python3 -c "import json,sys,re;d=[x for x in json.load(sys.stdin)['devicetypes'] if re.match(r'.*SimDeviceType\.iPhone-\d+$',x['identifier'])];d.sort(key=lambda x:int(x['identifier'].rsplit('-',1)[1]));print(d[-1]['identifier'] if d else 'com.apple.CoreSimulator.SimDeviceType.iPhone-15')")
+          echo "Runtime: $RUNTIME"
+          echo "Device type: $DTYPE"
+          UDID=$(xcrun simctl create "CI-iPhone" "$DTYPE" "$RUNTIME")
+          echo "Created simulator UDID: $UDID"
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+
+      - name: Test (manual install + retry)
+        run: |
+          set -o pipefail
+          UDID="${{ steps.sim.outputs.udid }}"
+          APP="DerivedData/Build/Products/Debug-iphonesimulator/ZIPTracker.app"
+          ls -la "$APP" >/dev/null || { echo "Built app not found at $APP"; exit 1; }
+
+          # CoreSimulator on GitHub runners intermittently fails app install with
+          # "Unable to Install ... Please try again later." Manually install first
+          # (per-attempt), and on failure recycle the CoreSimulator service and
+          # erase the device before retrying.
           attempt=1
           max=3
           while [ "$attempt" -le "$max" ]; do
             echo "::group::Test attempt $attempt/$max"
             rm -rf TestResults.xcresult
-            if xcodebuild test-without-building \
-                -project ZIPTracker.xcodeproj \
-                -scheme ZIPTracker \
-                -destination "platform=iOS Simulator,name=${{ steps.sim.outputs.name }},OS=latest" \
-                -resultBundlePath TestResults.xcresult \
-                CODE_SIGNING_ALLOWED=NO; then
+            xcrun simctl boot "$UDID" 2>/dev/null || true
+            xcrun simctl bootstatus "$UDID" -b || true
+            if xcrun simctl install "$UDID" "$APP" && \
+               xcodebuild test-without-building \
+                 -project ZIPTracker.xcodeproj \
+                 -scheme ZIPTracker \
+                 -destination "platform=iOS Simulator,id=$UDID" \
+                 -derivedDataPath DerivedData \
+                 -resultBundlePath TestResults.xcresult \
+                 CODE_SIGNING_ALLOWED=NO; then
               echo "::endgroup::"
               echo "Tests passed on attempt $attempt"
               exit 0
             fi
             echo "::endgroup::"
-            echo "Attempt $attempt failed; resetting simulator and retrying"
+            echo "Attempt $attempt failed; recycling CoreSimulator service"
             xcrun simctl shutdown all || true
-            sleep 10
-            xcrun simctl boot "${{ steps.sim.outputs.name }}" || true
-            xcrun simctl bootstatus "${{ steps.sim.outputs.name }}" || true
+            sudo pkill -9 -f CoreSimulator 2>/dev/null || true
+            sleep 12
+            xcrun simctl erase "$UDID" || true
             attempt=$((attempt + 1))
           done
           echo "All $max test attempts failed"
