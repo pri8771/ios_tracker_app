@@ -1,0 +1,76 @@
+name: CI
+
+# Builds and unit-tests ZIP Tracker on an iOS Simulator. Requires macOS runners
+# (Xcode is macOS-only). The app has no third-party Swift dependencies; the only
+# tooling needed is Xcode + Python 3 (for the project/asset generators).
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    name: Build & Test (iOS Simulator)
+    runs-on: macos-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Toolchain versions
+        run: |
+          xcodebuild -version
+          swift --version
+          python3 --version
+
+      - name: Validate sample ZCTA bundle
+        run: python3 Scripts/validate_zcta_bundle.py --input ZIPTracker/Resources/ZCTA/zcta_sample.sqlite
+
+      # Regenerate generated artifacts so CI verifies the generators too. These
+      # are committed, so a diff here would indicate a stale checked-in project.
+      - name: Regenerate app assets
+        run: python3 Scripts/generate_app_assets.py
+
+      - name: Regenerate Xcode project
+        run: python3 Scripts/generate_xcodeproj.py
+
+      - name: Select an available iPhone simulator
+        id: sim
+        run: |
+          # Pick the highest-numbered available iPhone so this keeps working as
+          # Xcode runner images change their bundled simulators.
+          NAME=$(xcrun simctl list devices available \
+            | grep -oE 'iPhone [0-9]+( Pro( Max)?| Plus)?' \
+            | sort -t' ' -k2 -n \
+            | tail -1)
+          if [ -z "$NAME" ]; then NAME="iPhone 15"; fi
+          echo "Using simulator: $NAME"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Build & test
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project ZIPTracker.xcodeproj \
+            -scheme ZIPTracker \
+            -destination "platform=iOS Simulator,name=${{ steps.sim.outputs.name }},OS=latest" \
+            -resultBundlePath TestResults.xcresult \
+            CODE_SIGNING_ALLOWED=NO \
+            clean build test
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: TestResults.xcresult
+          if-no-files-found: ignore
+          retention-days: 7
