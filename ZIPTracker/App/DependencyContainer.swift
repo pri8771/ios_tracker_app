@@ -15,6 +15,7 @@ final class DependencyContainer: ObservableObject {
     let processor: LocationEventProcessor
     let locationService: BackgroundLocationService
     let haptics: HapticsService
+    let metrics: MetricsService
 
     #if DEBUG
     let simulatedPlayer: SimulatedLocationPlayer
@@ -48,8 +49,9 @@ final class DependencyContainer: ObservableObject {
         state.bundleStatus = geometry.status
         self.trackingState = state
 
-        // 4. Haptics.
+        // 4. Haptics + on-device MetricKit diagnostics (local-only).
         self.haptics = HapticsService()
+        self.metrics = MetricsService()
 
         // 5. Processor (background SwiftData context) + state bridge.
         let container = modelContainer
@@ -75,6 +77,7 @@ final class DependencyContainer: ObservableObject {
         bootstrapSettings()
         observeDiscoveries()
         locationService.refreshAuthorizationState()
+        metrics.start()
     }
 
     private static func apply(_ update: TrackingStateUpdate, to state: TrackingState) {
