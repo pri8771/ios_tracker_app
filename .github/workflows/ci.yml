@@ -48,8 +48,7 @@ jobs:
           xcodebuild build-for-testing \
             -project ZIPTracker.xcodeproj \
             -scheme ZIPTracker \
-            -destination "generic/platform=iOS Simulator" \
-            -derivedDataPath DerivedData \
+                -destination "${DESTINATION}" \            -derivedDataPath DerivedData \
             CODE_SIGNING_ALLOWED=NO
 
       - name: Create a fresh simulator
