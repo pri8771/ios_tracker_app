@@ -1,11 +1,11 @@
-# XcodeGen project specification for ZIP Tracker.
+# XcodeGen project specification for Roam.
 #
 # Generate the Xcode project with:   xcodegen generate
-# (A pre-generated ZIPTracker.xcodeproj is also committed so you can open the
+# (A pre-generated Roam.xcodeproj is also committed so you can open the
 #  project without installing XcodeGen.)
 #
 # No third-party packages, no Swift Package dependencies — everything is local.
-name: ZIPTracker
+name: Roam
 options:
   bundleIdPrefix: com.localfirst
   deploymentTarget:
@@ -22,19 +22,19 @@ settings:
     ENABLE_USER_SCRIPT_SANDBOXING: YES
 
 targets:
-  ZIPTracker:
+  Roam:
     type: application
     platform: iOS
     deploymentTarget: "17.0"
     sources:
-      - path: ZIPTracker
+      - path: Roam
         excludes:
           - "Resources/Info.plist"
       # Bundle the ZCTA data as a folder reference so subdirectory lookups work.
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.localfirst.ziptracker
-        INFOPLIST_FILE: ZIPTracker/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.localfirst.roam
+        INFOPLIST_FILE: Roam/Resources/Info.plist
         GENERATE_INFOPLIST_FILE: NO
         ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
@@ -44,31 +44,31 @@ targets:
         # Link the system SQLite library (no third-party packages).
         OTHER_LDFLAGS: "-lsqlite3"
     info:
-      path: ZIPTracker/Resources/Info.plist
+      path: Roam/Resources/Info.plist
 
-  ZIPTrackerTests:
+  RoamTests:
     type: bundle.unit-test
     platform: iOS
     deploymentTarget: "17.0"
     sources:
       - path: Tests
       # The sample DB must also be in the test bundle for ZCTAIndexTests.
-      - path: ZIPTracker/Resources/ZCTA/zcta_sample.sqlite
+      - path: Roam/Resources/ZCTA/zcta_sample.sqlite
         buildPhase: resources
     dependencies:
-      - target: ZIPTracker
+      - target: Roam
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.localfirst.ziptrackerTests
+        PRODUCT_BUNDLE_IDENTIFIER: com.localfirst.roamTests
         GENERATE_INFOPLIST_FILE: YES
 
 schemes:
-  ZIPTracker:
+  Roam:
     build:
       targets:
-        ZIPTracker: all
-        ZIPTrackerTests: [test]
+        Roam: all
+        RoamTests: [test]
     test:
       targets:
-        - ZIPTrackerTests
+        - RoamTests
       gatherCoverageData: true

@@ -1,19 +1,19 @@
 import Foundation
 import CoreLocation
 
-/// Global, compile-time constants for ZIP Tracker.
+/// Global, compile-time constants for Roam.
 ///
-/// ZIP Tracker is a local-first iOS app: every constant here governs on-device
+/// Roam is a local-first iOS app: every constant here governs on-device
 /// behavior only. There are no server endpoints, no analytics keys, and no
 /// network configuration because the app never performs app-controlled network
 /// calls for ZIP/ZCTA detection.
 enum AppConstants {
 
     /// User-facing app name.
-    static let appName = "ZIP Tracker"
+    static let appName = "Roam"
 
     /// Suggested bundle identifier (kept here for diagnostics/export only).
-    static let bundleIdentifier = "com.localfirst.ziptracker"
+    static let bundleIdentifier = "com.localfirst.roam"
 
     /// Primary product promise, surfaced in onboarding and help.
     static let primaryPromise = "Automatically collect the ZIP Code Areas you visit, privately on your iPhone."
@@ -76,18 +76,18 @@ enum AppConstants {
     enum Export {
         static let exportVersion = 2
         static let directoryName = "Exports"
-        static let rootDirectoryName = "ZIPTracker"
+        static let rootDirectoryName = "Roam"
     }
 
     // MARK: - Notifications
 
     enum Notifications {
         /// Posted (on main) after persistence changes so view models can refresh.
-        static let dataDidChange = Notification.Name("ZIPTracker.dataDidChange")
+        static let dataDidChange = Notification.Name("Roam.dataDidChange")
         /// Posted when location authorization changes.
-        static let authorizationDidChange = Notification.Name("ZIPTracker.authorizationDidChange")
+        static let authorizationDidChange = Notification.Name("Roam.authorizationDidChange")
         /// Posted when a brand-new ZCTA is discovered (used for haptics).
-        static let zctaDiscovered = Notification.Name("ZIPTracker.zctaDiscovered")
+        static let zctaDiscovered = Notification.Name("Roam.zctaDiscovered")
     }
 
     // MARK: - Help / legal copy (ZCTA disclaimers)

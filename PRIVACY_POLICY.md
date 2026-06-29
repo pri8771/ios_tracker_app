@@ -1,10 +1,10 @@
-PRIVACY_POLICY.md# ZIP Tracker Privacy Policy
+PRIVACY_POLICY.md# Roam Privacy Policy
 
 **Effective Date:** June 2026
 
 ## Overview
 
-ZIP Tracker is a local-first iOS app that collects and tracks the ZIP Code Areas you visit, privately on your device.
+Roam is a local-first iOS app that collects and tracks the ZIP Code Areas you visit, privately on your device.
 
 ## Data Collection
 
@@ -22,11 +22,11 @@ ZIP Tracker is a local-first iOS app that collects and tracks the ZIP Code Areas
 
 ## Third-Party Services
 
-ZIP Tracker uses:
+Roam uses:
 - **iOS Location Services** - On-device processing only
 - **Census ZIP Code data** - Static reference data, not transmitted
 
-ZIP Tracker does NOT use:
+Roam does NOT use:
 - Analytics
 - Crash reporting
 - Cloud storage

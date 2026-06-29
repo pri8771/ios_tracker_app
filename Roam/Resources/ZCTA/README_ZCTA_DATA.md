@@ -1,12 +1,12 @@
 # ZCTA Data Bundles
 
-ZIP Tracker resolves coordinates to ZIP-like codes **entirely on-device**. There
+Roam resolves coordinates to ZIP-like codes **entirely on-device**. There
 are no network calls for ZIP detection — the polygon data ships as a local
 SQLite file that this folder is responsible for holding.
 
 ## Files the app expects
 
-The app looks for two files in this folder (`ZIPTracker/Resources/ZCTA/`):
+The app looks for two files in this folder (`Roam/Resources/ZCTA/`):
 
 | File                 | Purpose                              | `is_production` |
 |----------------------|--------------------------------------|-----------------|

@@ -1,7 +1,7 @@
 import XCTest
 import SwiftData
 import CoreLocation
-@testable import ZIPTracker
+@testable import Roam
 
 @MainActor
 final class VisitTransitionServiceTests: XCTestCase {

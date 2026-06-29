@@ -113,20 +113,20 @@ struct ExportService {
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         encoder.dateEncodingStrategy = .iso8601
         let data = try encoder.encode(record)
-        return try fileStore.write(data, fileName: "ZIPTracker-Export-\(timestampSuffix(now)).json")
+        return try fileStore.write(data, fileName: "Roam-Export-\(timestampSuffix(now)).json")
     }
 
     @discardableResult
     func exportVisitsCSV(now: Date = .now) throws -> URL {
         let record = try buildFullExport(includeEventLogs: false, now: now)
         let csv = csvService.visitsCSV(record.visits)
-        return try fileStore.write(csv, fileName: "ZIPTracker-Visits-\(timestampSuffix(now)).csv")
+        return try fileStore.write(csv, fileName: "Roam-Visits-\(timestampSuffix(now)).csv")
     }
 
     @discardableResult
     func exportSummaryCSV(now: Date = .now) throws -> URL {
         let record = try buildFullExport(includeEventLogs: false, now: now)
         let csv = csvService.summaryCSV(record.trackedZCTAs)
-        return try fileStore.write(csv, fileName: "ZIPTracker-Summary-\(timestampSuffix(now)).csv")
+        return try fileStore.write(csv, fileName: "Roam-Summary-\(timestampSuffix(now)).csv")
     }
 }

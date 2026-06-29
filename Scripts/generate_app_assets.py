@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate placeholder app-icon and launch-logo PNGs for ZIP Tracker.
+"""Generate placeholder app-icon and launch-logo PNGs for Roam.
 
 Dependency-free (Python stdlib only — uses zlib for PNG compression). Produces a
 simple, on-brand "location" glyph (a white ring with a center dot) so the app has
@@ -14,7 +14,7 @@ import struct
 import zlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ASSETS = os.path.join(ROOT, "ZIPTracker", "Resources", "Assets.xcassets")
+ASSETS = os.path.join(ROOT, "Roam", "Resources", "Assets.xcassets")
 
 # Brand teal (sRGB 0-255).
 BRAND = (15, 118, 110)      # #0F766E

@@ -8,7 +8,7 @@ import UIKit
 /// the app due to a location event.
 final class AppDelegate: NSObject {
 
-    /// Set by `ZIPTrackerApp` once the dependency container exists.
+    /// Set by `RoamApp` once the dependency container exists.
     static weak var sharedContainer: DependencyContainer?
 
     /// Records whether we were relaunched specifically for a location event.
@@ -24,7 +24,7 @@ extension AppDelegate: UIApplicationDelegate {
     ) -> Bool {
         if launchOptions?[.location] != nil {
             relaunchedForLocation = true
-            // The container is wired very early by `ZIPTrackerApp`; defer the
+            // The container is wired very early by `RoamApp`; defer the
             // resume to the main actor and retry once if it isn't ready yet.
             Task { @MainActor in
                 if !AppDelegate.resumeTrackingIfNeeded() {

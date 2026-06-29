@@ -1,7 +1,7 @@
 import XCTest
 import MapKit
 import CoreLocation
-@testable import ZIPTracker
+@testable import Roam
 
 final class ZCTAIndexTests: XCTestCase {
 

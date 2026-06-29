@@ -28,12 +28,12 @@ final class DependencyContainer: ObservableObject {
     init(inMemory: Bool = false) {
         // 1. SwiftData container, built from the versioned schema + migration
         //    plan so future model changes can migrate instead of breaking stores.
-        let schema = ZIPTrackerSchema.current
+        let schema = RoamSchema.current
         let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: inMemory)
         do {
             modelContainer = try ModelContainer(
                 for: schema,
-                migrationPlan: ZIPTrackerSchema.migrationPlan,
+                migrationPlan: RoamSchema.migrationPlan,
                 configurations: [config]
             )
         } catch {

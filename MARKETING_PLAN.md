@@ -1,14 +1,14 @@
-# ZIP Tracker - Marketing and Launch Plan
+# Roam - Marketing and Launch Plan
 
 **Version:** 1.0
 **Date:** June 28, 2026
-**App:** ZIP Tracker - iOS Package Tracking
+**App:** Roam
 
 ---
 
 ## Executive Summary
 
-ZIP Tracker is a privacy-first iOS app that consolidates package tracking across UPS, FedEx, USPS, and DHL. No account required. Works offline. Uses location for smarter delivery estimates.
+Roam is a privacy-first iOS app that consolidates package tracking across UPS, FedEx, USPS, and DHL. No account required. Works offline. Uses location for smarter delivery estimates.
 
 **Target:** 150M+ Americans who shop online regularly.
 **Positioning:** Clean, private, offline-first package tracking with zero sign-up friction.
@@ -18,7 +18,7 @@ ZIP Tracker is a privacy-first iOS app that consolidates package tracking across
 ## App Store Positioning
 
 ### App Name
-ZIP Tracker - Package Tracker
+Roam
 
 ### Subtitle
 Track All Your Packages
@@ -53,7 +53,7 @@ Primary: Productivity | Secondary: Utilities
 
 ## Competitive Edge
 
-| Feature | ZIP Tracker | Deliveries | Parcel | 17TRACK |
+| Feature | Roam | Deliveries | Parcel | 17TRACK |
 |---------|------------|------------|--------|---------|
 | No Account | Yes | No | No | No |
 | Offline Mode | Yes | Partial | Partial | No |
@@ -93,18 +93,18 @@ Primary: Productivity | Secondary: Utilities
 - **Timing:** 12:01 AM PT (ProductHunt optimal)
 
 ### Social Media
-**Twitter/X:** "Just launched ZIP Tracker - track UPS, FedEx, USPS, DHL from one app. No account needed. Free. [link] #iOS"
+**Twitter/X:** "Just launched Roam - track UPS, FedEx, USPS, DHL from one app. No account needed. Free. [link] #iOS"
 
-**Reddit:** Story-driven post: "I built a package tracker that needs no sign-up"
+**Reddit:** Story-driven post: "I built Roam that needs no sign-up"
 
-**Hacker News:** "Show HN: ZIP Tracker - offline-first iOS package tracker"
+**Hacker News:** "Show HN: Roam - offline-first iOS app"
 
 ---
 
 ## Growth Strategy (Month 1-3)
 
 ### Content Marketing
-- "How I built ZIP Tracker in SwiftUI" blog post (Dev.to, Medium)
+- "How I built Roam in SwiftUI" blog post (Dev.to, Medium)
 - TikTok/Instagram Reels showing app in action
 - YouTube Shorts: "Track all packages in one app"
 - Build in public on Twitter/X
@@ -128,7 +128,7 @@ Primary: Productivity | Secondary: Utilities
 - Completely free to maximize downloads and reviews
 - Goal: 1,000+ downloads, 4.5+ star rating
 
-### Phase 2: ZIP Tracker Pro (Month 4+)
+### Phase 2: Roam Pro (Month 4+)
 **Pro Features:**
 - Unlimited packages (free: 5 active)
 - Custom notifications

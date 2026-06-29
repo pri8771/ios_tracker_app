@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <!--
-      ZIP Tracker is a local-first app. It does not track users across apps or
+      Roam is a local-first app. It does not track users across apps or
       websites, does not collect data for transmission off the device, and uses
       no analytics SDKs. Location is used solely on-device to detect ZIP/ZCTA
       entries; nothing leaves the device unless the user explicitly exports/shares.

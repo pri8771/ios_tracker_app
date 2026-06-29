@@ -14,7 +14,7 @@ DerivedData/
 .swiftpm/
 
 # Generated / local ZCTA production bundle (build it yourself; see Scripts/)
-ZIPTracker/Resources/ZCTA/zcta_bundle.sqlite
+Roam/Resources/ZCTA/zcta_bundle.sqlite
 
 # Python
 __pycache__/

@@ -1,17 +1,17 @@
-# ZIP Tracker – Terms of Service
+# Roam – Terms of Service
 
 **Effective Date:** June 28, 2026  
 **Last Updated:** June 28, 2026
 
-Welcome to ZIP Tracker. These Terms govern your access to and use of the ZIP Tracker iOS application, including any related features, content, tools, notifications, package tracking functionality, delivery estimates, offline features, and updates (collectively, the "App" or "Service").
+Welcome to Roam. These Terms govern your access to and use of the Roam iOS application, including any related features, content, tools, notifications, package tracking functionality, delivery estimates, offline features, and updates (collectively, the "App" or "Service").
 
-By downloading, accessing, or using ZIP Tracker, you agree to these Terms. If you do not agree, do not use the App.
+By downloading, accessing, or using Roam, you agree to these Terms. If you do not agree, do not use the App.
 
 ---
 
-## 1. What ZIP Tracker Does
+## 1. What Roam Does
 
-ZIP Tracker is a package tracking app designed to help users organize and monitor shipments from supported carriers, including but not limited to UPS, FedEx, USPS, DHL, and other delivery providers.
+Roam is a package tracking app designed to help users organize and monitor shipments from supported carriers, including but not limited to UPS, FedEx, USPS, DHL, and other delivery providers.
 
 The App may allow you to:
 - Add and save package tracking numbers
@@ -22,13 +22,13 @@ The App may allow you to:
 - Use optional device location to improve delivery-related estimates
 - Receive optional notifications or reminders related to package activity
 
-ZIP Tracker is intended as a convenience tool only. It does not replace official carrier tracking systems, carrier customer service, or any legal, contractual, or shipping rights you may have with a carrier, merchant, or logistics provider.
+Roam is intended as a convenience tool only. It does not replace official carrier tracking systems, carrier customer service, or any legal, contractual, or shipping rights you may have with a carrier, merchant, or logistics provider.
 
 ---
 
 ## 2. No Account Required
 
-ZIP Tracker does not require you to create an account to use the core App experience.
+Roam does not require you to create an account to use the core App experience.
 
 Because no account is required:
 - We may not be able to recover your package list if you delete the App or reset your device
@@ -39,7 +39,7 @@ Because no account is required:
 
 ## 3. Offline-Capable Features
 
-ZIP Tracker provides offline-capable access to package information that has already been saved or cached on your device.
+Roam provides offline-capable access to package information that has already been saved or cached on your device.
 
 When your device is offline:
 - Package statuses may be outdated
@@ -53,13 +53,13 @@ Offline access is provided for convenience only. Verify important shipment detai
 
 ## 4. Supported Carriers and No Carrier Affiliation
 
-ZIP Tracker may display carrier names such as UPS, FedEx, USPS, and DHL for identification and package tracking purposes.
+Roam may display carrier names such as UPS, FedEx, USPS, and DHL for identification and package tracking purposes.
 
-**ZIP Tracker is not affiliated with, endorsed by, sponsored by, or officially connected with UPS, FedEx, USPS, DHL, or any other carrier.**
+**Roam is not affiliated with, endorsed by, sponsored by, or officially connected with UPS, FedEx, USPS, DHL, or any other carrier.**
 
 All carrier names and trademarks are the property of their respective owners. Any use of carrier names is for descriptive and identification purposes only.
 
-ZIP Tracker does not:
+Roam does not:
 - Transport, ship, deliver, insure, or store packages
 - Control carrier operations or delivery timelines
 - Guarantee package status accuracy or delivery dates
@@ -83,7 +83,7 @@ Tracking numbers can reveal sensitive information including delivery location, s
 
 ## 6. Location Services
 
-ZIP Tracker may request access to your device location if you choose to enable location-based features.
+Roam may request access to your device location if you choose to enable location-based features.
 
 Location may be used to:
 - Improve delivery estimates
@@ -92,13 +92,13 @@ Location may be used to:
 
 **Location access is optional.** You can allow, deny, restrict, or revoke location access at any time through your iOS device settings.
 
-ZIP Tracker does not guarantee that location-based estimates will be accurate. Do not rely on location-based estimates for urgent, high-value, medical, legal, or safety-critical deliveries.
+Roam does not guarantee that location-based estimates will be accurate. Do not rely on location-based estimates for urgent, high-value, medical, legal, or safety-critical deliveries.
 
 ---
 
 ## 7. Notifications
 
-ZIP Tracker may offer optional notifications and alerts. Notifications may be inaccurate, delayed, or unavailable due to iOS settings, device connectivity, carrier data delays, or system limitations.
+Roam may offer optional notifications and alerts. Notifications may be inaccurate, delayed, or unavailable due to iOS settings, device connectivity, carrier data delays, or system limitations.
 
 You can manage notification permissions through your iOS device settings.
 
@@ -106,9 +106,9 @@ You can manage notification permissions through your iOS device settings.
 
 ## 8. Delivery Estimates Are Not Guarantees
 
-Any delivery date, time window, or predicted arrival shown in ZIP Tracker is an estimate only.
+Any delivery date, time window, or predicted arrival shown in Roam is an estimate only.
 
-ZIP Tracker does not guarantee:
+Roam does not guarantee:
 - That a package will arrive at a specific date or time
 - That package status is current
 - That a package marked "delivered" was actually received
@@ -132,7 +132,7 @@ You may not:
 
 ## 10. Local Data and Device Security
 
-ZIP Tracker may store package information locally on your device including tracking numbers, carrier names, package status, and delivery estimates.
+Roam may store package information locally on your device including tracking numbers, carrier names, package status, and delivery estimates.
 
 You are responsible for securing your device. We recommend:
 - Using a strong device passcode
@@ -144,13 +144,13 @@ You are responsible for securing your device. We recommend:
 
 ## 11. Privacy
 
-Your use of ZIP Tracker is also governed by our Privacy Policy (PRIVACY_POLICY.md), which explains how ZIP Tracker handles information such as tracking numbers, device permissions, location access, and other data practices.
+Your use of Roam is also governed by our Privacy Policy (PRIVACY_POLICY.md), which explains how Roam handles information such as tracking numbers, device permissions, location access, and other data practices.
 
 ---
 
 ## 12. Third-Party Services and Carrier Data
 
-ZIP Tracker may rely on information from third-party sources including carriers, shipping APIs, and operating system services. We do not control third-party services and are not responsible for their accuracy, availability, or privacy practices.
+Roam may rely on information from third-party sources including carriers, shipping APIs, and operating system services. We do not control third-party services and are not responsible for their accuracy, availability, or privacy practices.
 
 ---
 
@@ -172,7 +172,7 @@ Our total liability for any claims arising from your use of the App shall not ex
 
 ## 15. Indemnification
 
-You agree to defend, indemnify, and hold harmless ZIP Tracker and its developers from any claims, liabilities, damages, or expenses arising from your use of the App, violation of these Terms, or infringement of any third-party rights.
+You agree to defend, indemnify, and hold harmless Roam and its developers from any claims, liabilities, damages, or expenses arising from your use of the App, violation of these Terms, or infringement of any third-party rights.
 
 ---
 
@@ -198,10 +198,10 @@ These Terms are governed by the laws of the United States and the State of Calif
 
 If you have questions about these Terms, please contact us:
 
-- **App:** ZIP Tracker
+- **App:** Roam
 - **GitHub:** https://github.com/pri8771/ios_tracker_app
 - **Support:** [Add support email]
 
 ---
 
-*ZIP Tracker is an independent application and is not affiliated with, endorsed by, or sponsored by UPS, FedEx, USPS, DHL, or any other carrier or shipping company.*
+*Roam is an independent application and is not affiliated with, endorsed by, or sponsored by UPS, FedEx, USPS, DHL, or any other carrier or shipping company.*

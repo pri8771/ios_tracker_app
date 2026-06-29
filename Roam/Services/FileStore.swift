@@ -3,7 +3,7 @@ import Foundation
 /// Thin filesystem helper for on-device exports, scoped to Application Support.
 ///
 /// Nothing here touches the network; files live under
-/// `Application Support/ZIPTracker/Exports`.
+/// `Application Support/Roam/Exports`.
 struct FileStore {
 
     let fileManager: FileManager
@@ -12,7 +12,7 @@ struct FileStore {
         self.fileManager = fileManager
     }
 
-    /// `…/Application Support/ZIPTracker`
+    /// `…/Application Support/Roam`
     func rootDirectory() throws -> URL {
         let base = try fileManager.url(
             for: .applicationSupportDirectory,
@@ -25,7 +25,7 @@ struct FileStore {
         return root
     }
 
-    /// `…/Application Support/ZIPTracker/Exports`
+    /// `…/Application Support/Roam/Exports`
     func exportsDirectory() throws -> URL {
         let dir = try rootDirectory().appendingPathComponent(AppConstants.Export.directoryName, isDirectory: true)
         try ensureDirectory(dir)

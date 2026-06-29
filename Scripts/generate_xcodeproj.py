@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Generate ZIPTracker.xcodeproj/project.pbxproj for the ZIP Tracker app.
+"""Generate Roam.xcodeproj/project.pbxproj for the Roam app.
 
 This is a dependency-free generator (Python stdlib only) used because the build
-host has no Xcode/XcodeGen. It enumerates the Swift sources under ZIPTracker/ and
+host has no Xcode/XcodeGen. It enumerates the Swift sources under Roam/ and
 Tests/, bundles the ZCTA resource folder (as a folder reference so the in-bundle
 `ZCTA/` subdirectory is preserved), links libsqlite3, and wires an app target
 plus a unit-test target.
@@ -13,8 +13,8 @@ The canonical source of truth is project.yml; this mirrors it.
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_NAME = "ZIPTracker"
-BUNDLE_ID = "com.localfirst.ziptracker"
+PROJECT_NAME = "Roam"
+BUNDLE_ID = "com.localfirst.roam"
 DEPLOYMENT_TARGET = "17.0"
 
 _counter = [0]
@@ -33,7 +33,7 @@ def swift_files(rel_dir):
                 out.append(os.path.relpath(full, ROOT))
     return sorted(out)
 
-app_sources = swift_files("ZIPTracker")
+app_sources = swift_files("Roam")
 test_sources = swift_files("Tests")
 
 # --- object tables ---
@@ -93,20 +93,20 @@ sections["PBXFileReference"].append(
 )
 
 # --- resources ---
-info_plist_ref = file_ref("ZIPTracker/Resources/Info.plist")
-xcprivacy_ref = file_ref("ZIPTracker/Resources/PrivacyInfo.xcprivacy")
+info_plist_ref = file_ref("Roam/Resources/Info.plist")
+xcprivacy_ref = file_ref("Roam/Resources/PrivacyInfo.xcprivacy")
 # Asset catalog (compiled by actool: AppIcon, AccentColor, launch assets).
-assets_ref = file_ref("ZIPTracker/Resources/Assets.xcassets",
+assets_ref = file_ref("Roam/Resources/Assets.xcassets",
                       explicit_type="folder.assetcatalog", name="Assets.xcassets")
 # Folder reference so the on-disk ZCTA/ directory is copied preserving structure.
 zcta_folder_ref = oid()
-file_refs["ZIPTracker/Resources/ZCTA"] = zcta_folder_ref
+file_refs["Roam/Resources/ZCTA"] = zcta_folder_ref
 sections["PBXFileReference"].append(
     f'\t\t{zcta_folder_ref} /* ZCTA */ = {{isa = PBXFileReference; lastKnownFileType = folder; '
-    f'name = ZCTA; path = "ZIPTracker/Resources/ZCTA"; sourceTree = "<group>"; }};'
+    f'name = ZCTA; path = "Roam/Resources/ZCTA"; sourceTree = "<group>"; }};'
 )
 # Test bundle gets the sample DB directly.
-sample_db_ref = file_ref("ZIPTracker/Resources/ZCTA/zcta_sample.sqlite",
+sample_db_ref = file_ref("Roam/Resources/ZCTA/zcta_sample.sqlite",
                          name="zcta_sample.sqlite")
 
 # --- app sources build files ---
@@ -271,7 +271,7 @@ proj_config_list = config_list(f'PBXProject "{PROJECT_NAME}"', proj_debug, proj_
 app_common = {
     "PRODUCT_BUNDLE_IDENTIFIER": BUNDLE_ID,
     "PRODUCT_NAME": '"$(TARGET_NAME)"',
-    "INFOPLIST_FILE": "ZIPTracker/Resources/Info.plist",
+    "INFOPLIST_FILE": "Roam/Resources/Info.plist",
     "GENERATE_INFOPLIST_FILE": "NO",
     # iPhone-only until iPad layouts are verified.
     "TARGETED_DEVICE_FAMILY": '"1"',

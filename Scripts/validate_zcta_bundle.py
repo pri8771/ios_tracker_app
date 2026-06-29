@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a ZIP Tracker ZCTA SQLite bundle.
+"""Validate a Roam ZCTA SQLite bundle.
 
 Checks structural and semantic invariants that the Swift app (`ZCTADatabase`)
 relies on. Exits non-zero with a clear message on the first failure; prints
@@ -118,7 +118,7 @@ def validate(path):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Validate a ZIP Tracker ZCTA SQLite bundle.")
+    parser = argparse.ArgumentParser(description="Validate a Roam ZCTA SQLite bundle.")
     parser.add_argument("--input", required=True, help="Path to .sqlite bundle")
     args = parser.parse_args(argv)
 

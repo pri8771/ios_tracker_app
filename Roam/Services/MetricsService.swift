@@ -7,7 +7,7 @@ import MetricKit
 /// payloads (crashes, hangs, CPU/disk exceptions, launch times).
 ///
 /// Payloads are written to the app's local Application Support directory and are
-/// **never transmitted anywhere** — consistent with ZIP Tracker's no-backend,
+/// **never transmitted anywhere** — consistent with Roam's no-backend,
 /// no-analytics, local-first design. They give a developer crash/hang signal
 /// (e.g. when retrieved from a device during testing or via a Files export)
 /// without any third-party SDK.

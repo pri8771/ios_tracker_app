@@ -1,6 +1,6 @@
 name: CI
 
-# Builds and unit-tests ZIP Tracker on an iOS Simulator. Requires macOS runners
+# Builds and unit-tests Roam on an iOS Simulator. Requires macOS runners
 # (Xcode is macOS-only). The app has no third-party Swift dependencies; the only
 # tooling needed is Xcode + Python 3 (for the project/asset generators).
 
@@ -32,7 +32,7 @@ jobs:
           python3 --version
 
       - name: Validate sample ZCTA bundle
-        run: python3 Scripts/validate_zcta_bundle.py --input ZIPTracker/Resources/ZCTA/zcta_sample.sqlite
+        run: python3 Scripts/validate_zcta_bundle.py --input Roam/Resources/ZCTA/zcta_sample.sqlite
 
       # Regenerate generated artifacts so CI verifies the generators too. These
       # are committed, so a diff here would indicate a stale checked-in project.
@@ -46,8 +46,8 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild build-for-testing \
-            -project ZIPTracker.xcodeproj \
-            -scheme ZIPTracker \
+            -project Roam.xcodeproj \
+            -scheme Roam \
                 -destination "${DESTINATION}" \            -derivedDataPath DerivedData \
             CODE_SIGNING_ALLOWED=NO
 
@@ -70,7 +70,7 @@ jobs:
         run: |
           set -o pipefail
           UDID="${{ steps.sim.outputs.udid }}"
-          APP="DerivedData/Build/Products/Debug-iphonesimulator/ZIPTracker.app"
+          APP="DerivedData/Build/Products/Debug-iphonesimulator/Roam.app"
           ls -la "$APP" >/dev/null || { echo "Built app not found at $APP"; exit 1; }
 
           # CoreSimulator on GitHub runners intermittently fails app install with
@@ -86,8 +86,8 @@ jobs:
             xcrun simctl bootstatus "$UDID" -b || true
             if xcrun simctl install "$UDID" "$APP" && \
                xcodebuild test-without-building \
-                 -project ZIPTracker.xcodeproj \
-                 -scheme ZIPTracker \
+                 -project Roam.xcodeproj \
+                 -scheme Roam \
                  -destination "platform=iOS Simulator,id=$UDID" \
                  -derivedDataPath DerivedData \
                  -resultBundlePath TestResults.xcresult \

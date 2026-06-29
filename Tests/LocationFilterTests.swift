@@ -1,6 +1,6 @@
 import XCTest
 import CoreLocation
-@testable import ZIPTracker
+@testable import Roam
 
 final class LocationFilterTests: XCTestCase {
 

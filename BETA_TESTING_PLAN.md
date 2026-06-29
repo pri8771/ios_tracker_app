@@ -1,15 +1,15 @@
-# ZIP Tracker – Beta Testing Plan
+# Roam – Beta Testing Plan
 
 **Version:** 1.0  
 **Date:** June 28, 2026  
-**App:** ZIP Tracker – iOS Package Tracking  
+**App:** Roam – iOS Package Tracking  
 **Repo:** https://github.com/pri8771/ios_tracker_app
 
 ---
 
 ## Overview
 
-ZIP Tracker is a local-first iOS app that tracks packages from UPS, FedEx, USPS, DHL, and other carriers. It uses device location for delivery estimates, requires no account, and functions offline with cached data.
+Roam is a local-first iOS app that tracks packages from UPS, FedEx, USPS, DHL, and other carriers. It uses device location for delivery estimates, requires no account, and functions offline with cached data.
 
 This 3-phase beta testing plan covers internal alpha, external TestFlight beta, and final polish before App Store submission.
 

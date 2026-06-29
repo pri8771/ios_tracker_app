@@ -5,7 +5,7 @@ import CoreLocation
 /// Thin, dependency-free wrapper around the bundled ZCTA SQLite database.
 ///
 /// Links `libsqlite3` directly (no third-party packages). The database is opened
-/// read-only; ZIP Tracker never writes to it and never fetches polygons over the
+/// read-only; Roam never writes to it and never fetches polygons over the
 /// network. Spatial candidate lookups use the `zcta_rtree` virtual table.
 final class ZCTADatabase: @unchecked Sendable {
 

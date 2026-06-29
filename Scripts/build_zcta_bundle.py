@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Build the ZIP Tracker ZCTA SQLite bundle from a GeoJSON FeatureCollection.
+"""Build the Roam ZCTA SQLite bundle from a GeoJSON FeatureCollection.
 
 This script is the producer side of the binary encoding contract documented in
-`ZIPTracker/ZCTA/ZCTAPolygonCodec.swift` and the schema consumed by
-`ZIPTracker/ZCTA/ZCTADatabase.swift`. It is intentionally dependency-free
+`Roam/ZCTA/ZCTAPolygonCodec.swift` and the schema consumed by
+`Roam/ZCTA/ZCTADatabase.swift`. It is intentionally dependency-free
 (Python standard library only) so it can run anywhere without installing
 shapely/geopandas.
 
@@ -399,7 +399,7 @@ def _today():
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Build the ZIP Tracker ZCTA SQLite bundle.")
+    parser = argparse.ArgumentParser(description="Build the Roam ZCTA SQLite bundle.")
     parser.add_argument("--input", required=True, help="Path to GeoJSON FeatureCollection")
     parser.add_argument("--output", required=True, help="Path to output .sqlite file")
     parser.add_argument("--version", required=True, help="Bundle version string")

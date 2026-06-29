@@ -1,6 +1,6 @@
 import XCTest
 import MapKit
-@testable import ZIPTracker
+@testable import Roam
 
 final class MapZoomResolverTests: XCTestCase {
 

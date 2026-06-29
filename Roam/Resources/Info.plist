@@ -15,7 +15,7 @@
     <key>CFBundlePackageType</key>
     <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
     <key>CFBundleDisplayName</key>
-    <string>ZIP Tracker</string>
+    <string>Roam</string>
     <key>CFBundleName</key>
     <string>$(PRODUCT_NAME)</string>
     <key>CFBundleIdentifier</key>
@@ -49,13 +49,13 @@
 
     <!-- Location usage descriptions -->
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>ZIP Tracker uses your location while the app is open to show your current ZIP Code Area and start private tracking.</string>
+    <string>Roam uses your location while the app is open to show your current ZIP Code Area and start private tracking.</string>
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>ZIP Tracker uses background location to privately record ZIP Code Areas you enter, even when the app is not open. Your history stays on this device.</string>
+    <string>Roam uses background location to privately record ZIP Code Areas you enter, even when the app is not open. Your history stays on this device.</string>
     <key>NSLocationTemporaryUsageDescriptionDictionary</key>
     <dict>
         <key>ZIPDetection</key>
-        <string>ZIP Tracker briefly uses precise location to accurately identify which ZIP Code Area you are in.</string>
+        <string>Roam briefly uses precise location to accurately identify which ZIP Code Area you are in.</string>
     </dict>
 
     <!-- Background execution: location only -->
