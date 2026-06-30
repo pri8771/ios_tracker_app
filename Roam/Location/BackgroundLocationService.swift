@@ -47,6 +47,20 @@ final class BackgroundLocationService: NSObject, CLLocationManagerDelegate {
         onAuthorizationChange?(state)
     }
 
+    /// Arms foreground coloring *before* the When-In-Use prompt so that, the
+    /// moment access is granted, a single foreground fix colors in the user's
+    /// current area — the visible "first win" that justifies later asking for
+    /// Always. Also keeps the app in a useful limited mode if Always is declined.
+    func prepareForegroundFirstWin(mode: TrackingMode) {
+        trackingEnabledIntent = true
+        currentMode = mode
+        applyMode(mode)
+        // If access is already granted (e.g. re-enabling), start updating now.
+        if authorizationState.isAuthorized {
+            manager.startUpdatingLocation()
+        }
+    }
+
     /// Step 1 of the permission flow.
     func requestWhenInUseAuthorization() {
         manager.requestWhenInUseAuthorization()

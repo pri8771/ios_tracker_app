@@ -16,12 +16,16 @@ final class DashboardViewModel: ObservableObject {
     }
 
     @Published var statistics: TrackerStatistics = .empty
+    @Published var coverage: CoverageSummary = .empty
     @Published var recentTransitions: [RecentTransition] = []
     @Published var longestVisitSeconds: Double = 0
+    /// Distinct, non-archived discovered codes (for the privacy-safe share rollup).
+    @Published var visitedCodes: [String] = []
 
     let container: DependencyContainer
     let settings: AppSettings
     private let statsService = StatisticsService()
+    private let coverageService = CoverageService()
     private var cancellables = Set<AnyCancellable>()
 
     init(container: DependencyContainer, settings: AppSettings) {
@@ -53,6 +57,10 @@ final class DashboardViewModel: ObservableObject {
         }
         statistics = statsService.computeStatistics(trackedZCTAs: trackedSummaries, visits: visitSummaries)
         longestVisitSeconds = statistics.longestSingleVisitSeconds
+
+        let activeCodes = tracked.filter { !$0.isArchived }.map { $0.zctaCode }
+        visitedCodes = activeCodes
+        coverage = coverageService.summary(forCodes: activeCodes)
 
         let current = container.trackingState.currentZCTACode
         recentTransitions = visits.prefix(5).map {

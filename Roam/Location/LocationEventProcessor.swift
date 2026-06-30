@@ -9,12 +9,17 @@ struct ProcessorConfig: Sendable {
     var transitionCooldownSeconds: TimeInterval
     var requireTwoConsecutiveMatches: Bool
     var storeDiagnosticEventLog: Bool
+    /// Auto-color accuracy gate (meters); fixes coarser than this never color.
+    var autoColorMaxAccuracyMeters: CLLocationDistance
+    var autoColorBoundaryMarginMeters: CLLocationDistance
 
     static let `default` = ProcessorConfig(
         rejectWorseThanMeters: AppConstants.Detection.defaultRejectWorseThanMeters,
         transitionCooldownSeconds: AppConstants.Detection.defaultTransitionCooldownSeconds,
         requireTwoConsecutiveMatches: true,
-        storeDiagnosticEventLog: true
+        storeDiagnosticEventLog: true,
+        autoColorMaxAccuracyMeters: AppConstants.Detection.autoColorMaxAccuracyMeters,
+        autoColorBoundaryMarginMeters: AppConstants.Detection.autoColorBoundaryMarginMeters
     )
 }
 
@@ -37,6 +42,7 @@ actor LocationEventProcessor {
     private let bundleMissing: Bool
 
     private var filter: LocationFilter
+    private var autoColorGate: AutoColorGate
     private let transitionService: VisitTransitionService
     private var config: ProcessorConfig
 
@@ -58,6 +64,10 @@ actor LocationEventProcessor {
         self.bundleMissing = bundleMissing
         self.config = config
         self.filter = LocationFilter(rejectWorseThanMeters: config.rejectWorseThanMeters)
+        self.autoColorGate = AutoColorGate(
+            maxAccuracyMeters: config.autoColorMaxAccuracyMeters,
+            boundaryMarginMeters: config.autoColorBoundaryMarginMeters
+        )
         self.transitionService = VisitTransitionService(
             context: modelContext,
             cooldownSeconds: config.transitionCooldownSeconds,
@@ -69,6 +79,10 @@ actor LocationEventProcessor {
     func updateConfig(_ newConfig: ProcessorConfig) {
         self.config = newConfig
         self.filter = LocationFilter(rejectWorseThanMeters: newConfig.rejectWorseThanMeters)
+        self.autoColorGate = AutoColorGate(
+            maxAccuracyMeters: newConfig.autoColorMaxAccuracyMeters,
+            boundaryMarginMeters: newConfig.autoColorBoundaryMarginMeters
+        )
         transitionService.cooldownSeconds = newConfig.transitionCooldownSeconds
         transitionService.requireTwoConsecutiveMatches = newConfig.requireTwoConsecutiveMatches
     }
@@ -144,6 +158,30 @@ actor LocationEventProcessor {
         log(.zctaDetected, "Detected ZCTA \(match.code).", code: match.code,
             lat: sample.coordinate.latitude, lon: sample.coordinate.longitude)
 
+        // Auto-color gate: only high-confidence, boundary-clear fixes may create
+        // or transition a colored patch. Lower-confidence fixes are deliberately
+        // not colored — a wrong patch erodes trust more than a missing one.
+        let decision = autoColorGate.evaluate(
+            horizontalAccuracy: sample.horizontalAccuracyMeters,
+            distanceToBoundaryMeters: match.boundaryDistanceMeters,
+            isSimulated: sample.isSimulated
+        )
+        guard decision.allowsColoring else {
+            switch decision {
+            case .skipLowAccuracy(let meters):
+                log(.locationRejectedLowAccuracy,
+                    "Detected \(match.code) but did not color: accuracy ±\(Int(meters))m exceeds auto-color gate.",
+                    code: match.code)
+            case .skipNearBoundary(let edge):
+                log(.locationRejectedLowAccuracy,
+                    "Detected \(match.code) but did not color: \(Int(edge))m from boundary (ambiguous).",
+                    code: match.code)
+            case .color:
+                break
+            }
+            return
+        }
+
         let transition = transitionService.process(match: match, sample: sample, now: now)
 
         switch transition {
@@ -172,13 +210,15 @@ actor LocationEventProcessor {
         NotificationCenter.default.post(name: AppConstants.Notifications.dataDidChange, object: nil)
     }
 
+    /// Start time of the current open visit, if any. Predicate-free fetch of the
+    /// latest visit (see `VisitTransitionService.fetchOpenVisit` for rationale).
     private func fetchOpenVisitStart() -> Date? {
         var descriptor = FetchDescriptor<ZCTAVisit>(
-            predicate: #Predicate { $0.exitedAt == nil },
             sortBy: [SortDescriptor(\.enteredAt, order: .reverse)]
         )
         descriptor.fetchLimit = 1
-        return (try? modelContext.fetch(descriptor))?.first?.enteredAt
+        guard let latest = (try? modelContext.fetch(descriptor))?.first else { return nil }
+        return latest.isOpenFlag ? latest.enteredAt : nil
     }
 
     // MARK: - Persistence + diagnostics

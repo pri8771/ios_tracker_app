@@ -80,6 +80,57 @@ enum PointInPolygon {
         return false
     }
 
+    // MARK: - Distance to boundary
+
+    /// Minimum distance, in meters, from `point` to the nearest edge of any ring
+    /// (exterior or hole) across the parts. Used by the auto-color boundary gate
+    /// to decline coloring when a fix sits ambiguously close to a ZCTA edge.
+    ///
+    /// Uses a local equirectangular projection (accurate at the sub-kilometer
+    /// scale that matters here) so segment math can run in planar meters.
+    static func distanceToBoundaryMeters(from point: Coordinate, parts: [PolygonPart]) -> Double? {
+        let metersPerDegLat = 111_320.0
+        let metersPerDegLon = 111_320.0 * cos(point.latitude * .pi / 180)
+        func project(_ c: CLLocationCoordinate2D) -> (x: Double, y: Double) {
+            ((c.longitude - point.longitude) * metersPerDegLon,
+             (c.latitude - point.latitude) * metersPerDegLat)
+        }
+
+        var best: Double? = nil
+        func scan(_ ring: [CLLocationCoordinate2D]) {
+            guard ring.count >= 2 else { return }
+            for i in 0..<(ring.count - 1) {
+                let a = project(ring[i])
+                let b = project(ring[i + 1])
+                let d = pointToSegmentDistance(px: 0, py: 0, ax: a.x, ay: a.y, bx: b.x, by: b.y)
+                if best == nil || d < best! { best = d }
+            }
+        }
+
+        for part in parts {
+            scan(part.exterior.coordinates)
+            for hole in part.holes { scan(hole.coordinates) }
+        }
+        return best
+    }
+
+    /// Planar distance from point (px,py) to segment (ax,ay)-(bx,by).
+    static func pointToSegmentDistance(
+        px: Double, py: Double,
+        ax: Double, ay: Double,
+        bx: Double, by: Double
+    ) -> Double {
+        let dx = bx - ax
+        let dy = by - ay
+        let lengthSq = dx * dx + dy * dy
+        if lengthSq == 0 { return hypot(px - ax, py - ay) }
+        var t = ((px - ax) * dx + (py - ay) * dy) / lengthSq
+        t = Swift.max(0, Swift.min(1, t))
+        let projX = ax + t * dx
+        let projY = ay + t * dy
+        return hypot(px - projX, py - projY)
+    }
+
     /// Strict interior test for holes: a point on the hole boundary is treated
     /// as still inside the surrounding land (so it is NOT excluded).
     private static func isStrictlyInsideHole(

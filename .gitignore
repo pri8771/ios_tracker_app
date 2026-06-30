@@ -8,6 +8,9 @@ build/
 DerivedData/
 *.xcscmblueprint
 *.xccheckout
+# Auto-generated on open; the project is regenerated from project.yml / the
+# Python generator, so the workspace wrapper is not tracked.
+Roam.xcodeproj/project.xcworkspace/
 
 # Swift Package Manager
 .build/

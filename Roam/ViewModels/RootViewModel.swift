@@ -50,6 +50,9 @@ final class RootViewModel: ObservableObject {
             container.locationService.onWhenInUseGranted = { [weak self] in
                 self?.presentAlwaysEducationIfNeeded()
             }
+            // Arm the foreground first-win so the user sees their current area
+            // colored in immediately after granting When-In-Use.
+            container.locationService.prepareForegroundFirstWin(mode: settings.trackingMode)
             container.locationService.requestWhenInUseAuthorization()
         case .whenInUse, .whenInUseReducedAccuracy:
             presentAlwaysEducationIfNeeded()

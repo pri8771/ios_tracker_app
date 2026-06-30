@@ -48,7 +48,8 @@ jobs:
           xcodebuild build-for-testing \
             -project Roam.xcodeproj \
             -scheme Roam \
-                -destination "${DESTINATION}" \            -derivedDataPath DerivedData \
+            -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath DerivedData \
             CODE_SIGNING_ALLOWED=NO
 
       - name: Create a fresh simulator

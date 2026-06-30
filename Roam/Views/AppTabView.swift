@@ -9,27 +9,45 @@ struct AppTabView: View {
     let settings: AppSettings
     @ObservedObject var rootViewModel: RootViewModel
 
+    @State private var selection = AppTabView.initialSelection
+
+    /// DEBUG screenshot helper: `-UIPREVIEW_TAB <n>` opens a specific tab.
+    private static var initialSelection: Int {
+        #if DEBUG
+        if let idx = ProcessInfo.processInfo.arguments.firstIndex(of: "-UIPREVIEW_TAB"),
+           idx + 1 < ProcessInfo.processInfo.arguments.count,
+           let n = Int(ProcessInfo.processInfo.arguments[idx + 1]) {
+            return n
+        }
+        #endif
+        return 0
+    }
+
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             NavigationStack {
                 DashboardView(container: container, settings: settings)
             }
-            .tabItem { Label("Dashboard", systemImage: "location.circle") }
+            .tabItem { Label("Home", systemImage: "house.fill") }
+            .tag(0)
 
             NavigationStack {
                 TrackerMapView(container: container, settings: settings)
             }
-            .tabItem { Label("Map", systemImage: "map") }
+            .tabItem { Label("Map", systemImage: "map.fill") }
+            .tag(1)
+
+            NavigationStack {
+                StatisticsView(container: container, settings: settings)
+            }
+            .tabItem { Label("Progress", systemImage: "chart.pie.fill") }
+            .tag(2)
 
             NavigationStack {
                 HistoryView(container: container)
             }
             .tabItem { Label("History", systemImage: "clock.arrow.circlepath") }
-
-            NavigationStack {
-                StatisticsView(container: container, settings: settings)
-            }
-            .tabItem { Label("Stats", systemImage: "chart.bar") }
+            .tag(3)
 
             NavigationStack {
                 SettingsView(
@@ -39,7 +57,9 @@ struct AppTabView: View {
                     requestDisableTracking: rootViewModel.disableTracking
                 )
             }
-            .tabItem { Label("Settings", systemImage: "gearshape") }
+            .tabItem { Label("Settings", systemImage: "gearshape.fill") }
+            .tag(4)
         }
+        .tint(.roamIndigo)
     }
 }

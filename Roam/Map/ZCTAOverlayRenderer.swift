@@ -25,21 +25,24 @@ enum ZCTAOverlayRenderer {
                 lineWidth: 0.7
             )
         case .visited:
+            // Roam coral — the signature "colored-in" patch.
             return Style(
-                fillColor: UIColor.systemTeal.withAlphaComponent(0.12),
-                strokeColor: UIColor.systemTeal.withAlphaComponent(0.85),
+                fillColor: UIColor(hex: 0xFB6F47).withAlphaComponent(0.22),
+                strokeColor: UIColor(hex: 0xFB6F47).withAlphaComponent(0.9),
                 lineWidth: 1.5
             )
         case .current:
+            // Roam teal — the live current area.
             return Style(
-                fillColor: UIColor.systemGreen.withAlphaComponent(0.22),
-                strokeColor: UIColor.systemGreen,
+                fillColor: UIColor(hex: 0x0FB39B).withAlphaComponent(0.30),
+                strokeColor: UIColor(hex: 0x0FB39B),
                 lineWidth: 2.6
             )
         case .selected:
+            // Roam indigo — the user's current selection.
             return Style(
-                fillColor: UIColor.systemBlue.withAlphaComponent(0.18),
-                strokeColor: UIColor.systemBlue,
+                fillColor: UIColor(hex: 0x4F46E5).withAlphaComponent(0.18),
+                strokeColor: UIColor(hex: 0x4F46E5),
                 lineWidth: 2.2
             )
         }

@@ -1,0 +1,31 @@
+{
+  "identifier" : "B2A7E4C0",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "14.99",
+      "familyShareable" : true,
+      "internalID" : "8F3C1D20",
+      "localizations" : [
+        {
+          "description" : "Unlock the full state-by-state breakdown and support an independent, privacy-first app. One-time purchase.",
+          "displayName" : "Roam Plus",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.localfirst.roam.plus",
+      "referenceName" : "Roam Plus",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "ROAM",
+    "_developerTeamID" : "",
+    "_failTransactionsEnabled" : false
+  },
+  "subscriptionGroups" : [],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

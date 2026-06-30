@@ -14,6 +14,12 @@ final class ZCTAVisit {
     var enteredAt: Date
     var exitedAt: Date?
 
+    /// Stored mirror of `exitedAt == nil`, maintained in lockstep with `exitedAt`.
+    /// Fetch predicates query this Bool instead of comparing the optional `Date`
+    /// to `nil` — SwiftData traps (`EXC_BREAKPOINT`) on optional-to-nil predicate
+    /// comparisons, so an open-visit fetch must go through a non-optional flag.
+    var isOpenFlag: Bool = true
+
     var entryLatitude: Double
     var entryLongitude: Double
 
@@ -45,6 +51,7 @@ final class ZCTAVisit {
         self.zctaCode = zctaCode
         self.enteredAt = enteredAt
         self.exitedAt = nil
+        self.isOpenFlag = true
         self.entryLatitude = entryLatitude
         self.entryLongitude = entryLongitude
         self.lastSeenAt = enteredAt
@@ -66,6 +73,13 @@ final class ZCTAVisit {
     }
 
     var isOpen: Bool { exitedAt == nil }
+
+    /// Closes this visit at `date`, keeping `exitedAt` and `isOpenFlag` consistent.
+    func close(at date: Date) {
+        let end = max(date, lastSeenAt)
+        exitedAt = end
+        isOpenFlag = false
+    }
 
     /// Duration in seconds. For an open visit, measured up to `lastSeenAt`.
     var duration: TimeInterval {

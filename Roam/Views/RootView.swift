@@ -24,7 +24,10 @@ private struct RootViewContent: View {
         Group {
             switch vm.route {
             case .onboarding:
-                OnboardingView(onComplete: vm.completeOnboarding)
+                OnboardingView { enableTracking in
+                    vm.completeOnboarding()
+                    if enableTracking { vm.enableTracking() }
+                }
             case .main:
                 AppTabView(container: container, settings: vm.settings, rootViewModel: vm)
             }

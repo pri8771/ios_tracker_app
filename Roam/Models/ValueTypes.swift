@@ -244,11 +244,15 @@ struct ZCTAMatch: Codable, Hashable, Sendable {
     var code: String
     var centroid: Coordinate
     var matchedCoordinate: Coordinate
+    /// Distance (m) from the matched coordinate to the nearest polygon edge, used
+    /// by the auto-color boundary gate. `nil` when not computed.
+    var boundaryDistanceMeters: Double?
 
-    init(code: String, centroid: Coordinate, matchedCoordinate: Coordinate) {
+    init(code: String, centroid: Coordinate, matchedCoordinate: Coordinate, boundaryDistanceMeters: Double? = nil) {
         self.code = code
         self.centroid = centroid
         self.matchedCoordinate = matchedCoordinate
+        self.boundaryDistanceMeters = boundaryDistanceMeters
     }
 }
 

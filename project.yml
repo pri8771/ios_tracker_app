@@ -30,6 +30,8 @@ targets:
       - path: Roam
         excludes:
           - "Resources/Info.plist"
+          # StoreKit testing config is referenced by the scheme, not bundled.
+          - "Resources/Roam.storekit"
       # Bundle the ZCTA data as a folder reference so subdirectory lookups work.
     settings:
       base:
@@ -68,6 +70,10 @@ schemes:
       targets:
         Roam: all
         RoamTests: [test]
+    run:
+      # Local StoreKit testing config so Roam Plus can be exercised in the
+      # Simulator without App Store Connect products.
+      storeKitConfiguration: Roam/Resources/Roam.storekit
     test:
       targets:
         - RoamTests

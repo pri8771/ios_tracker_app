@@ -13,12 +13,14 @@ struct SettingsView: View {
     // `$settings`, so a plain `let` is correct here.
     private let settings: AppSettings
     @ObservedObject private var trackingState: TrackingState
+    @ObservedObject private var store: StoreManager
     private let container: DependencyContainer
 
     let requestEnableTracking: () -> Void
     let requestDisableTracking: () -> Void
 
     @State private var showDeleteDialog = false
+    @State private var showPaywall = false
 
     init(
         container: DependencyContainer,
@@ -29,6 +31,7 @@ struct SettingsView: View {
         self.container = container
         self.settings = settings
         _trackingState = ObservedObject(wrappedValue: container.trackingState)
+        _store = ObservedObject(wrappedValue: container.store)
         self.requestEnableTracking = requestEnableTracking
         self.requestDisableTracking = requestDisableTracking
         _vm = StateObject(wrappedValue: SettingsViewModel(container: container, settings: settings))
@@ -36,6 +39,7 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
+            plusSection
             trackingSection
             trackingModeSection
             privacySection
@@ -47,6 +51,7 @@ struct SettingsView: View {
             #endif
         }
         .navigationTitle("Settings")
+        .sheet(isPresented: $showPaywall) { PaywallView(store: store) }
         .confirmationDialog("Delete All Data",
                             isPresented: $showDeleteDialog, titleVisibility: .visible) {
             Button("Delete Everything", role: .destructive) {
@@ -56,6 +61,36 @@ struct SettingsView: View {
             Button("Cancel", role: .cancel) {}
         } message: {
             Text("This permanently deletes all tracked ZIP Code Areas and visits on this device. Type DELETE above to confirm.")
+        }
+    }
+
+    // MARK: - Roam Plus
+
+    @ViewBuilder
+    private var plusSection: some View {
+        Section {
+            Button { showPaywall = true } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: store.isPlus ? "checkmark.seal.fill" : "sparkles")
+                        .font(.title3)
+                        .foregroundStyle(store.isPlus ? Color.roamSuccess : Color.roamCoral)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(store.isPlus ? "Roam Plus" : "Get Roam Plus")
+                            .font(.body.weight(.semibold))
+                            .foregroundStyle(Color.roamTextPrimary)
+                        Text(store.isPlus
+                             ? "Thanks for supporting Roam."
+                             : "Full state breakdown & more — one-time unlock.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    if !store.isPlus {
+                        Image(systemName: "chevron.right").font(.caption).foregroundStyle(.secondary)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
         }
     }
 
@@ -119,14 +154,26 @@ struct SettingsView: View {
 
     private var privacySection: some View {
         Section("Privacy") {
+            HStack(spacing: 12) {
+                Image(systemName: "iphone.gen3")
+                    .font(.title3)
+                    .foregroundStyle(Color.roamTeal)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Stored only on this iPhone")
+                        .font(.body.weight(.semibold))
+                        .foregroundStyle(Color.roamTextPrimary)
+                    Text("No account, no cloud, no analytics. Your travels never leave this device unless you export them.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            .accessibilityElement(children: .combine)
+
             NavigationLink {
                 PrivacyHelpView()
             } label: {
                 Label("Privacy & Help", systemImage: "lock.shield")
             }
-            Text("All data stays on this device. No account, no cloud, no analytics.")
-                .font(.caption)
-                .foregroundStyle(.secondary)
         }
     }
 

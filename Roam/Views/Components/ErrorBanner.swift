@@ -9,14 +9,14 @@ struct ErrorBanner: View {
     var onDismiss: (() -> Void)?
 
     var body: some View {
-        HStack(alignment: .top, spacing: 12) {
+        HStack(alignment: .top, spacing: Theme.Spacing.sm) {
             Image(systemName: systemImage)
-                .foregroundStyle(.red)
+                .foregroundStyle(Color.roamWarning)
                 .accessibilityHidden(true)
 
             Text(message)
                 .font(.subheadline)
-                .foregroundStyle(.primary)
+                .foregroundStyle(Color.roamTextPrimary)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -24,19 +24,19 @@ struct ErrorBanner: View {
                 Button(action: onDismiss) {
                     Image(systemName: "xmark")
                         .font(.footnote.weight(.bold))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Color.roamTextSecondary)
                 }
                 .accessibilityLabel("Dismiss")
             }
         }
-        .padding(14)
+        .padding(Theme.Spacing.sm)
         .background(
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .fill(Color.red.opacity(0.12))
+            RoundedRectangle(cornerRadius: Theme.Radius.control, style: .continuous)
+                .fill(Color.roamWarning.opacity(0.12))
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .strokeBorder(Color.red.opacity(0.3), lineWidth: 1)
+            RoundedRectangle(cornerRadius: Theme.Radius.control, style: .continuous)
+                .strokeBorder(Color.roamWarning.opacity(0.3), lineWidth: 1)
         )
         .accessibilityElement(children: .combine)
         .accessibilityLabel(Text("Warning: \(message)"))

@@ -47,8 +47,19 @@ enum AppConstants {
         static let mediumConfidenceAccuracyMeters: CLLocationDistance = 250
         static let lowConfidenceAccuracyMeters: CLLocationDistance = 500
 
-        /// Default hard reject threshold for poor horizontal accuracy.
+        /// Default hard reject threshold for poor horizontal accuracy. Samples
+        /// worse than this never reach detection at all.
         static let defaultRejectWorseThanMeters: CLLocationDistance = 500
+
+        /// Auto-color gate: a fix may only *color in* a ZIP Code Area when its
+        /// horizontal accuracy is at or below this (high-confidence only). Fixes
+        /// in the 100–500 m band still inform a low-confidence "current area"
+        /// readout but never create or transition a colored patch.
+        static let autoColorMaxAccuracyMeters: CLLocationDistance = 100
+
+        /// Auto-color gate: minimum clearance from the matched ZCTA boundary
+        /// before we trust the assignment near an edge.
+        static let autoColorBoundaryMarginMeters: CLLocationDistance = 25
 
         /// Samples older than this are rejected (except visit-monitoring samples).
         static let maxSampleAgeSeconds: TimeInterval = 600

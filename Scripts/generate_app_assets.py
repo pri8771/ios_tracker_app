@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate placeholder app-icon and launch-logo PNGs for Roam.
+"""Generate the Roam app-icon and launch-logo PNGs.
 
-Dependency-free (Python stdlib only — uses zlib for PNG compression). Produces a
-simple, on-brand "location" glyph (a white ring with a center dot) so the app has
-a valid, opaque App Store icon and a transparent launch logo without requiring
-any design tools. Replace these with real artwork before shipping.
+Dependency-free (Python stdlib only — uses zlib for PNG compression). Produces an
+on-brand icon: a warm "golden-hour" sunset gradient (coral -> magenta -> violet)
+with a clean white map-pin glyph, matching Roam's design system. The launch logo
+is the same white pin on a transparent background.
 
 Run:  python3 Scripts/generate_app_assets.py
 """
@@ -16,8 +16,10 @@ import zlib
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS = os.path.join(ROOT, "Roam", "Resources", "Assets.xcassets")
 
-# Brand teal (sRGB 0-255).
-BRAND = (15, 118, 110)      # #0F766E
+# Brand gradient stops (sRGB 0-255): coral -> magenta -> violet.
+G0 = (255, 138, 77)    # #FF8A4D coral
+G1 = (245, 85, 158)    # #F5559E magenta
+G2 = (124, 58, 237)    # #7C3AED violet
 WHITE = (255, 255, 255)
 
 
@@ -45,41 +47,74 @@ def _png(path, width, height, pixel_fn, has_alpha):
         f.write(chunk(b"IEND", b""))
 
 
-def _glyph_alpha(x, y, size):
-    """Coverage (0..1) of the location glyph at pixel (x, y) for a square image."""
-    cx = cy = size / 2.0
-    dx, dy = x + 0.5 - cx, y + 0.5 - cy
-    dist = math.hypot(dx, dy)
-    R = 0.34 * size            # outer ring radius
-    ring_inner = 0.66 * R      # inner edge of the ring
-    dot = 0.30 * R             # center dot radius
-    aa = 1.2                   # anti-alias width (px)
+def _lerp(a, b, t):
+    return tuple(round(a[i] + (b[i] - a[i]) * t) for i in range(3))
 
-    def band(d, edge, inside):
-        # Smooth step around an edge; `inside` True => filled when d < edge.
-        if inside:
-            return max(0.0, min(1.0, (edge - d) / aa + 0.5))
-        return max(0.0, min(1.0, (d - edge) / aa + 0.5))
 
-    ring = min(band(dist, R, True), band(dist, ring_inner, False))
-    center = band(dist, dot, True)
-    return max(ring, center)
+def _gradient(x, y, size):
+    """Diagonal coral->magenta->violet gradient at (x, y)."""
+    t = (x + y) / (2.0 * (size - 1))
+    t = max(0.0, min(1.0, t))
+    if t < 0.5:
+        return _lerp(G0, G1, t / 0.5)
+    return _lerp(G1, G2, (t - 0.5) / 0.5)
+
+
+def _sign(ax, ay, bx, by, px, py):
+    return (px - bx) * (ay - by) - (ax - bx) * (py - by)
+
+
+def _in_triangle(px, py, a, b, c):
+    d1 = _sign(a[0], a[1], b[0], b[1], px, py)
+    d2 = _sign(b[0], b[1], c[0], c[1], px, py)
+    d3 = _sign(c[0], c[1], a[0], a[1], px, py)
+    has_neg = (d1 < 0) or (d2 < 0) or (d3 < 0)
+    has_pos = (d1 > 0) or (d2 > 0) or (d3 > 0)
+    return not (has_neg and has_pos)
+
+
+def _pin_inside(px, py, size):
+    """Whether (px, py) is inside the white map-pin silhouette (with a hole)."""
+    cx = size / 2.0
+    head_cy = 0.40 * size
+    head_r = 0.205 * size
+    tip_y = 0.82 * size
+    hole_r = 0.082 * size
+
+    in_head = (px - cx) ** 2 + (py - head_cy) ** 2 <= head_r ** 2
+    bx = head_r * 0.86
+    by = head_cy + head_r * 0.34
+    in_body = _in_triangle(px, py, (cx, tip_y), (cx - bx, by), (cx + bx, by))
+    inside = in_head or in_body
+    if inside and (px - cx) ** 2 + (py - head_cy) ** 2 <= hole_r ** 2:
+        inside = False
+    return inside
+
+
+def _pin_coverage(x, y, size, samples=3):
+    """Supersampled coverage (0..1) of the pin glyph at pixel (x, y)."""
+    hit = 0
+    step = 1.0 / samples
+    for sx in range(samples):
+        for sy in range(samples):
+            px = x + (sx + 0.5) * step
+            py = y + (sy + 0.5) * step
+            if _pin_inside(px, py, size):
+                hit += 1
+    return hit / (samples * samples)
 
 
 def make_app_icon(path, size=1024):
     def pixel(x, y):
-        a = _glyph_alpha(x, y, size)
-        # Composite white glyph over the opaque brand background (no alpha).
-        r = round(BRAND[0] * (1 - a) + WHITE[0] * a)
-        g = round(BRAND[1] * (1 - a) + WHITE[1] * a)
-        b = round(BRAND[2] * (1 - a) + WHITE[2] * a)
-        return (r, g, b)
+        bg = _gradient(x, y, size)
+        a = _pin_coverage(x, y, size)
+        return tuple(round(bg[i] * (1 - a) + WHITE[i] * a) for i in range(3))
     _png(path, size, size, pixel, has_alpha=False)
 
 
 def make_launch_logo(path, size=600):
     def pixel(x, y):
-        a = _glyph_alpha(x, y, size)
+        a = _pin_coverage(x, y, size)
         return (WHITE[0], WHITE[1], WHITE[2], round(255 * a))
     _png(path, size, size, pixel, has_alpha=True)
 

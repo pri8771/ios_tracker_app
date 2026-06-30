@@ -100,13 +100,21 @@ final class VisitTransitionService {
 
     // MARK: - Fetch helpers
 
+    /// Returns the single open visit, if any.
+    ///
+    /// Invariant: at most one visit is open at a time, and an open visit is
+    /// always the most recent by `enteredAt` (a new visit is only ever opened
+    /// after the prior one is closed). So we fetch the latest row with no
+    /// predicate and check its flag in memory. This deliberately avoids a
+    /// `#Predicate` fetch — SwiftData traps (`EXC_BREAKPOINT`) on predicate
+    /// evaluation for this model in the current toolchain.
     private func fetchOpenVisit() -> ZCTAVisit? {
         var descriptor = FetchDescriptor<ZCTAVisit>(
-            predicate: #Predicate { $0.exitedAt == nil },
             sortBy: [SortDescriptor(\.enteredAt, order: .reverse)]
         )
         descriptor.fetchLimit = 1
-        return (try? context.fetch(descriptor))?.first
+        guard let latest = (try? context.fetch(descriptor))?.first else { return nil }
+        return latest.isOpenFlag ? latest : nil
     }
 
     // MARK: - Mutations
@@ -173,6 +181,7 @@ final class VisitTransitionService {
     private func closeVisit(_ visit: ZCTAVisit, at date: Date) {
         let exit = max(date, visit.lastSeenAt)
         visit.exitedAt = exit
+        visit.isOpenFlag = false
         if let tracked = visit.trackedZCTA {
             tracked.totalDurationSeconds += visit.duration
             tracked.updatedAt = exit

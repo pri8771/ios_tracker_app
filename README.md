@@ -1,11 +1,25 @@
 # Roam
 
-**Automatically collect the ZIP Code Areas you visit, privately on your iPhone.**
+**Your travels, colored in — automatically and privately.**
 
-Roam is a local-first iOS app that tracks your movement in the background
-and records each new **ZIP Code Area** you enter — dropping a pin, keeping a
-timestamped visit history, and highlighting boundaries on the map as you zoom.
-Everything stays on your device.
+Roam is a local-first iOS app that quietly colors in every **ZIP Code Area** you
+pass through. It tracks your movement in the background, records each new area you
+enter, fills your map and Progress as you explore, and lets you share a
+privacy-safe snapshot of where you've been. Everything stays on your device.
+
+**Highlights**
+- 🗺️ **Auto-coloring map** — patches fill in as you move (visited = coral,
+  current = teal, selected = indigo). No manual check-ins.
+- 📈 **Progress** — coverage rollups: ZIP-area count, states touched, % of the 50
+  states, per-state estimated coverage, and milestones.
+- 📤 **Shareable coverage card** — one-tap, **location-abstracted** image
+  (state-level totals only; never your exact spots or a city's ZIP polygons).
+- 🔒 **Private by construction** — on-device SwiftData, no account, no cloud, no
+  analytics. Export/delete anytime.
+- ⭐ **Roam Plus** — optional one-time unlock (StoreKit 2) for the full
+  state-by-state breakdown. The core loop, sharing, and export are always free.
+- 🎯 **Conservative coloring** — a fix only colors an area when it's
+  high-confidence (≤100 m) and clear of the boundary, so wrong patches stay rare.
 
 > **About "ZIP Code Areas" / ZCTAs.** The map boundaries come from **U.S. Census
 > ZIP Code Tabulation Areas (ZCTAs)**. ZCTAs are generalized Census areas that
@@ -123,17 +137,20 @@ MVVM + services + a local geometry/data layer.
 
 ```
 Roam/
-  App/        App lifecycle, AppDelegate (location relaunch), DI container, constants
-  Models/     SwiftData models + value types (enums/structs)
-  Location/   CoreLocation service, authorization, filter, event processor (actor), sim player
-  ZCTA/       SQLite wrapper, spatial index, polygon codec, point-in-polygon, bundle status
-  Map/        MKMapView wrapper + coordinator, overlay factory/renderer, zoom resolver
-  Services/   Visit transitions, statistics, export, CSV, file store, haptics, sample data
-  ViewModels/ One per screen
-  Views/      SwiftUI screens + reusable Components
-  Resources/  Info.plist, PrivacyInfo.xcprivacy, ZCTA SQLite bundle(s)
-Scripts/      Census ZCTA GeoJSON → SQLite builder + validator (+ project generator)
-Tests/        XCTest unit tests
+  App/          App lifecycle, AppDelegate (location relaunch), DI container, constants
+  DesignSystem/ Theme tokens (color/type/spacing) + reusable components
+  Models/       SwiftData models + value types (enums/structs)
+  Location/     CoreLocation service, authorization, filter, event processor (actor),
+                AutoColorGate (100 m + boundary confidence), sim player
+  ZCTA/         SQLite wrapper, spatial index, polygon codec, point-in-polygon, bundle status
+  Map/          MKMapView wrapper + coordinator, overlay factory/renderer, zoom resolver
+  Services/     Visit transitions, statistics, coverage rollups, US-state resolver,
+                StoreKit (Roam Plus), export, CSV, file store, haptics, sample data
+  ViewModels/   One per screen
+  Views/        SwiftUI screens + Components; Share/ (coverage card + share sheet)
+  Resources/    Info.plist, PrivacyInfo.xcprivacy, Roam.storekit, ZCTA SQLite bundle(s)
+Scripts/        Census ZCTA GeoJSON → SQLite builder + validator (+ project/asset generators)
+Tests/          XCTest unit tests
 ```
 
 ### Detection pipeline (all on-device)
@@ -142,4 +159,9 @@ Tests/        XCTest unit tests
 (anti-jitter visit segmentation) → SwiftData. UI refreshes via `NotificationCenter`.
 
 ## Scope (intentionally excluded)
-No cloud sync, accounts, social features, routing, or venue search.
+No cloud sync, accounts, social features, routing, venue search, ads, data sale,
+or subscriptions. Roam Plus is a single optional one-time unlock; the core
+tracking/coloring loop, the shareable card, and export are always free.
+
+See [`LAUNCH_READINESS.md`](LAUNCH_READINESS.md) for the v1 launch scope,
+acceptance criteria, known limitations, and the remaining path to ship.

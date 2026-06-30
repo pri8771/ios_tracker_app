@@ -1,36 +1,31 @@
 import SwiftUI
 
-/// A reusable container that gives content a frosted-glass card appearance using
-/// `.ultraThinMaterial`, continuous rounded corners, and a subtle hairline border.
+/// A reusable card container.
+///
+/// Kept for source compatibility with the many screens that adopted it early on;
+/// it now renders with the shared Roam design-system surface (solid elevated
+/// card + hairline + soft shadow) so every screen stays visually consistent.
 struct GlassPanel<Content: View>: View {
 
-    var cornerRadius: CGFloat = 20
-    var padding: CGFloat = 16
+    var cornerRadius: CGFloat = Theme.Radius.card
+    var padding: CGFloat = Theme.Spacing.md
     @ViewBuilder var content: () -> Content
 
     var body: some View {
-        content()
-            .padding(padding)
-            .background(
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill(.ultraThinMaterial)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .strokeBorder(Color.primary.opacity(0.08), lineWidth: 1)
-            )
-            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+        RoamCard(padding: padding, cornerRadius: cornerRadius) {
+            content()
+        }
     }
 }
 
 #Preview {
     ZStack {
-        LinearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
+        Color.roamBackground.ignoresSafeArea()
         GlassPanel {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Glass Panel").font(.headline)
-                Text("Frosted material container").font(.subheadline)
+                Text("Card").font(.roamHeadline)
+                Text("Design-system surface").font(.subheadline)
+                    .foregroundStyle(Color.roamTextSecondary)
             }
         }
         .padding()

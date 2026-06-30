@@ -16,6 +16,7 @@ final class DependencyContainer: ObservableObject {
     let locationService: BackgroundLocationService
     let haptics: HapticsService
     let metrics: MetricsService
+    let store: StoreManager
 
     #if DEBUG
     let simulatedPlayer: SimulatedLocationPlayer
@@ -52,6 +53,7 @@ final class DependencyContainer: ObservableObject {
         // 4. Haptics + on-device MetricKit diagnostics (local-only).
         self.haptics = HapticsService()
         self.metrics = MetricsService()
+        self.store = StoreManager()
 
         // 5. Processor (background SwiftData context) + state bridge.
         let container = modelContainer
@@ -78,6 +80,18 @@ final class DependencyContainer: ObservableObject {
         observeDiscoveries()
         locationService.refreshAuthorizationState()
         metrics.start()
+        Task { await store.refresh() }
+
+        #if DEBUG
+        // Screenshot/preview seeding: launch with `-UIPREVIEW_SEED` to skip
+        // onboarding and populate a multi-state showcase dataset.
+        if ProcessInfo.processInfo.arguments.contains("-UIPREVIEW_SEED") {
+            let settings = loadOrCreateSettings()
+            settings.hasCompletedOnboarding = true
+            try? mainContext.save()
+            SampleDataService(context: mainContext).generateShowcaseVisits()
+        }
+        #endif
     }
 
     private static func apply(_ update: TrackingStateUpdate, to state: TrackingState) {
@@ -125,7 +139,9 @@ final class DependencyContainer: ObservableObject {
             rejectWorseThanMeters: settings.rejectLocationsWorseThanMeters,
             transitionCooldownSeconds: settings.transitionCooldownSeconds,
             requireTwoConsecutiveMatches: settings.requireTwoConsecutiveMatchesNearBoundary,
-            storeDiagnosticEventLog: settings.storeDiagnosticEventLog
+            storeDiagnosticEventLog: settings.storeDiagnosticEventLog,
+            autoColorMaxAccuracyMeters: AppConstants.Detection.autoColorMaxAccuracyMeters,
+            autoColorBoundaryMarginMeters: AppConstants.Detection.autoColorBoundaryMarginMeters
         )
     }
 

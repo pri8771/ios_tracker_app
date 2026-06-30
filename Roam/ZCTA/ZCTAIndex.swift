@@ -40,7 +40,10 @@ final class ZCTAIndex: @unchecked Sendable {
                 return ZCTAMatch(
                     code: code,
                     centroid: polygon.centroid,
-                    matchedCoordinate: coordinate
+                    matchedCoordinate: coordinate,
+                    boundaryDistanceMeters: PointInPolygon.distanceToBoundaryMeters(
+                        from: coordinate, parts: polygon.parts
+                    )
                 )
             }
         }
