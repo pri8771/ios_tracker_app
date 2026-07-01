@@ -52,13 +52,18 @@ guaranteed coverage (beta ships a labeled limited dataset).
 - **100 m auto-color gate + boundary margin** — `AutoColorGate`. A wrong patch erodes trust faster than a missing one, so coloring is conservative.
 - **Location abstraction in shares** — the share card and the Progress rollups are state-level; the precise polygon track never leaves the device in any exported image.
 
-## 5. Bugs fixed this session (were launch-blocking)
-1. **SwiftData crash** — `#Predicate { $0.exitedAt == nil }` traps (`EXC_BREAKPOINT`) in the current toolchain; every open-visit fetch crashed. Replaced with a predicate-free latest-row fetch + `isOpenFlag`. (All 6 `VisitTransitionServiceTests` were failing → now pass.)
-2. **Missing Info.plist keys** — no launch-screen config (app rendered **letterboxed**, not full-screen) and **no location usage strings / background mode** (the app would crash the instant it requested location, and background tracking couldn't run). Added a complete Info.plist.
-3. **CI** — malformed `-destination` in `build-for-testing` step. Fixed.
+## 5. Bugs fixed (were launch-blocking)
+1. **SwiftData crash** — `#Predicate` fetches trap (`EXC_BREAKPOINT`) in the current toolchain. **Every** `#Predicate` fetch was replaced with a predicate-free fetch + in-memory filter: open-visit lookups, `TrackedZCTAStore.upsert` (runs on detection), `MapViewModel.selectZCTA`/`reloadPins`, `HistoryViewModel`, `SampleDataService`. No `#Predicate` fetches remain.
+2. **Missing Info.plist keys** — no launch-screen config (app rendered **letterboxed**) and **no location usage strings / background mode** (crash on first location request; no background tracking). Added a complete Info.plist.
+3. **Current location never shown / ZIP not captured on open** — a fresh user opening the Map never got a location prompt, so no blue dot and no current ZIP; and the current-area readout was coupled to the 100 m *coloring* gate so a coarse first fix never displayed. The Map now requests When-In-Use (and one-time precise accuracy) on appear, and the current area displays whenever the fix is confidently inside a polygon (coloring still requires high confidence). **Verified in Simulator:** Dashboard shows "YOU'RE HERE · 94102"; the Map shows the centered blue dot + colored patch.
+4. **Sample data blocked tracking in Release** — a TestFlight/Release build with only the sample bundle had tracking hard-disabled (dead app). The labeled beta (sample) bundle now permits tracking; the banner makes the limited coverage explicit.
+5. **State/paywall/share hardening** — enabling tracking records intent up-front (toggle + background resume stay consistent); the paywall no longer shows a fake-priced button when no product loaded; the share card surfaces an error instead of silently failing; detection no longer posts a full-reload notification on every sample (battery).
+6. **CI** — malformed `-destination` in `build-for-testing` step. Fixed.
+
+A dedicated production-readiness audit of all ~70 source files ran this pass; the findings above are the resolved CRITICAL/HIGH/MEDIUM items. Remaining LOW items (territory ZIP-prefix edge cases, container-init `fatalError` with no store-recovery fallback) are cosmetic/defensive and tracked as fast-follow.
 
 ## 6. Known limitations
-- **Sample geography only** in the repo (3 San Francisco ZCTAs, `is_production = false`). Beta should ship a clearly-labeled limited dataset; the production national bundle is a separate data task (`Scripts/README_PREPROCESSING.md`). The app honestly blocks tracking on missing production data in RELEASE.
+- **Sample geography only** in the repo (3 San Francisco ZCTAs, `is_production = false`). Tracking now runs on this labeled beta dataset, but only those areas are detected — everywhere else shows the blue dot with no ZIP match. The production national bundle is a separate data task (`Scripts/README_PREPROCESSING.md`).
 - Per-state coverage % is an **estimate** against approximate Census ZCTA totals (labeled as such in-app).
 - StoreKit product is wired for local testing (`Roam.storekit`); the real App Store Connect product must be created before shipping Plus.
 - Swift 6 concurrency warnings remain (non-blocking on the current language mode).

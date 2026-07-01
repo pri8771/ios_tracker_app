@@ -23,6 +23,8 @@ final class MapViewModel: ObservableObject {
 
     private var rebuildTask: Task<Void, Never>?
     private var cancellables = Set<AnyCancellable>()
+    private var pendingRecenterOnNextLocation = false
+    private var didAutoCenterOnFirstLocation = false
 
     init(container: DependencyContainer, settings: AppSettings) {
         self.container = container
@@ -46,11 +48,25 @@ final class MapViewModel: ObservableObject {
                 self?.scheduleOverlayRebuild()
             }
             .store(in: &cancellables)
+
+        container.trackingState.$lastLocationAt
+            .compactMap { $0 }
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                if self.pendingRecenterOnNextLocation || !self.didAutoCenterOnFirstLocation {
+                    self.pendingRecenterOnNextLocation = false
+                    self.didAutoCenterOnFirstLocation = true
+                    self.recenterToken &+= 1
+                }
+            }
+            .store(in: &cancellables)
     }
 
     var initialRegion: MKCoordinateRegion { region }
 
     var currentCode: String? { container.trackingState.currentZCTACode }
+    var userCoordinate: CLLocationCoordinate2D? { container.trackingState.lastCoordinate?.clCoordinate }
     var isUsingSampleData: Bool { container.trackingState.isUsingSampleData }
     var mapStyle: MapDisplayStyle { settings.mapStyle }
     var showVisitPins: Bool { settings.showVisitPins }
@@ -59,6 +75,14 @@ final class MapViewModel: ObservableObject {
     func onAppear() {
         reloadPins()
         scheduleOverlayRebuild()
+        // The Map's whole purpose is "where am I?", so this is the natural place
+        // to ask for When-In-Use location if it hasn't been decided yet. It shows
+        // the blue dot and a fresh fix; it never escalates to Always on its own.
+        container.locationService.requestCurrentLocation(mode: settings.trackingMode)
+        if userCoordinate != nil, !didAutoCenterOnFirstLocation {
+            didAutoCenterOnFirstLocation = true
+            recenterToken &+= 1
+        }
     }
 
     func regionChanged(_ region: MKCoordinateRegion) {
@@ -71,14 +95,20 @@ final class MapViewModel: ObservableObject {
     }
 
     func recenterOnUser() {
-        recenterToken &+= 1
+        if userCoordinate != nil {
+            didAutoCenterOnFirstLocation = true
+            recenterToken &+= 1
+        } else {
+            pendingRecenterOnNextLocation = true
+        }
+        container.locationService.requestCurrentLocation(mode: settings.trackingMode)
     }
 
     func selectZCTA(code: String) {
         selectedCode = code
-        var descriptor = FetchDescriptor<TrackedZCTA>(predicate: #Predicate { $0.zctaCode == code })
-        descriptor.fetchLimit = 1
-        selectedZCTA = (try? container.mainContext.fetch(descriptor))?.first
+        // Predicate-free lookup (see ModelStore.upsert for rationale).
+        selectedZCTA = ((try? container.mainContext.fetch(FetchDescriptor<TrackedZCTA>())) ?? [])
+            .first { $0.zctaCode == code }
         scheduleOverlayRebuild()
     }
 
@@ -107,9 +137,8 @@ final class MapViewModel: ObservableObject {
     // MARK: - Pins
 
     func reloadPins() {
-        let tracked = (try? container.mainContext.fetch(
-            FetchDescriptor<TrackedZCTA>(predicate: #Predicate { !$0.isArchived })
-        )) ?? []
+        let tracked = ((try? container.mainContext.fetch(FetchDescriptor<TrackedZCTA>())) ?? [])
+            .filter { !$0.isArchived }
 
         let current = currentCode
         discoveredPins = tracked.map { z in

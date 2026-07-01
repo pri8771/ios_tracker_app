@@ -22,6 +22,7 @@ final class BackgroundLocationService: NSObject, CLLocationManagerDelegate {
     private(set) var isTracking = false
     private(set) var currentMode: TrackingMode = .balanced
     private var trackingEnabledIntent = false
+    private var foregroundLocationRequestPending = false
 
     init(processor: LocationEventProcessor, trackingState: TrackingState) {
         self.processor = processor
@@ -45,6 +46,35 @@ final class BackgroundLocationService: NSObject, CLLocationManagerDelegate {
         let state = authorizationState
         trackingState?.authorizationState = state
         onAuthorizationChange?(state)
+    }
+
+    /// Refreshes the user's foreground location only if permission already
+    /// exists. This is safe to call when the app opens: it never shows a system
+    /// prompt, but keeps the "where am I now?" state warm for returning users.
+    func refreshCurrentLocationIfAuthorized(mode: TrackingMode) {
+        guard authorizationState.isAuthorized else { return }
+        requestOneShotLocation(mode: mode, requestTemporaryFullAccuracy: false)
+    }
+
+    /// Requests a foreground "where am I?" fix. If permission has not been
+    /// decided, this asks for When-In-Use only; it does not imply background
+    /// tracking or jump straight to the Always education flow.
+    func requestCurrentLocation(mode: TrackingMode) {
+        currentMode = mode
+        applyMode(mode)
+
+        switch authorizationState {
+        case .notDetermined:
+            foregroundLocationRequestPending = true
+            requestWhenInUseAuthorization()
+        case .whenInUse, .whenInUseReducedAccuracy, .always, .alwaysReducedAccuracy:
+            // Detecting a ZIP Code Area needs a precise coordinate; a reduced
+            // (coarse) fix can't be matched to a polygon. Ask for one-time full
+            // accuracy here so "where am I?" actually resolves an area.
+            requestOneShotLocation(mode: mode, requestTemporaryFullAccuracy: true)
+        case .denied, .restricted:
+            trackingState?.lastErrorMessage = "Location permission is denied. Open Settings to allow Roam to show your current location."
+        }
     }
 
     /// Arms foreground coloring *before* the When-In-Use prompt so that, the
@@ -113,6 +143,13 @@ final class BackgroundLocationService: NSObject, CLLocationManagerDelegate {
         manager.showsBackgroundLocationIndicator = show
     }
 
+    private func requestOneShotLocation(mode: TrackingMode, requestTemporaryFullAccuracy: Bool) {
+        currentMode = mode
+        applyMode(mode)
+        if requestTemporaryFullAccuracy { requestTemporaryFullAccuracyIfNeeded() }
+        manager.requestLocation()
+    }
+
     private func applyMode(_ mode: TrackingMode) {
         manager.distanceFilter = mode.distanceFilterMeters
         manager.desiredAccuracy = mode.desiredAccuracy
@@ -137,15 +174,27 @@ final class BackgroundLocationService: NSObject, CLLocationManagerDelegate {
 
         switch state {
         case .whenInUse, .whenInUseReducedAccuracy:
-            onWhenInUseGranted?()
+            if foregroundLocationRequestPending {
+                foregroundLocationRequestPending = false
+                requestOneShotLocation(mode: currentMode, requestTemporaryFullAccuracy: false)
+            }
+            if trackingEnabledIntent {
+                onWhenInUseGranted?()
+                onWhenInUseGranted = nil
+            }
             // Cannot run background tracking yet; keep foreground updates if intended.
             if trackingEnabledIntent {
                 manager.startUpdatingLocation()
                 if state == .whenInUseReducedAccuracy { requestTemporaryFullAccuracyIfNeeded() }
             }
         case .always, .alwaysReducedAccuracy:
+            if foregroundLocationRequestPending {
+                foregroundLocationRequestPending = false
+                requestOneShotLocation(mode: currentMode, requestTemporaryFullAccuracy: false)
+            }
             if trackingEnabledIntent { startTracking(mode: currentMode) }
         case .denied, .restricted, .notDetermined:
+            foregroundLocationRequestPending = false
             if isTracking { stopTracking() }
         }
     }
@@ -184,6 +233,9 @@ final class BackgroundLocationService: NSObject, CLLocationManagerDelegate {
         let coordinate = Coordinate(location.coordinate)
         let accuracy = location.horizontalAccuracy
         let timestamp = location.timestamp
+        trackingState?.lastCoordinate = coordinate
+        trackingState?.lastLocationAccuracyMeters = accuracy
+        trackingState?.lastLocationAt = timestamp
         Task {
             await processor.process(
                 coordinate: coordinate,

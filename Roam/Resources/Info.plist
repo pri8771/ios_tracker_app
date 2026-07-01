@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Roam</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -12,17 +14,24 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundleDisplayName</key>
-	<string>Roam</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-
-	<!-- Launch screen. Without this an app renders letterboxed (not full-screen)
-	     on modern devices, so it is REQUIRED, not optional. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>With Always access, Roam keeps coloring in the ZIP Code Areas you enter even when the app is closed — automatically, in the background. Your location never leaves this device.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>With Always access, Roam keeps coloring in the ZIP Code Areas you enter even when the app is closed. Your location never leaves this device.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Roam detects which ZIP Code Areas you visit and colors them in on your map. Your location stays on this iPhone.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
@@ -30,34 +39,13 @@
 		<key>UIImageName</key>
 		<string>LaunchLogo</string>
 	</dict>
-
-	<!-- Location usage strings. Requesting authorization without these crashes
-	     the app, so all three keys must be present for the permission flow. -->
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Roam detects which ZIP Code Areas you visit and colors them in on your map. Your location stays on this iPhone.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>With Always access, Roam keeps coloring in the ZIP Code Areas you enter even when the app is closed — automatically, in the background. Your location never leaves this device.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>With Always access, Roam keeps coloring in the ZIP Code Areas you enter even when the app is closed. Your location never leaves this device.</string>
-
-	<!-- Background location so the app can be relaunched for location events. -->
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
-
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>location-services</string>
 	</array>
-
-	<!-- No proprietary/non-exempt encryption (smooths App Store submission). -->
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 </dict>
 </plist>

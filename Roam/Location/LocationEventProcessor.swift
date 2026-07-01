@@ -179,17 +179,42 @@ actor LocationEventProcessor {
             case .color:
                 break
             }
+            // Even when a fix isn't confident enough to persist a *colored* patch,
+            // still reflect the user's current area in the UI as long as the fix
+            // sits comfortably inside the polygon (not ambiguously near a
+            // boundary). This is display-only — no visit is created — so
+            // "where am I?" works on the very first, still-warming-up fix.
+            let clearOfBoundary = match.boundaryDistanceMeters.map {
+                $0 >= sample.horizontalAccuracyMeters
+            } ?? true
+            if clearOfBoundary {
+                applyState(TrackingStateUpdate(
+                    currentCode: match.code,
+                    visitStartedAt: openVisitStart(forCode: match.code),
+                    confidence: sample.confidence,
+                    sampleAt: now,
+                    clearVisit: false
+                ))
+            }
             return
         }
 
         let transition = transitionService.process(match: match, sample: sample, now: now)
 
         switch transition {
-        case .startedFirstVisit(let code), .revisited(let code), .updatedCurrentVisit(let code):
+        case .startedFirstVisit(let code), .revisited(let code):
+            pushCurrent(code: code, sample: sample, now: now)
+            notifyDataChanged()
+        case .updatedCurrentVisit(let code):
+            // Just extending the open visit — the current-area readout updates via
+            // `applyState`, but the ZIP count / pins / overlays don't change, so we
+            // skip the full-reload notification. This avoids rebuilding map overlays
+            // and refetching on every sample while stationary (battery/CPU churn).
             pushCurrent(code: code, sample: sample, now: now)
         case .transitioned(let from, let to):
             log(.zctaTransition, "Transitioned from \(from) to \(to).", code: to)
             pushCurrent(code: to, sample: sample, now: now)
+            notifyDataChanged()
         case .ignored:
             break
         }
@@ -207,6 +232,11 @@ actor LocationEventProcessor {
             sampleAt: now,
             clearVisit: false
         ))
+    }
+
+    /// Notifies view models to reload after a *persistent* data change (a new or
+    /// changed visit), so they don't rebuild on every sample.
+    private func notifyDataChanged() {
         NotificationCenter.default.post(name: AppConstants.Notifications.dataDidChange, object: nil)
     }
 
@@ -219,6 +249,19 @@ actor LocationEventProcessor {
         descriptor.fetchLimit = 1
         guard let latest = (try? modelContext.fetch(descriptor))?.first else { return nil }
         return latest.isOpenFlag ? latest.enteredAt : nil
+    }
+
+    /// Start time of the open visit *only if* it is for `code` — used by the
+    /// display-only path so an already-colored area keeps its running timer while
+    /// a brand-new (uncolored) area shows no misleading duration.
+    private func openVisitStart(forCode code: String) -> Date? {
+        var descriptor = FetchDescriptor<ZCTAVisit>(
+            sortBy: [SortDescriptor(\.enteredAt, order: .reverse)]
+        )
+        descriptor.fetchLimit = 1
+        guard let latest = (try? modelContext.fetch(descriptor))?.first,
+              latest.isOpenFlag, latest.zctaCode == code else { return nil }
+        return latest.enteredAt
     }
 
     // MARK: - Persistence + diagnostics

@@ -9,6 +9,7 @@ struct CoverageShareView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var shareImage: UIImage?
     @State private var showShareSheet = false
+    @State private var renderFailed = false
 
     private var dateText: String {
         let f = DateFormatter()
@@ -46,8 +47,16 @@ struct CoverageShareView: View {
                     ActivityView(items: [shareImage])
                 }
             }
+            .alert("Couldn't create image", isPresented: $renderFailed) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text("Roam couldn't render your share card just now. Please try again.")
+            }
         }
     }
+
+    /// Aspect ratio of the exported card (portrait 4:5).
+    private var cardAspect: CGFloat { ShareCardView.size.height / ShareCardView.size.width }
 
     private var cardPreview: some View {
         GeometryReader { geo in
@@ -59,7 +68,7 @@ struct CoverageShareView: View {
                 .clipShape(RoundedRectangle(cornerRadius: Theme.Radius.panel, style: .continuous))
                 .roamFloatShadow()
         }
-        .frame(height: ShareCardView.size.height * (UIScreen.main.bounds.width - 2 * Theme.Spacing.lg) / ShareCardView.size.width)
+        .aspectRatio(1 / cardAspect, contentMode: .fit)
         .padding(.horizontal, Theme.Spacing.lg)
     }
 
@@ -90,6 +99,8 @@ struct CoverageShareView: View {
         if let image = renderer.uiImage {
             shareImage = image
             showShareSheet = true
+        } else {
+            renderFailed = true
         }
     }
 }

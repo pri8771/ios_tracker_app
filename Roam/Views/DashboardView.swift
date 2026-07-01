@@ -43,7 +43,10 @@ struct DashboardView: View {
         }
         .navigationTitle("Roam")
         .background(RoamScreenBackground())
-        .onAppear { vm.reload() }
+        .onAppear {
+            vm.reload()
+            container.locationService.refreshCurrentLocationIfAuthorized(mode: vm.settings.trackingMode)
+        }
         .sheet(isPresented: $showShare) {
             CoverageShareView(coverage: vm.coverage)
         }
@@ -134,7 +137,7 @@ struct DashboardView: View {
             } label: {
                 ErrorBanner(message: status.isMissing
                     ? "ZCTA data is missing. Tracking can't run. Tap for details."
-                    : "Using sample ZCTA data (development only). Tap for details.")
+                    : "Limited beta coverage — some areas aren't detected yet. Tap for details.")
             }
             .buttonStyle(.plain)
         }

@@ -29,7 +29,7 @@ struct PaywallView: View {
                             .font(.roamHeadline)
                             .foregroundStyle(Color.roamSuccess)
                             .padding(.top, Theme.Spacing.md)
-                    } else {
+                    } else if store.plusProduct != nil {
                         VStack(spacing: Theme.Spacing.sm) {
                             PrimaryButton(
                                 store.purchaseInFlight ? "Purchasing…" : "Unlock Roam Plus · \(store.plusDisplayPrice)",
@@ -38,6 +38,24 @@ struct PaywallView: View {
                                 isEnabled: !store.purchaseInFlight
                             ) {
                                 Task { await store.purchasePlus() }
+                            }
+                            Button("Restore Purchase") { Task { await store.restore() } }
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(Color.roamIndigo)
+                        }
+                        .padding(.horizontal, Theme.Spacing.lg)
+                        .padding(.top, Theme.Spacing.md)
+                    } else {
+                        // Product hasn't loaded (offline, or the App Store product
+                        // isn't live yet). Don't show a fake-priced, un-purchasable
+                        // button — offer a retry and restore instead.
+                        VStack(spacing: Theme.Spacing.sm) {
+                            Text("Roam Plus isn't available right now. Please check back soon.")
+                                .font(.subheadline)
+                                .foregroundStyle(Color.roamTextSecondary)
+                                .multilineTextAlignment(.center)
+                            PrimaryButton("Try Again", systemImage: "arrow.clockwise", style: .secondary) {
+                                Task { await store.refresh() }
                             }
                             Button("Restore Purchase") { Task { await store.restore() } }
                                 .font(.subheadline.weight(.semibold))

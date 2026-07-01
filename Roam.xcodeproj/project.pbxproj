@@ -93,25 +93,26 @@
 		AAAA000000000000000000AE /* ZCTA in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000006 /* ZCTA */; };
 		AAAA000000000000000000B0 /* AutoColorGateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000AF /* AutoColorGateTests.swift */; };
 		AAAA000000000000000000B2 /* BoundaryDistanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B1 /* BoundaryDistanceTests.swift */; };
-		AAAA000000000000000000B4 /* CSVServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B3 /* CSVServiceTests.swift */; };
-		AAAA000000000000000000B6 /* CoverageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B5 /* CoverageServiceTests.swift */; };
-		AAAA000000000000000000B8 /* LocationFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B7 /* LocationFilterTests.swift */; };
-		AAAA000000000000000000BA /* MapZoomResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B9 /* MapZoomResolverTests.swift */; };
-		AAAA000000000000000000BC /* PointInPolygonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000BB /* PointInPolygonTests.swift */; };
-		AAAA000000000000000000BE /* StatisticsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000BD /* StatisticsServiceTests.swift */; };
-		AAAA000000000000000000C0 /* USStateResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000BF /* USStateResolverTests.swift */; };
-		AAAA000000000000000000C2 /* VisitTransitionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000C1 /* VisitTransitionServiceTests.swift */; };
-		AAAA000000000000000000C4 /* ZCTAIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000C3 /* ZCTAIndexTests.swift */; };
-		AAAA000000000000000000C6 /* ZCTAPolygonCodecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000C5 /* ZCTAPolygonCodecTests.swift */; };
-		AAAA000000000000000000C7 /* zcta_sample.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000007 /* zcta_sample.sqlite */; };
+		AAAA000000000000000000B4 /* BundleStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B3 /* BundleStatusTests.swift */; };
+		AAAA000000000000000000B6 /* CSVServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B5 /* CSVServiceTests.swift */; };
+		AAAA000000000000000000B8 /* CoverageServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B7 /* CoverageServiceTests.swift */; };
+		AAAA000000000000000000BA /* LocationFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000B9 /* LocationFilterTests.swift */; };
+		AAAA000000000000000000BC /* MapZoomResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000BB /* MapZoomResolverTests.swift */; };
+		AAAA000000000000000000BE /* PointInPolygonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000BD /* PointInPolygonTests.swift */; };
+		AAAA000000000000000000C0 /* StatisticsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000BF /* StatisticsServiceTests.swift */; };
+		AAAA000000000000000000C2 /* USStateResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000C1 /* USStateResolverTests.swift */; };
+		AAAA000000000000000000C4 /* VisitTransitionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000C3 /* VisitTransitionServiceTests.swift */; };
+		AAAA000000000000000000C6 /* ZCTAIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000C5 /* ZCTAIndexTests.swift */; };
+		AAAA000000000000000000C8 /* ZCTAPolygonCodecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA000000000000000000C7 /* ZCTAPolygonCodecTests.swift */; };
+		AAAA000000000000000000C9 /* zcta_sample.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = AAAA00000000000000000007 /* zcta_sample.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AAAA000000000000000000E9 /* PBXContainerItemProxy */ = {
+		AAAA000000000000000000EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AAAA000000000000DEADBEEF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AAAA000000000000000000E7;
+			remoteGlobalIDString = AAAA000000000000000000E9;
 			remoteInfo = Roam;
 		};
 /* End PBXContainerItemProxy section */
@@ -208,20 +209,21 @@
 		AAAA000000000000000000AA /* ZCTAPolygonCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygonCodec.swift"; path = "Roam/ZCTA/ZCTAPolygonCodec.swift"; sourceTree = "<group>"; };
 		AAAA000000000000000000AF /* AutoColorGateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AutoColorGateTests.swift"; path = "Tests/AutoColorGateTests.swift"; sourceTree = "<group>"; };
 		AAAA000000000000000000B1 /* BoundaryDistanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BoundaryDistanceTests.swift"; path = "Tests/BoundaryDistanceTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000B3 /* CSVServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CSVServiceTests.swift"; path = "Tests/CSVServiceTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000B5 /* CoverageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CoverageServiceTests.swift"; path = "Tests/CoverageServiceTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000B7 /* LocationFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationFilterTests.swift"; path = "Tests/LocationFilterTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000B9 /* MapZoomResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapZoomResolverTests.swift"; path = "Tests/MapZoomResolverTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000BB /* PointInPolygonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PointInPolygonTests.swift"; path = "Tests/PointInPolygonTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000BD /* StatisticsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StatisticsServiceTests.swift"; path = "Tests/StatisticsServiceTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000BF /* USStateResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "USStateResolverTests.swift"; path = "Tests/USStateResolverTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000C1 /* VisitTransitionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VisitTransitionServiceTests.swift"; path = "Tests/VisitTransitionServiceTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000C3 /* ZCTAIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAIndexTests.swift"; path = "Tests/ZCTAIndexTests.swift"; sourceTree = "<group>"; };
-		AAAA000000000000000000C5 /* ZCTAPolygonCodecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygonCodecTests.swift"; path = "Tests/ZCTAPolygonCodecTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000B3 /* BundleStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "BundleStatusTests.swift"; path = "Tests/BundleStatusTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000B5 /* CSVServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CSVServiceTests.swift"; path = "Tests/CSVServiceTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000B7 /* CoverageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CoverageServiceTests.swift"; path = "Tests/CoverageServiceTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000B9 /* LocationFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LocationFilterTests.swift"; path = "Tests/LocationFilterTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000BB /* MapZoomResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MapZoomResolverTests.swift"; path = "Tests/MapZoomResolverTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000BD /* PointInPolygonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PointInPolygonTests.swift"; path = "Tests/PointInPolygonTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000BF /* StatisticsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StatisticsServiceTests.swift"; path = "Tests/StatisticsServiceTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000C1 /* USStateResolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "USStateResolverTests.swift"; path = "Tests/USStateResolverTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000C3 /* VisitTransitionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "VisitTransitionServiceTests.swift"; path = "Tests/VisitTransitionServiceTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000C5 /* ZCTAIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAIndexTests.swift"; path = "Tests/ZCTAIndexTests.swift"; sourceTree = "<group>"; };
+		AAAA000000000000000000C7 /* ZCTAPolygonCodecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ZCTAPolygonCodecTests.swift"; path = "Tests/ZCTAPolygonCodecTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AAAA000000000000000000CA /* Frameworks */ = {
+		AAAA000000000000000000CC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -229,7 +231,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAAA000000000000000000CD /* Frameworks */ = {
+		AAAA000000000000000000CF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,7 +242,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AAAA000000000000000000CE /* App */ = {
+		AAAA000000000000000000D0 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000008 /* AppConstants.swift */,
@@ -251,7 +253,7 @@
 			name = "App";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000CF /* DesignSystem */ = {
+		AAAA000000000000000000D1 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000010 /* RoamComponents.swift */,
@@ -260,7 +262,7 @@
 			name = "DesignSystem";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D0 /* Location */ = {
+		AAAA000000000000000000D2 /* Location */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000014 /* AutoColorGate.swift */,
@@ -274,7 +276,7 @@
 			name = "Location";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D1 /* Map */ = {
+		AAAA000000000000000000D3 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000022 /* MapZoomResolver.swift */,
@@ -287,7 +289,7 @@
 			name = "Map";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D2 /* Models */ = {
+		AAAA000000000000000000D4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA0000000000000000002E /* AppSettings.swift */,
@@ -301,7 +303,7 @@
 			name = "Models";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D3 /* Services */ = {
+		AAAA000000000000000000D5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA0000000000000000003C /* CSVService.swift */,
@@ -320,7 +322,7 @@
 			name = "Services";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D4 /* ViewModels */ = {
+		AAAA000000000000000000D6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000054 /* DashboardViewModel.swift */,
@@ -334,7 +336,7 @@
 			name = "ViewModels";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D5 /* Views */ = {
+		AAAA000000000000000000D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000062 /* AppTabView.swift */,
@@ -362,7 +364,7 @@
 			name = "Views";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D6 /* Components */ = {
+		AAAA000000000000000000D8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000064 /* ActivityView.swift */,
@@ -375,7 +377,7 @@
 			name = "Components";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D7 /* Share */ = {
+		AAAA000000000000000000D9 /* Share */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA0000000000000000008A /* CoverageShareView.swift */,
@@ -384,7 +386,7 @@
 			name = "Share";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D8 /* ZCTA */ = {
+		AAAA000000000000000000DA /* ZCTA */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA0000000000000000009C /* PointInPolygon.swift */,
@@ -399,7 +401,7 @@
 			name = "ZCTA";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000D9 /* Resources */ = {
+		AAAA000000000000000000DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000003 /* Info.plist */,
@@ -410,45 +412,46 @@
 			name = "Resources";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000DA /* Roam */ = {
+		AAAA000000000000000000DC /* Roam */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA000000000000000000CE /* App */,
-				AAAA000000000000000000CF /* DesignSystem */,
-				AAAA000000000000000000D0 /* Location */,
-				AAAA000000000000000000D1 /* Map */,
-				AAAA000000000000000000D2 /* Models */,
-				AAAA000000000000000000D3 /* Services */,
-				AAAA000000000000000000D4 /* ViewModels */,
-				AAAA000000000000000000D5 /* Views */,
-				AAAA000000000000000000D6 /* Components */,
-				AAAA000000000000000000D7 /* Share */,
-				AAAA000000000000000000D8 /* ZCTA */,
-				AAAA000000000000000000D9 /* Resources */,
+				AAAA000000000000000000D0 /* App */,
+				AAAA000000000000000000D1 /* DesignSystem */,
+				AAAA000000000000000000D2 /* Location */,
+				AAAA000000000000000000D3 /* Map */,
+				AAAA000000000000000000D4 /* Models */,
+				AAAA000000000000000000D5 /* Services */,
+				AAAA000000000000000000D6 /* ViewModels */,
+				AAAA000000000000000000D7 /* Views */,
+				AAAA000000000000000000D8 /* Components */,
+				AAAA000000000000000000D9 /* Share */,
+				AAAA000000000000000000DA /* ZCTA */,
+				AAAA000000000000000000DB /* Resources */,
 			);
 			name = "Roam";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000DB /* Tests */ = {
+		AAAA000000000000000000DD /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA000000000000000000AF /* AutoColorGateTests.swift */,
 				AAAA000000000000000000B1 /* BoundaryDistanceTests.swift */,
-				AAAA000000000000000000B3 /* CSVServiceTests.swift */,
-				AAAA000000000000000000B5 /* CoverageServiceTests.swift */,
-				AAAA000000000000000000B7 /* LocationFilterTests.swift */,
-				AAAA000000000000000000B9 /* MapZoomResolverTests.swift */,
-				AAAA000000000000000000BB /* PointInPolygonTests.swift */,
-				AAAA000000000000000000BD /* StatisticsServiceTests.swift */,
-				AAAA000000000000000000BF /* USStateResolverTests.swift */,
-				AAAA000000000000000000C1 /* VisitTransitionServiceTests.swift */,
-				AAAA000000000000000000C3 /* ZCTAIndexTests.swift */,
-				AAAA000000000000000000C5 /* ZCTAPolygonCodecTests.swift */,
+				AAAA000000000000000000B3 /* BundleStatusTests.swift */,
+				AAAA000000000000000000B5 /* CSVServiceTests.swift */,
+				AAAA000000000000000000B7 /* CoverageServiceTests.swift */,
+				AAAA000000000000000000B9 /* LocationFilterTests.swift */,
+				AAAA000000000000000000BB /* MapZoomResolverTests.swift */,
+				AAAA000000000000000000BD /* PointInPolygonTests.swift */,
+				AAAA000000000000000000BF /* StatisticsServiceTests.swift */,
+				AAAA000000000000000000C1 /* USStateResolverTests.swift */,
+				AAAA000000000000000000C3 /* VisitTransitionServiceTests.swift */,
+				AAAA000000000000000000C5 /* ZCTAIndexTests.swift */,
+				AAAA000000000000000000C7 /* ZCTAPolygonCodecTests.swift */,
 			);
 			name = "Tests";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000DC /* Products */ = {
+		AAAA000000000000000000DE /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				AAAA00000000000000000001 /* Roam.app */,
@@ -457,25 +460,25 @@
 			name = "Products";
 			sourceTree = "<group>";
 		};
-		AAAA000000000000000000DD /* group */ = {
+		AAAA000000000000000000DF /* group */ = {
 			isa = PBXGroup;
 			children = (
-				AAAA000000000000000000DA /* Roam */,
-				AAAA000000000000000000DB /* Tests */,
-				AAAA000000000000000000DC /* Products */,
+				AAAA000000000000000000DC /* Roam */,
+				AAAA000000000000000000DD /* Tests */,
+				AAAA000000000000000000DE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AAAA000000000000000000E7 /* Roam */ = {
+		AAAA000000000000000000E9 /* Roam */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAAA000000000000000000E3 /* Build configuration list for PBXNativeTarget "Roam" */;
+			buildConfigurationList = AAAA000000000000000000E5 /* Build configuration list for PBXNativeTarget "Roam" */;
 			buildPhases = (
-				AAAA000000000000000000C8 /* Sources */,
-				AAAA000000000000000000CA /* Frameworks */,
-				AAAA000000000000000000C9 /* Resources */,
+				AAAA000000000000000000CA /* Sources */,
+				AAAA000000000000000000CC /* Frameworks */,
+				AAAA000000000000000000CB /* Resources */,
 			);
 			buildRules = ();
 			dependencies = ();
@@ -484,17 +487,17 @@
 			productReference = AAAA00000000000000000001 /* Roam.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AAAA000000000000000000E8 /* RoamTests */ = {
+		AAAA000000000000000000EA /* RoamTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAAA000000000000000000E6 /* Build configuration list for PBXNativeTarget "RoamTests" */;
+			buildConfigurationList = AAAA000000000000000000E8 /* Build configuration list for PBXNativeTarget "RoamTests" */;
 			buildPhases = (
-				AAAA000000000000000000CB /* Sources */,
-				AAAA000000000000000000CD /* Frameworks */,
-				AAAA000000000000000000CC /* Resources */,
+				AAAA000000000000000000CD /* Sources */,
+				AAAA000000000000000000CF /* Frameworks */,
+				AAAA000000000000000000CE /* Resources */,
 			);
 			buildRules = ();
 			dependencies = (
-				AAAA000000000000000000EA /* PBXTargetDependency */,
+				AAAA000000000000000000EC /* PBXTargetDependency */,
 			);
 			name = RoamTests;
 			productName = RoamTests;
@@ -510,11 +513,11 @@
 				LastSwiftUpdateCheck = 1700;
 				LastUpgradeCheck = 1700;
 				TargetAttributes = {
-					AAAA000000000000000000E7 = {CreatedOnToolsVersion = 17.0;};
-					AAAA000000000000000000E8 = {CreatedOnToolsVersion = 17.0; TestTargetID = AAAA000000000000000000E7;};
+					AAAA000000000000000000E9 = {CreatedOnToolsVersion = 17.0;};
+					AAAA000000000000000000EA = {CreatedOnToolsVersion = 17.0; TestTargetID = AAAA000000000000000000E9;};
 				};
 			};
-			buildConfigurationList = AAAA000000000000000000E0 /* Build configuration list for PBXProject "Roam" */;
+			buildConfigurationList = AAAA000000000000000000E2 /* Build configuration list for PBXProject "Roam" */;
 			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -522,19 +525,19 @@
 				en,
 				Base,
 			);
-			mainGroup = AAAA000000000000000000DD;
-			productRefGroup = AAAA000000000000000000DC /* Products */;
+			mainGroup = AAAA000000000000000000DF;
+			productRefGroup = AAAA000000000000000000DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AAAA000000000000000000E7 /* Roam */,
-				AAAA000000000000000000E8 /* RoamTests */,
+				AAAA000000000000000000E9 /* Roam */,
+				AAAA000000000000000000EA /* RoamTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AAAA000000000000000000C9 /* Resources */ = {
+		AAAA000000000000000000CB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -544,18 +547,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAAA000000000000000000CC /* Resources */ = {
+		AAAA000000000000000000CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAAA000000000000000000C7 /* Resources */,
+				AAAA000000000000000000C9 /* Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AAAA000000000000000000C8 /* Sources */ = {
+		AAAA000000000000000000CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -644,7 +647,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AAAA000000000000000000CB /* Sources */ = {
+		AAAA000000000000000000CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -660,21 +663,22 @@
 				AAAA000000000000000000C2 /* Sources */,
 				AAAA000000000000000000C4 /* Sources */,
 				AAAA000000000000000000C6 /* Sources */,
+				AAAA000000000000000000C8 /* Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AAAA000000000000000000EA /* PBXTargetDependency */ = {
+		AAAA000000000000000000EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AAAA000000000000000000E7 /* Roam */;
-			targetProxy = AAAA000000000000000000E9 /* PBXContainerItemProxy */;
+			target = AAAA000000000000000000E9 /* Roam */;
+			targetProxy = AAAA000000000000000000EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		AAAA000000000000000000DE /* Debug */ = {
+		AAAA000000000000000000E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -695,7 +699,7 @@
 			};
 			name = Debug;
 		};
-		AAAA000000000000000000DF /* Release */ = {
+		AAAA000000000000000000E1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -713,7 +717,7 @@
 			};
 			name = Release;
 		};
-		AAAA000000000000000000E1 /* Debug */ = {
+		AAAA000000000000000000E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = com.localfirst.roam;
@@ -731,7 +735,7 @@
 			};
 			name = Debug;
 		};
-		AAAA000000000000000000E2 /* Release */ = {
+		AAAA000000000000000000E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = com.localfirst.roam;
@@ -749,7 +753,7 @@
 			};
 			name = Release;
 		};
-		AAAA000000000000000000E4 /* Debug */ = {
+		AAAA000000000000000000E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = com.localfirst.roamTests;
@@ -763,7 +767,7 @@
 			};
 			name = Debug;
 		};
-		AAAA000000000000000000E5 /* Release */ = {
+		AAAA000000000000000000E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_BUNDLE_IDENTIFIER = com.localfirst.roamTests;
@@ -780,29 +784,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AAAA000000000000000000E0 /* Build configuration list for PBXProject "Roam" */ = {
+		AAAA000000000000000000E2 /* Build configuration list for PBXProject "Roam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAAA000000000000000000DE /* Debug */,
-				AAAA000000000000000000DF /* Release */,
+				AAAA000000000000000000E0 /* Debug */,
+				AAAA000000000000000000E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAAA000000000000000000E3 /* Build configuration list for PBXNativeTarget "Roam" */ = {
+		AAAA000000000000000000E5 /* Build configuration list for PBXNativeTarget "Roam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAAA000000000000000000E1 /* Debug */,
-				AAAA000000000000000000E2 /* Release */,
+				AAAA000000000000000000E3 /* Debug */,
+				AAAA000000000000000000E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAAA000000000000000000E6 /* Build configuration list for PBXNativeTarget "RoamTests" */ = {
+		AAAA000000000000000000E8 /* Build configuration list for PBXNativeTarget "RoamTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AAAA000000000000000000E4 /* Debug */,
-				AAAA000000000000000000E5 /* Release */,
+				AAAA000000000000000000E6 /* Debug */,
+				AAAA000000000000000000E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

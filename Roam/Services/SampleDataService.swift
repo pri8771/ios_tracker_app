@@ -119,9 +119,8 @@ struct SampleDataService {
 
     /// Removes all simulated visits and any tracked ZCTA left with no visits.
     func clearSimulatedData() {
-        let simulatedVisits = (try? context.fetch(
-            FetchDescriptor<ZCTAVisit>(predicate: #Predicate { $0.isSimulated })
-        )) ?? []
+        let simulatedVisits = ((try? context.fetch(FetchDescriptor<ZCTAVisit>())) ?? [])
+            .filter { $0.isSimulated }
         for visit in simulatedVisits { context.delete(visit) }
 
         let allTracked = (try? context.fetch(FetchDescriptor<TrackedZCTA>())) ?? []

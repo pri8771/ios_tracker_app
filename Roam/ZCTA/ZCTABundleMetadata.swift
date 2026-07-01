@@ -75,25 +75,23 @@ enum ZCTABundleStatus: Equatable, Sendable {
     }
 
     /// Whether tracking should be permitted to start with this data.
-    /// In RELEASE, only a production bundle permits tracking; DEBUG also allows sample.
+    ///
+    /// Tracking runs on both the production bundle and the limited beta (sample)
+    /// bundle — the beta ships labeled, limited geography on purpose so the
+    /// permission + delight loops can be validated while the nationwide bundle is
+    /// finalized. The in-app banner makes the limited coverage explicit. Only a
+    /// truly missing bundle blocks tracking.
     var allowsTracking: Bool {
         switch self {
-        case .production: return true
-        case .sample:
-            #if DEBUG
-            return true
-            #else
-            return false
-            #endif
-        case .missing:
-            return false
+        case .production, .sample: return true
+        case .missing: return false
         }
     }
 
     var shortStatusLabel: String {
         switch self {
         case .production: return "Production Census ZCTA data"
-        case .sample: return "Sample ZCTA data (development)"
+        case .sample: return "Limited beta ZCTA coverage"
         case .missing: return "ZCTA data missing"
         }
     }

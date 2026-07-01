@@ -23,9 +23,11 @@ enum TrackedZCTAStore {
         in context: ModelContext,
         makeNew: () -> TrackedZCTA
     ) -> UpsertResult {
-        var descriptor = FetchDescriptor<TrackedZCTA>(predicate: #Predicate { $0.zctaCode == code })
-        descriptor.fetchLimit = 1
-        if let existing = (try? context.fetch(descriptor))?.first {
+        // Predicate-free lookup: SwiftData can trap (EXC_BREAKPOINT) evaluating
+        // `#Predicate` fetches for these models in the current toolchain, so we
+        // fetch and match in memory (the tracked-ZCTA table is small).
+        let all = (try? context.fetch(FetchDescriptor<TrackedZCTA>())) ?? []
+        if let existing = all.first(where: { $0.zctaCode == code }) {
             return UpsertResult(model: existing, didCreate: false)
         }
         let created = makeNew()

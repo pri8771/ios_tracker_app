@@ -14,6 +14,9 @@ final class TrackingState: ObservableObject {
     @Published var currentVisitStartedAt: Date?
     @Published var lastConfidence: DetectionConfidence?
     @Published var lastSampleAt: Date?
+    @Published var lastCoordinate: Coordinate?
+    @Published var lastLocationAccuracyMeters: Double?
+    @Published var lastLocationAt: Date?
 
     @Published var bundleStatus: ZCTABundleStatus = .missing
     @Published var lastErrorMessage: String?

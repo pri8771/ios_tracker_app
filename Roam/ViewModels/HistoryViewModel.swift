@@ -40,6 +40,12 @@ final class HistoryViewModel: ObservableObject {
     let container: DependencyContainer
     private let calendar = Calendar.current
     private var cancellables = Set<AnyCancellable>()
+    // Formatters are expensive to build; reuse one across reloads (search/sort are hot).
+    private static let dayKeyFormatter: ISO8601DateFormatter = {
+        let f = ISO8601DateFormatter()
+        f.formatOptions = [.withFullDate]
+        return f
+    }()
 
     init(container: DependencyContainer) {
         self.container = container
@@ -66,7 +72,7 @@ final class HistoryViewModel: ObservableObject {
         let grouped = Dictionary(grouping: filtered) { calendar.startOfDay(for: $0.enteredAt) }
         daySections = grouped.keys.sorted(by: >).map { day in
             DaySection(
-                id: ISO8601DateFormatter().string(from: day),
+                id: Self.dayKeyFormatter.string(from: day),
                 date: day,
                 visits: (grouped[day] ?? []).sorted { $0.enteredAt > $1.enteredAt }
             )
@@ -74,10 +80,9 @@ final class HistoryViewModel: ObservableObject {
     }
 
     private func reloadTrackedList() {
-        let predicate: Predicate<TrackedZCTA> = includeArchived
-            ? #Predicate { _ in true }
-            : #Predicate { !$0.isArchived }
-        var tracked = (try? container.mainContext.fetch(FetchDescriptor<TrackedZCTA>(predicate: predicate))) ?? []
+        // Predicate-free fetch + in-memory filter (see ModelStore.upsert for why).
+        var tracked = (try? container.mainContext.fetch(FetchDescriptor<TrackedZCTA>())) ?? []
+        if !includeArchived { tracked = tracked.filter { !$0.isArchived } }
         tracked = tracked.filter { matchesSearch($0.zctaCode) }
 
         switch sort {

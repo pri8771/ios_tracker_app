@@ -63,6 +63,19 @@ struct TrackerMapView: View {
         .navigationBarTitleDisplayMode(.inline)
         .animation(.easeInOut, value: vm.selectedCode)
         .onAppear { vm.onAppear() }
+        .alert(
+            "Location Unavailable",
+            isPresented: Binding(
+                get: { trackingState.lastErrorMessage != nil },
+                set: { if !$0 { trackingState.lastErrorMessage = nil } }
+            ),
+            actions: {
+                Button("OK") { trackingState.lastErrorMessage = nil }
+            },
+            message: {
+                Text(trackingState.lastErrorMessage ?? "")
+            }
+        )
     }
 
     @ViewBuilder
@@ -75,7 +88,7 @@ struct TrackerMapView: View {
             visitPins: vm.visitPins,
             showsUserLocation: true,
             recenterToken: vm.recenterToken,
-            userCoordinate: nil,
+            userCoordinate: vm.userCoordinate,
             initialRegion: vm.initialRegion,
             onRegionChange: vm.regionChanged,
             onSelectZCTA: vm.selectZCTA,
@@ -104,7 +117,7 @@ struct TrackerMapView: View {
                 Spacer()
             }
             if vm.isUsingSampleData {
-                ErrorBanner(message: "Using sample ZCTA data (development only).")
+                ErrorBanner(message: "Limited beta coverage — some areas aren't detected yet.")
             }
         }
     }
